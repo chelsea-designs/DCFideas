@@ -5,4 +5,4 @@ from dcfideas.models import Strand, Element, Camcynnydd, Aole, Idea
 
 @app.route("/")
 def home():
-    return render_template("base.html")
+    return render_template("ideas.html")
