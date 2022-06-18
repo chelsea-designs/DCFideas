@@ -21,23 +21,23 @@
                 <a href="#" data-target="mobile-demo" class="sidenav-trigger"><i class="fas fa-bars"></i></a>
                 <ul class="right hide-on-med-and-down">
                     <li><a href="{{url_for('home')}}">Home</a></li>
-                    <li><a href="">Strands</a></li>
-                    <li><a href="">New Idea</a></li>
+                    <li><a href="{{url_for('strands')}}">Strands</a></li>
+                    <li><a href="{{url_for('ideas')}}">Ideas</a></li>
                 </ul>
             </div>
         </nav>
 
         <ul class="sidenav" id="mobile-demo">
             <li><a href="{{url_for('home')}}">Home</a></li>
-            <li><a href="">Strands</a></li>
-            <li><a href="">New Idea</a></li>
+            <li><a href="{{url_for('strands')}}">Strands</a></li>
+            <li><a href="{{url_for('ideas')}}">Ideas</a></li>
         </ul>
 
     </header>
 
     <main class="container">
-        { % block content % }
-        { % endblock %}
+        {% block content %}
+        {% endblock %}
     </main>
 
     <footer>

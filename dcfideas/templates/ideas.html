@@ -3,4 +3,29 @@
 <h3 class="light-blue-text text-darken-4 center-align">
     Ideas
 </h3>
+<div class="row">
+    <div class="col s12 center-align">
+        <a href="{{ url_for('add_idea') }}" class="btn-large light-blue darken-2">
+            Add Idea <i class="fas fa-plus-square right"></i>
+        </a>
+    </div>
+</div>
+
+<div class="row">
+    {% for idea in ideas %}
+    <div class="col s12 m6 l3">
+        <div class="card light-blue darken-4 center-align">
+            <div class="card-content white-text">
+                <span class="card-title">{{ idea.idea_name }}</span>
+                <p>{{ idea.idea_description }}</p>
+                <p class="grey-text"><i class="fas fa-user"></i>{{ idea.idea_teacher }}</p>
+            </div>
+            <div class="card-action">
+                <a href="{{ url_for('update_idea', idea_id=idea.id) }}" class="btn green accent-4">Edit</a>
+                <a href="{{ url_for('delete_idea', idea_id=idea.id) }}" class="btn red">Delete</a>
+            </div>
+        </div>
+    </div>
+    {% endfor %}
+</div>
 {% endblock %}

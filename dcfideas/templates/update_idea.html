@@ -1,0 +1,59 @@
+{% extends "base.html" %}
+{% block content %}
+
+<h3 class="light-blue-text text-darken-4 center-align">Edit Idea</h3>
+
+<div class="row card-panel grey lighten-5">
+    <form class="col s12" method="POST" action="{{ url_for('update_idea',idea_id=idea.id) }}">
+        <!-- idea name -->
+        <div class="row">
+            <div class="input-field col s12">
+                <i class="fas fa-pencil-alt prefix light-blue-text text-darken-4"></i>
+                <input id="idea_name" name="idea_name" minlength="5" maxlength="50" type="text" class="validate"
+                    required>
+                <label for="idea_name">Idea Name</label>
+            </div>
+        </div>
+        <!-- idea teacher -->
+        <div class="row">
+            <div class="input-field col s12">
+                <i class="fas fa-user prefix light-blue-text text-darken-4"></i>
+                <input id="idea_teacher" name="idea_teacher" minlength="5" maxlength="50" type="text" class="validate"
+                    required>
+                <label for="idea_teacher">Teacher</label>
+            </div>
+        </div>
+        <!-- idea description -->
+        <div class="row">
+            <div class="input-field col s12">
+                <i class="fas fa-align-left prefix light-blue-text text-darken-4"></i>
+                <textarea id="idea_description" name="idea_description" minlength="5" maxlength="200" type="text"
+                    class="materialize-textarea validate" required></textarea>
+                <label for="idea_description">Idea Description</label>
+            </div>
+        </div>
+        <!-- strand id -->
+        <div class="row">
+            <div class="input-field col s12">
+                <i class="fas fa-folder-open prefix light-blue-text text-darken-4"></i>
+                <select id="strand_id" name="strand_id" class="validate" required>
+                    <option value="" disabled selected>Choose Strand</option>
+                    {% for strand in strands %}
+                    <option value="{{ strand.id }}">{{ strand.strand_name }}</option>
+                    {% endfor %}
+                </select>
+                <label for="strand_id">Strand</label>
+            </div>
+        </div>
+        <!-- submit button -->
+        <div class="row">
+            <div class="col s12 center-align">
+                <button type="submit" class="btn-large light-blue darken-1">
+                    Edit Idea <i class="fas fa-plus-square right"></i>
+                </button>
+            </div>
+        </div>
+    </form>
+</div>
+
+{% endblock %}
