@@ -18,7 +18,9 @@
             <div class="card-content white-text">
                 <span class="card-title">{{ idea.idea_name }}</span>
                 <p>{{ idea.idea_description }}</p>
-                <p class="grey-text"><i class="fas fa-user"></i>{{ idea.idea_teacher }}</p>
+                <p class="grey-text"><i class="fas fa-user"></i> {{ idea.idea_teacher }}</p>
+                <p class="grey-text"><i class="fas fa-list"></i> Strand id: {{ idea.strand_id }}
+                </p>
             </div>
             <div class="card-action">
                 <a href="{{ url_for('update_idea', idea_id=idea.id) }}" class="btn green accent-4">Edit</a>

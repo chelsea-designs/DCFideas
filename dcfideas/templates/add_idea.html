@@ -39,7 +39,7 @@
                 <select id="strand_id" name="strand_id" class="validate" required>
                     <option value="" disabled selected>Choose Strand</option>
                     {% for strand in strands %}
-                    <option value="{{ strand.id }}">{{ strand.strand_name }}</option>
+                    <option value="{{ strand.id }}">{{ strand.strand_name }} - {{ strand.strand_element }}</option>
                     {% endfor %}
                 </select>
                 <label for="strand_id">Strand</label>
