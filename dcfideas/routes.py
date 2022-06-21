@@ -25,7 +25,7 @@ def add_idea():
             idea_name=request.form.get("idea_name"),
             idea_description=request.form.get("idea_description"),
             strand_id=request.form.get("strand_id"),
-            idea_teacher =request.form.get("idea_description"),
+            idea_teacher =request.form.get("idea_teacher"),
         )
         db.session.add(idea)
         db.session.commit()
@@ -41,7 +41,7 @@ def update_idea(idea_id):
         idea.idea_name=request.form.get("idea_name")
         idea.idea_description=request.form.get("idea_description")
         idea.strand_id=request.form.get("strand_id")
-        idea.idea_teacher=request.form.get("idea_description")
+        idea.idea_teacher=request.form.get("idea_teacher")
         db.session.commit()
     return render_template("update_idea.html", idea=idea, strands=strands)
 
