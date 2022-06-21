@@ -33,15 +33,15 @@ def add_idea():
     return render_template("add_idea.html", strands=strands)
 
 
-@app.route("/update_idea<int:idea_id>", methods=["GET", "POST"])
+@app.route("/update_idea/<int:idea_id>", methods=["GET", "POST"])
 def update_idea(idea_id):
-    idea = Idea.query.get_or_404(idea.id)
+    idea = Idea.query.get_or_404(idea_id)
     strands = list(Strand.query.order_by(Strand.strand_name).all())
     if request.method == "POST":
         idea.idea_name=request.form.get("idea_name")
         idea.idea_description=request.form.get("idea_description")
         idea.strand_id=request.form.get("strand_id")
-        idea.idea_teacher =request.form.get("idea_description")
+        idea.idea_teacher=request.form.get("idea_description")
         db.session.commit()
     return render_template("update_idea.html", idea=idea, strands=strands)
 

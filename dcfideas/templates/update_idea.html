@@ -9,8 +9,8 @@
         <div class="row">
             <div class="input-field col s12">
                 <i class="fas fa-pencil-alt prefix light-blue-text text-darken-4"></i>
-                <input id="idea_name" name="idea_name" minlength="5" maxlength="50" type="text" class="validate"
-                    required>
+                <input id="idea_name" name="idea_name" minlength="5" maxlength="50" type="text"
+                    value="{{idea.idea_name}}" class="validate" required>
                 <label for="idea_name">Idea Name</label>
             </div>
         </div>
@@ -18,8 +18,8 @@
         <div class="row">
             <div class="input-field col s12">
                 <i class="fas fa-user prefix light-blue-text text-darken-4"></i>
-                <input id="idea_teacher" name="idea_teacher" minlength="5" maxlength="50" type="text" class="validate"
-                    required>
+                <input id="idea_teacher" name="idea_teacher" minlength="5" maxlength="50" type="text"
+                    value="{{idea.idea_teacher}}" class="validate" required>
                 <label for="idea_teacher">Teacher</label>
             </div>
         </div>
@@ -28,7 +28,7 @@
             <div class="input-field col s12">
                 <i class="fas fa-align-left prefix light-blue-text text-darken-4"></i>
                 <textarea id="idea_description" name="idea_description" minlength="5" maxlength="200" type="text"
-                    class="materialize-textarea validate" required></textarea>
+                    class="materialize-textarea validate" required>{{- idea.idea_description -}}</textarea>
                 <label for="idea_description">Idea Description</label>
             </div>
         </div>
@@ -39,7 +39,11 @@
                 <select id="strand_id" name="strand_id" class="validate" required>
                     <option value="" disabled selected>Choose Strand</option>
                     {% for strand in strands %}
+                    {% if strand.id == idea.strand_id | int %}
+                    <option value="{{ strand.id }}" selected>{{ strand.strand_name }}</option>
+                    {% else %}
                     <option value="{{ strand.id }}">{{ strand.strand_name }}</option>
+                    {% endif %}
                     {% endfor %}
                 </select>
                 <label for="strand_id">Strand</label>
