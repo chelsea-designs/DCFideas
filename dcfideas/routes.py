@@ -10,7 +10,10 @@ def home():
 @app.route("/strands")
 def strands():
     strands = list(Strand.query.order_by(Strand.strand_name).all())
-    return render_template("strands.html", strands=strands)
+    categories = set()
+    for x in strands:
+        categories.add(x.strand_name)
+    return render_template("strands.html", strands=strands, categories=categories)
 
 @app.route("/ideas")
 def ideas():
@@ -50,4 +53,4 @@ def delete_idea(idea_id):
     idea = Idea.query.get_or_404(idea_id)
     db.session.delete(idea)
     db.session.commit()
-    return redirect(url_for("home"))
+    return redirect(url_for("ideas"))
