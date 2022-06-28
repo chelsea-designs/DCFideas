@@ -112,11 +112,12 @@
                     <div class="col-lg-2 col-6 footer-links">
                         <h4>Useful Links</h4>
                         <ul>
-                            <li><i class="bi bi-chevron-right"></i> <a href="#">Home</a></li>
-                            <li><i class="bi bi-chevron-right"></i> <a href="#">About us</a></li>
-                            <li><i class="bi bi-chevron-right"></i> <a href="#">Services</a></li>
-                            <li><i class="bi bi-chevron-right"></i> <a href="#">Terms of service</a></li>
-                            <li><i class="bi bi-chevron-right"></i> <a href="#">Privacy policy</a></li>
+                            <li><i class="bi bi-chevron-right"></i> <a href="{{url_for('home')}}">Home</a></li>
+                            <li><i class="bi bi-chevron-right"></i> <a href="{{url_for('ideas')}}">Ideas</a></li>
+                            <li><i class="bi bi-chevron-right"></i> <a href="{{ url_for('add_idea') }}">Add Idea</a>
+                            </li>
+                            <li><i class="bi bi-chevron-right"></i> <a href="{{url_for('strands')}}">Strands</a></li>
+                            <li><i class="bi bi-chevron-right"></i> <a href="#">Login</a></li>
                         </ul>
                     </div>
 
@@ -132,13 +133,13 @@
                     </div>
 
                     <div class="col-lg-3 col-md-12 footer-contact text-center text-md-start">
-                        <h4>Contact Us</h4>
+                        <h4>Ysgol Y Creuddyn</h4>
                         <p>
-                            A108 Adam Street <br>
-                            New York, NY 535022<br>
-                            United States <br><br>
-                            <strong>Phone:</strong> +1 5589 55488 55<br>
-                            <strong>Email:</strong> info@example.com<br>
+                            Derwen Ln<br>
+                            Penrhyn Bay<br>
+                            LL30 3LB <br><br>
+                            <strong>Phone:</strong> 01492 544344<br>
+                            <strong>Email:</strong> swyddfa@creuddyn.conwy.sch.uk<br>
                         </p>
 
                     </div>
@@ -172,7 +173,6 @@
     <script src="static/vendor/isotope-layout/isotope.pkgd.min.js"></script>
     <script src="static/vendor/swiper/swiper-bundle.min.js"></script>
     <script src="static/vendor/php-email-form/validate.js"></script>
-
     <script src="https://code.jquery.com/jquery-3.6.0.min.js"
         integrity="sha256-/xUj+3OJU5yExlq6GSYGSHk7tPXikynS7ogEvDej/m4=" crossorigin="anonymous"></script>
     <script src="{{ url_for('static',filename='js/script.js') }}"></script>

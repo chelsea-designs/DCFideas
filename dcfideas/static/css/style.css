@@ -2420,3 +2420,11 @@ section {
   font-size: 13px;
   color: #012970;
 }
+
+.modal-backdrop {
+  z-index: -1;
+}
+
+.modal-dialog {
+  z-index: 10;
+}
