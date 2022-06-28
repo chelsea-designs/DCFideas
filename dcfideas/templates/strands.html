@@ -7,7 +7,7 @@
             <p>Strands Overview</p>
         </header>
         {% for category in categories %}
-        <h4>{{category}}</h4>
+        <h3>{{category}}</h3>
         <div class="row gy-4">
             {% for strand in strands %}
             {% if strand.strand_name == category %}
@@ -16,8 +16,8 @@
                     <div>
                         <h4>{{strand.strand_element}}</h4>
                         <p>{{strand.strand_name}}</p>
-                        <a href="#" class="btn-secondary">View Ideas</a>
-                        <a href="{{ url_for('add_idea') }}" class="btn-primary">Add Idea</a>
+                        <a href="#" class="btn btn-secondary">View Ideas</a>
+                        <a href="{{ url_for('add_idea') }}" class="btn btn-primary">Add Idea</a>
                     </div>
                 </div>
             </div>
@@ -25,6 +25,7 @@
             {% endfor %}
         </div>
         {% endfor %}
+        <br>
     </div>
 </section>
 {% endblock %}

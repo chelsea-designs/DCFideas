@@ -6,7 +6,8 @@
 
         <header class="section-header">
             <p>Ideas</p>
-            <a href="{{ url_for('add_idea') }}" class="btn-buy">Add Idea <i class="fas fa-plus-square right"></i></a>
+            <a href="{{ url_for('add_idea') }}" class="btn btn-primary">Add Idea <i
+                    class="fas fa-plus-square right"></i></a>
         </header>
 
         <div class="row gy-4">
@@ -17,9 +18,9 @@
                     <h3>{{ idea.idea_name }}</h3>
                     <p>{{ idea.idea_description }}</p>
                     <p>{{ loop.index }}</p>
-                    <a href="{{ url_for('update_idea', idea_id=idea.id) }}" class="read-more">Edit<i
+                    <a href="{{ url_for('update_idea', idea_id=idea.id) }}" class="btn btn-outline-secondary">Edit<i
                             class="bi bi-pencil"></i></a>
-                    <button class="btn-primary" data-bs-toggle="modal"
+                    <button class="btn btn-secondary" data-bs-toggle="modal"
                         data-bs-target="#deleteModal{{ loop.index }}">Delete<i class="bi bi-trash"></i></button>
                 </div>
             </div>
