@@ -1,64 +1,68 @@
 {% extends "base.html" %}
 {% block content %}
+<section id="update_idea" class="contact">
 
-<h3 class="light-blue-text text-darken-4 center-align">Edit Idea</h3>
+    <div class="container" data-aos="fade-up">
 
-<div class="row card-panel grey lighten-5">
-    <form class="col s12" method="POST" action="{{ url_for('update_idea',idea_id=idea.id) }}">
-        <!-- idea name -->
-        <div class="row">
-            <div class="input-field col s12">
-                <i class="fas fa-pencil-alt prefix light-blue-text text-darken-4"></i>
-                <input id="idea_name" name="idea_name" minlength="5" maxlength="50" type="text"
-                    value="{{idea.idea_name}}" class="validate" required>
-                <label for="idea_name">Idea Name</label>
-            </div>
-        </div>
-        <!-- idea teacher -->
-        <div class="row">
-            <div class="input-field col s12">
-                <i class="fas fa-user prefix light-blue-text text-darken-4"></i>
-                <input id="idea_teacher" name="idea_teacher" minlength="5" maxlength="50" type="text"
-                    value="{{idea.idea_teacher}}" class="validate" required>
-                <label for="idea_teacher">Teacher</label>
-            </div>
-        </div>
-        <!-- idea description -->
-        <div class="row">
-            <div class="input-field col s12">
-                <i class="fas fa-align-left prefix light-blue-text text-darken-4"></i>
-                <textarea id="idea_description" name="idea_description" minlength="5" maxlength="200" type="text"
-                    class="materialize-textarea validate" required>{{- idea.idea_description -}}</textarea>
-                <label for="idea_description">Idea Description</label>
-            </div>
-        </div>
-        <!-- strand id -->
-        <div class="row">
-            <div class="input-field col s12">
-                <i class="fas fa-folder-open prefix light-blue-text text-darken-4"></i>
-                <select id="strand_id" name="strand_id" class="validate" required>
-                    <option value="" disabled selected>Choose Strand</option>
-                    {% for strand in strands %}
-                    {% if strand.id == idea.strand_id | int %}
-                    <option value="{{ strand.id }}" selected>{{ strand.strand_name }} - {{ strand.strand_element }}
-                    </option>
-                    {% else %}
-                    <option value="{{ strand.id }}">{{ strand.strand_name }} - {{ strand.strand_element }}</option>
-                    {% endif %}
-                    {% endfor %}
-                </select>
-                <label for="strand_id">Strand</label>
-            </div>
-        </div>
-        <!-- submit button -->
-        <div class="row">
-            <div class="col s12 center-align">
-                <button type="submit" class="btn-large light-blue darken-1">
-                    Edit Idea <i class="fas fa-plus-square right"></i>
-                </button>
-            </div>
-        </div>
-    </form>
-</div>
+        <header class="section-header">
+            <h2>Ideas</h2>
+            <p>Edit Idea</p>
+        </header>
 
+        <div class="row gy-4">
+
+            <div class="col-lg-12">
+                <form class="php-email-form" method="POST" action="{{ url_for('update_idea',idea_id=idea.id) }}">
+                    <div class="row gy-4">
+
+                        <div class="col-md-10">
+                            <input id="idea_name" class="form-control" name="idea_name" minlength="5" maxlength="50"
+                                type="text" placeholder="Idea Name" value="{{idea.idea_name}}" required>
+                        </div>
+
+                        <div class="col-md-2 ">
+                            <input id="idea_teacher" class="form-control" name="idea_teacher" minlength="5"
+                                maxlength="50" type="text" placeholder="Teacher Name" value="{{idea.idea_teacher}}"
+                                required>
+                        </div>
+
+                        <div class=" col-md-12">
+                            <textarea id="idea_description" name="idea_description" class="form-control" rows="6"
+                                placeholder="Idea Description" required>{{- idea.idea_description -}}</textarea>
+                        </div>
+
+                        <div class="col-md-12">
+                            <select id="strand_id" name="strand_id" class="form-control" required>
+                                <option value="" disabled selected>Choose Strand</option>
+                                {% for strand in strands %}
+                                {% if strand.id == idea.strand_id | int %}
+                                <option value="{{ strand.id }}" selected>{{ strand.strand_name }} -
+                                    {{ strand.strand_element }}
+                                </option>
+                                {% else %}
+                                <option value="{{ strand.id }}">{{ strand.strand_name }} - {{ strand.strand_element }}
+                                </option>
+                                {% endif %}
+                                {% endfor %}
+                            </select>
+                        </div>
+
+                        <div class="col-md-12 text-center">
+                            <div class="loading">Loading</div>
+                            <div class="error-message"></div>
+                            <div class="sent-message">Your message has been sent. Thank you!</div>
+
+                            <button type="submit">Edit Idea <i class="bi bi-send"></button>
+                        </div>
+
+                    </div>
+                </form>
+
+            </div>
+
+        </div>
+
+    </div>
+
+</section>
 {% endblock %}

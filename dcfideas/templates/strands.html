@@ -1,29 +1,30 @@
 {% extends "base.html" %}
 {% block content %}
-<h3 class="light-blue-text text-darken-4 center-align">
-    Strands
-</h3>
-{% for category in categories %}
-<h4>{{category}}</h4>
-<div class="row">
-    {% for strand in strands %}
-    {% if strand.strand_name == category %}
-    <div class="col s12 m6 l3">
-        <div class="card blue-grey darken-1">
-            <div class="card-content">
-                <span class="card-title">{{strand.strand_name}}</span>
-                <div class="card-title white-text">
-                    <span class="">{{strand.strand_element}}</span>
-                </div>
-                <div class="card-action">
-                    <a href="#">View Ideas</a>
-                    <a href="#">Add Idea</a>
+
+<section id="counts" class="counts">
+    <div class="container" data-aos="fade-up">
+        <header class="section-header">
+            <p>Strands Overview</p>
+        </header>
+        {% for category in categories %}
+        <h4>{{category}}</h4>
+        <div class="row gy-4">
+            {% for strand in strands %}
+            {% if strand.strand_name == category %}
+            <div class="col-lg-3 col-md-6">
+                <div class="count-box">
+                    <div>
+                        <h4>{{strand.strand_element}}</h4>
+                        <p>{{strand.strand_name}}</p>
+                        <a href="#" class="btn-secondary">View Ideas</a>
+                        <a href="{{ url_for('add_idea') }}" class="btn-primary">Add Idea</a>
+                    </div>
                 </div>
             </div>
+            {% endif %}
+            {% endfor %}
         </div>
+        {% endfor %}
     </div>
-    {% endif %}
-    {% endfor %}
-</div>
-{% endfor %}
+</section>
 {% endblock %}

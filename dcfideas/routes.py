@@ -46,6 +46,7 @@ def update_idea(idea_id):
         idea.strand_id=request.form.get("strand_id")
         idea.idea_teacher=request.form.get("idea_teacher")
         db.session.commit()
+        return redirect(url_for('ideas'))
     return render_template("update_idea.html", idea=idea, strands=strands)
 
 @app.route("/delete_idea/<int:idea_id>")
