@@ -5,7 +5,7 @@ from dcfideas.models import Strand, Idea
 
 @app.route("/")
 def home():
-    return render_template("base.html")
+    return render_template("index.html")
 
 @app.route("/strands")
 def strands():
