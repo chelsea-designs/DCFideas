@@ -18,7 +18,7 @@ mongo = PyMongo(app)
 
 
 if os.environ.get("DEVELOPMENT") == "True":
-    app.config["SQLALCHEMY_DATABASE_URI"] = os.environ.get("DB_URL")
+    app.config["SQLALCHEMY_DATABASE_URI"] = os.environ.get("DB_URL") # local
 else:
     uri = os.environ.get("DATABASE_URL")
     if uri.startswith("postgres://"):
