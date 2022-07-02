@@ -483,13 +483,12 @@ echo web: python app.py
 ## Credits
 
 ### **Content**
-- The code and text for this website was created by Andrew Llewellyn.
+- The code and text for this website was created by Chelsea Williams.
 
 ### **Media**
 - The main Image on the home page is from [Pixabay](https://pixabay.com/)
 
 ### **Code**
-- HTML & JS for scroll to top function adapted from [Dev](https://dev.to/ljcdev/scroll-to-top-button-in-vanilla-js-beginners-2nc)
 - HTML for the navbar and form adapted from [Bootstrap](https://getbootstrap.com/)
 - HTML for modals adapted from [Bootstrap](https://getbootstrap.com/)
 - JQuery for validation from Task Manager walkhtrough project by Code Institute
