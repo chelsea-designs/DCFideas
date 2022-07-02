@@ -4,6 +4,7 @@ from flask import Flask, render_template, request, redirect, session, url_for
 from flask_sqlalchemy import SQLAlchemy
 from flask_pymongo import PyMongo
 from bson.objectid import ObjectId
+from flask_migrate import Migrate
 if os.path.exists("env.py"):
     import env  # noqa
 
@@ -21,9 +22,12 @@ if os.environ.get("DEVELOPMENT")=="True":
 else:
     uri = os.environ.get("DATABASE_URL")
     if uri.startswith("postgres://"):
-        uri = uri.replace("postgres://", "postgresql://", 1)
+        uri = uri.replace("postgres://", "postgresql+psycopg2://", 1)
     app.config["SQLALCHEMY_DATABASE_URI"] = uri
 
 db = SQLAlchemy(app)
+
+db.init_app(app)
+migrate = Migrate(app, db)
 
 from dcfideas import routes  # noqa

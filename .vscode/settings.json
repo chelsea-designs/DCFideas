@@ -14,7 +14,7 @@
       "**/.gitp*": true,
       "**/.hg": true,
       "**/.svn": true,
-      "**/.vscode": true,
+      "**/.vscode*": true,
       "**/core.Microsoft*": true,
       "**/core.mongo*": true,
       "**/core.python*": true,
@@ -23,5 +23,6 @@
    "files.autoSave": "off",
    "workbench.colorTheme": "Visual Studio Dark",
    "terminal.integrated.gpuAcceleration": "canvas",
-   "editor.defaultFormatter": "HookyQR.beautify"
+   "editor.defaultFormatter": "HookyQR.beautify",
+   "sqltools.connections": []
 }
