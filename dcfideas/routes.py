@@ -55,3 +55,25 @@ def delete_idea(idea_id):
     db.session.delete(idea)
     db.session.commit()
     return redirect(url_for("ideas"))
+
+
+# ---------- Error Handling Functionality ---------- #
+
+# --- 404 Handler --- #
+@app.errorhandler(404)
+def page_not_found(e):
+    """
+    Renders a custom 404 error page with a button
+    that takes the user back to the home page.
+    """
+    return render_template("errors/404.html", page_title="404"), 404
+
+
+# --- 500 Handler --- #
+@app.errorhandler(500)
+def internal_server_error(e):
+    """
+    Renders a custom 500 error page with a button
+    that takes the user back to the home page.
+    """
+    return render_template("errors/500.html", page_title="500"), 500
