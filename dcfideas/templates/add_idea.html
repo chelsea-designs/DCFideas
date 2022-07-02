@@ -16,21 +16,25 @@
                     <div class="row gy-4">
 
                         <div class="col-md-10">
+                            <label for="idea_name">Idea Name</label><br>
                             <input id="idea_name" class="form-control" name="idea_name" minlength="5" maxlength="50"
                                 type="text" placeholder="Idea Name" required>
                         </div>
 
                         <div class="col-md-2 ">
+                            <label for="idea_teacher">Idea Teacher</label><br>
                             <input id="idea_teacher" class="form-control" name="idea_teacher" minlength="5"
                                 maxlength="50" type="text" placeholder="Teacher Name" required>
                         </div>
 
                         <div class="col-md-12">
+                            <label for="idea_description">Idea Description</label><br>
                             <textarea id="idea_description" name="idea_description" class="form-control" rows="6"
                                 placeholder="Idea Description" required></textarea>
                         </div>
 
                         <div class="col-md-12">
+                            <label for="strand_id">Strand</label><br>
                             <select id="strand_id" name="strand_id" class="form-control" required>
                                 <option value="" disabled selected>Choose Strand</option>
                                 {% for strand in strands %}
