@@ -7,6 +7,12 @@ from dcfideas.models import Strand, Idea
 def home():
     return render_template("index.html")
 
+@app.route("/register",methods=["GET","POST"])
+def register():
+    return render_template("register.html")
+
+
+
 @app.route("/strands")
 def strands():
     strands = list(Strand.query.order_by(Strand.strand_name).all())

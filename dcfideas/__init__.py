@@ -5,6 +5,7 @@ from flask_sqlalchemy import SQLAlchemy
 from flask_pymongo import PyMongo
 from bson.objectid import ObjectId
 from flask_migrate import Migrate
+from werkzeug.security import generate_password_hash, check_password_hash
 if os.path.exists("env.py"):
     import env  # noqa
 
