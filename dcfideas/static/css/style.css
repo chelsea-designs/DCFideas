@@ -448,6 +448,7 @@ section {
   height: 100vh;
   background: url(../img/hero-bg.png) top center no-repeat;
   background-size: cover;
+  margin-left: 0px;
 }
 
 .hero h1 {
