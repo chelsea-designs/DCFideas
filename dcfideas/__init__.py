@@ -16,14 +16,13 @@ app.secret_key = os.environ.get("SECRET_KEY")
 
 mongo = PyMongo(app)
 
-
-if os.environ.get("DEVELOPMENT") == "True":
-    app.config["SQLALCHEMY_DATABASE_URI"] = os.environ.get("DB_URL") # local
+if os.environ.get("DEVELOPMENT")=="True":
+    app.config["SQLALCHEMY_DATABASE_URI"] = os.environ.get("DB_URL")
 else:
-    uri = os.environ.get("DATABASE_URL")
+    uri = os.environ.get("DB_URL")
     if uri.startswith("postgres://"):
         uri = uri.replace("postgres://", "postgresql://", 1)
-    app.config["SQLALCHEMY_DATABASE_URI"] = uri  # heroku
+    app.config["SQLALCHEMY_DATABASE_URI"] = uri
 
 db = SQLAlchemy(app)
 
