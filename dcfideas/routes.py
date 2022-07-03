@@ -1,4 +1,4 @@
-from flask import render_template, request, redirect, url_for
+from flask import flash, render_template, request, redirect, url_for
 from dcfideas import app, db
 from dcfideas.models import Strand, Idea 
 
