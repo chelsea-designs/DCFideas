@@ -1,0 +1,18 @@
+{% extends "base.html" %}
+{% block content %}
+<div class="card text-center">
+    <div class="card-header">
+        Profile
+    </div>
+    <div class="card-body">
+        <h5 class="card-title">My Profile</h5>
+        <p class="card-text">To start storing and sharing your DCF ideas.</p>
+        <div class="row">
+
+        </div>
+    </div>
+    <div class="card-footer text-muted">
+        Not Registered? <a href="{{ url_for('register') }}">Register</a> here.
+    </div>
+</div>
+{% endblock %}
