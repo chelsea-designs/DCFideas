@@ -102,6 +102,7 @@ def add_idea():
         db.session.add(idea)
         db.session.commit()
         return redirect(url_for('ideas'))
+        flash("Idea added")
     return render_template("add_idea.html", strands=strands)
 
 
@@ -116,6 +117,7 @@ def update_idea(idea_id):
         idea.idea_teacher=request.form.get("idea_teacher")
         db.session.commit()
         return redirect(url_for('ideas'))
+        flash("Idea updated")
     return render_template("update_idea.html", idea=idea, strands=strands)
 
 @app.route("/delete_idea/<int:idea_id>")
@@ -123,6 +125,7 @@ def delete_idea(idea_id):
     idea = Idea.query.get_or_404(idea_id)
     db.session.delete(idea)
     db.session.commit()
+    flash("Idea deleted")
     return redirect(url_for("ideas"))
 
 
