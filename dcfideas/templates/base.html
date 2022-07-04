@@ -41,46 +41,10 @@
             <nav id="navbar" class="navbar">
                 <ul>
                     <li><a class="nav-link scrollto active" href="{{url_for('home')}}">Home</a></li>
-                    <!--<li class="dropdown"><a href="#"><span>Strands</span> <i class="bi bi-chevron-down"></i></a>
-                        <ul>
-                            <li><a href="{{url_for('strands')}}">Overview</a></li>
-                            <li class="dropdown"><a href="#"><span>Dinasyddiaeth</span> <i
-                                        class="bi bi-chevron-right"></i></a>
-                                <ul>
-                                    <li><a href="#">Hunaniaeth, delwedd ac enw da</a></li>
-                                    <li><a href="#">Iechyd a lles</a></li>
-                                    <li><a href="#">Hawliau digidol, trwyddedu a pherchnogaeth</a></li>
-                                    <li><a href="#">Ymddygiad ar-lein a bwlio ar-lein</a></li>
-                                </ul>
-                            </li>
-                            <li class="dropdown"><a href="#"><span>Rhyngweithio a Chydweithio</span> <i
-                                        class="bi bi-chevron-right"></i></a>
-                                <ul>
-                                    <li><a href="#">Cyfathrebu</a></li>
-                                    <li><a href="#">Cydweithredu</a></li>
-                                    <li><a href="#">Cyfnewid a rhannu gwybodaeth</a></li>
-                                </ul>
-                            </li>
-                            <li class="dropdown"><a href="#"><span>Cynhyrchu</span> <i
-                                        class="bi bi-chevron-right"></i></a>
-                                <ul>
-                                    <li><a href="#">Cyrchu, chwilio a chynllunio cynnwys digidol</a></li>
-                                    <li><a href="#">Gwerthuso a gwella cynnwys digidol</a></li>
-                                    <li><a href="#">Creu cynnwys digidol</a></li>
-                                </ul>
-                            </li>
-                            <li class="dropdown"><a href="#"><span>Data a Meddwl Cyfrifiadurol</span> <i
-                                        class="bi bi-chevron-right"></i></a>
-                                <ul>
-                                    <li><a href="#">Llythrennedd Digidol</a></li>
-                                    <li><a href="#">Datrys problemau a modelu</a></li>
-                                </ul>
-                            </li>
-                        </ul>
-                    </li>-->
                     <li><a class="nav-link scrollto" href="{{url_for('strands')}}">Strands</a></li>
                     <li><a class="nav-link scrollto" href="{{url_for('ideas')}}">Ideas</a></li>
-                    <li><a class="getstarted scrollto" href="#">Log In</a></li>
+                    <li><a class="getstarted scrollto" href="{{url_for('login')}}">Log In</a></li>
+                    <li><a class="getstarted scrollto" href="{{url_for('register')}}">Register</a></li>
                 </ul>
                 <i class="bi bi-list mobile-nav-toggle"></i>
             </nav>
