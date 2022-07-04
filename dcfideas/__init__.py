@@ -13,9 +13,8 @@ app = Flask(__name__)
 
 app.config["MONGO_DBNAME"] = os.environ.get("MONGO_DBNAME")
 app.config["MONGO_URI"] = os.environ.get("MONGO_URI")
-app.secret_key = os.environ.get("SECRET_KEY")
+app.config["SECRET_KEY"] = os.environ.get("SECRET_KEY")
 
-mongo = PyMongo(app)
 
 if os.environ.get("DEVELOPMENT")=="True":
     app.config["SQLALCHEMY_DATABASE_URI"] = os.environ.get("DB_URL")
@@ -26,6 +25,7 @@ else:
     app.config["SQLALCHEMY_DATABASE_URI"] = uri
 
 db = SQLAlchemy(app)
+mongo = PyMongo(app)
 
 db.init_app(app)
 migrate = Migrate(app, db)
