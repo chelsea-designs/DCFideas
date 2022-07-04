@@ -1,6 +1,6 @@
 from flask import flash, render_template, request, redirect, url_for, session
 from werkzeug.security import generate_password_hash, check_password_hash
-from dcfideas import app, db, mongo
+from dcfideas import app, mongo
 from dcfideas.models import Strand, Idea, Users
 
 
@@ -12,6 +12,7 @@ def home():
 def register():
     if request.method == "POST":
         # check if username already exists in db
+        print(mongo.db)
         existing_user = mongo.db.users.find_one(
             {"username": request.form.get("username").lower()})
 
