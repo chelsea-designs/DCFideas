@@ -16,7 +16,7 @@ class Idea(db.Model):
     # schema for the Task model
     id = db.Column(db.Integer, primary_key=True)
     idea_name = db.Column(db.String(50), unique=True, nullable=False)
-    idea_teacher = db.Column(db.String(50), unique=True, nullable=False)
+    idea_teacher = db.Column(db.String(50), unique=False, nullable=False)
     idea_description = db.Column(db.Text, nullable=False)
     strand_id = db.Column(db.Integer, db.ForeignKey("strand.id", ondelete="CASCADE"), nullable=False)
 
