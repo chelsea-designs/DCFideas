@@ -1,6 +1,6 @@
 from flask import flash, render_template, request, redirect, url_for, session
 from werkzeug.security import generate_password_hash, check_password_hash
-from dcfideas import app, mongo
+from dcfideas import app, mongo, db
 from dcfideas.models import Strand, Idea, Users
 
 
