@@ -2,11 +2,9 @@
 {% block content %}
 <div class="card text-center offset-2 col-8">
     <div class="card-header">
-        Login
+        Log in to your account
     </div>
     <form class="card-body" method="POST" action="{{ url_for('login') }}">
-        <h5 class="card-title">Create an account</h5>
-        <p class="card-text">To start storing and sharing your DCF ideas.</p>
         <div class="row">
             <div class="input-field col-12">
                 <label for="username">Username</label><br>
@@ -28,7 +26,7 @@
         </div>
     </form>
     <div class="card-footer text-muted">
-        Not Registered? <a href="{{ url_for('register') }}">Register</a> here.
+        Not Registered? <a href="{{ url_for('register') }}">Register here</a>.
     </div>
 </div>
 {% endblock %}
