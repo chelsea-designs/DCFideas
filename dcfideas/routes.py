@@ -8,11 +8,6 @@ from dcfideas.models import Strand, Idea, Users
 def home():
     return render_template("index.html")
 
-# @app.route("/search", methods=["GET", "POST"])
-# def search():
-#     ideas = 
-#     return render_template("ideas.html", ideas=ideas)
-
 @app.route("/register", methods=["GET", "POST"])
 def register():
     if request.method == "POST":

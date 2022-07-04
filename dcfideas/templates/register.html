@@ -1,12 +1,10 @@
 {% extends "base.html" %}
 {% block content %}
-<div class="card text-center">
+<div class="card text-center offset-2 col-8">
     <div class="card-header">
-        Register
+        Create an account
     </div>
     <form class="card-body" method="POST" action="{{ url_for('register') }}">
-        <h5 class="card-title">Create an account</h5>
-        <p class="card-text">To start storing and sharing your DCF ideas.</p>
         <div class="row">
             <div class="input-field col-12">
                 <label for="username">Username</label><br>
