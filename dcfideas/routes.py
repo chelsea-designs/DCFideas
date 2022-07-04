@@ -1,5 +1,5 @@
 from flask import flash, render_template, request, redirect, url_for
-from dcfideas import app, db
+from dcfideas import app, db, mongo
 from dcfideas.models import Strand, Idea 
 
 
