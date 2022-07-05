@@ -43,8 +43,13 @@
                     <li><a class="nav-link scrollto active" href="{{url_for('home')}}">Home</a></li>
                     <li><a class="nav-link scrollto" href="{{url_for('strands')}}">Strands</a></li>
                     <li><a class="nav-link scrollto" href="{{url_for('ideas')}}">Ideas</a></li>
+                    {% if session.user %}
+                    <li><a class="getstarted scrollto" href="{{ url_for('profile', username=session['user']) }}">My
+                            Profile</a></li>
+                    {% else %}
                     <li><a class="getstarted scrollto" href="{{url_for('login')}}">Log In</a></li>
                     <li><a class="getstarted scrollto" href="{{url_for('register')}}">Register</a></li>
+                    {% endif %}
                 </ul>
                 <i class="bi bi-list mobile-nav-toggle"></i>
             </nav>
@@ -98,7 +103,7 @@
                             <li><i class="bi bi-chevron-right"></i> <a href="{{ url_for('add_idea') }}">Add Idea</a>
                             </li>
                             <li><i class="bi bi-chevron-right"></i> <a href="{{url_for('strands')}}">Strands</a></li>
-                            <li><i class="bi bi-chevron-right"></i> <a href="#">Login</a></li>
+                            <li><i class="bi bi-chevron-right"></i> <a href="{{url_for('login')}}">Login</a></li>
                         </ul>
                     </div>
 

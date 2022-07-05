@@ -29,6 +29,7 @@ def register():
         # put the new user into 'session' cookie
         session["user"] = request.form.get("username").lower()
         flash("Registration Successful!")
+        return redirect(url_for("profile", username=session["user"]))
     return render_template("register.html")
 
 @app.route("/login", methods=["GET", "POST"])
@@ -111,22 +112,30 @@ def add_idea():
 def update_idea(idea_id):
     idea = Idea.query.get_or_404(idea_id)
     strands = list(Strand.query.order_by(Strand.strand_name).all())
-    if request.method == "POST":
-        idea.idea_name=request.form.get("idea_name")
-        idea.idea_description=request.form.get("idea_description")
-        idea.strand_id=request.form.get("strand_id")
-        idea.idea_teacher=request.form.get("idea_teacher")
-        db.session.commit()
-        return redirect(url_for('ideas'))
-        flash("Idea updated")
+    if session["user"]:
+        if request.method == "POST":
+            idea.idea_name=request.form.get("idea_name")
+            idea.idea_description=request.form.get("idea_description")
+            idea.strand_id=request.form.get("strand_id")
+            idea.idea_teacher=request.form.get("idea_teacher")
+            db.session.commit()
+            return redirect(url_for('ideas'))
+            flash("Idea updated")
+    else:
+        flash("You must be logged in to view this page.")
+        return redirect(url_for("login"))
     return render_template("update_idea.html", idea=idea, strands=strands)
 
 @app.route("/delete_idea/<int:idea_id>")
 def delete_idea(idea_id):
     idea = Idea.query.get_or_404(idea_id)
-    db.session.delete(idea)
-    db.session.commit()
-    flash("Idea deleted")
+    if session["user"]:
+        db.session.delete(idea)
+        db.session.commit()
+        flash("Idea deleted")
+    else:
+        flash("You must be logged in to view this page.")
+        return redirect(url_for("login"))
     return redirect(url_for("ideas"))
 
 

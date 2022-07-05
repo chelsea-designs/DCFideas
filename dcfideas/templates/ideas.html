@@ -18,10 +18,12 @@
                     <h3>{{ idea.idea_name }}</h3>
                     <p>{{ idea.idea_description }}</p>
                     <p>{{ loop.index }}</p>
+                    {% if session.user %}
                     <a href="{{ url_for('update_idea', idea_id=idea.id) }}" class="btn btn-outline-secondary">Edit<i
                             class="bi bi-pencil"></i></a>
                     <button class="btn btn-secondary" data-bs-toggle="modal"
                         data-bs-target="#deleteModal{{ loop.index }}">Delete<i class="bi bi-trash"></i></button>
+                    {% endif %}
                 </div>
             </div>
             <!-- Delete Model -->
