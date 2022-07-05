@@ -2351,3 +2351,7 @@ section {
 }
 
 /*--- Flashes --- */
+.flashes {
+  background-color: #F6F9FF;
+  color: #012970;
+}

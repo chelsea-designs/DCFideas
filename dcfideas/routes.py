@@ -94,17 +94,21 @@ def ideas():
 @app.route("/add_idea", methods=["GET", "POST"])
 def add_idea():
     strands = list(Strand.query.order_by(Strand.strand_name).all())
-    if request.method == "POST":
-        idea = Idea(
-            idea_name=request.form.get("idea_name"),
-            idea_description=request.form.get("idea_description"),
-            strand_id=request.form.get("strand_id"),
-            idea_teacher =request.form.get("idea_teacher"),
-        )
-        db.session.add(idea)
-        db.session.commit()
-        return redirect(url_for('ideas'))
-        flash("Idea added")
+    if "user" not in session:
+        flash("You must be logged in to add ideas.")
+        return redirect(url_for("login"))
+    else:
+        if request.method == "POST":
+            idea = Idea(
+                idea_name=request.form.get("idea_name"),
+                idea_description=request.form.get("idea_description"),
+                strand_id=request.form.get("strand_id"),
+                idea_teacher =request.form.get("idea_teacher"),
+            )
+            db.session.add(idea)
+            db.session.commit()
+            return redirect(url_for('ideas'))
+            flash("Idea added")
     return render_template("add_idea.html", strands=strands)
 
 
@@ -113,7 +117,7 @@ def update_idea(idea_id):
     idea = Idea.query.get_or_404(idea_id)
     strands = list(Strand.query.order_by(Strand.strand_name).all())
     if "user" not in session:
-        flash("You must be logged in to view this page.")
+        flash("You must be logged in to view edit ideas.")
         return redirect(url_for("login"))
     else:
         if request.method == "POST":
@@ -129,13 +133,13 @@ def update_idea(idea_id):
 @app.route("/delete_idea/<int:idea_id>")
 def delete_idea(idea_id):
     idea = Idea.query.get_or_404(idea_id)
-    if session["user"]:
+    if "user" not in session:
+        flash("You must be logged in to delete ideas.")
+        return redirect(url_for("login"))
+    else:
         db.session.delete(idea)
         db.session.commit()
         flash("Idea deleted")
-    else:
-        flash("You must be logged in to view this page.")
-        return redirect(url_for("login"))
     return redirect(url_for("ideas"))
 
 
