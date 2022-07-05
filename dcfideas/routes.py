@@ -1,4 +1,5 @@
 from flask import flash, render_template, request, redirect, url_for, session
+from bson.objectid import ObjectId
 from werkzeug.security import generate_password_hash, check_password_hash
 from dcfideas import app, mongo, db
 from dcfideas.models import Strand, Idea, Users
@@ -163,3 +164,35 @@ def internal_server_error(e):
     that takes the user back to the home page.
     """
     return render_template("errors/500.html", page_title="500"), 500
+
+
+
+
+
+@app.route("/change_password/<username>", methods=["POST", "GET"])
+def change_password(username):
+    if request.method == "POST":
+        new_password = generate_password_hash(request.form.get("new_password"))
+        mongo.db.users.update(
+            {"username": username},
+            {"$set": {"password": new_password}})
+        flash("Your Password has been changed")
+        return redirect(url_for("profile", username=session["user"]))
+
+
+# --- Delete Profile Functionality --- #
+@app.route('/delete_account/<user_id>', methods=["GET", "POST"])
+def delete_account(user_id):
+    user = mongo.db.users.find_one({'username': session["user"]})
+    # Checks if password matches existing password in database
+    if check_password_hash(user["password"],
+        request.form.get("confirm_deletion")):
+        flash("We can confirm that your account has been deleted.")
+        session.pop("user")
+        mongo.db.users.remove({"_id": ObjectId(user['_id'])})
+        return redirect(url_for("register"))
+    else:
+        flash("The password you entered was incorrect. Please try again!")
+        return redirect(url_for("profile", username=session["user"]))
+    # return to home page page
+    return redirect(url_for("register"))
