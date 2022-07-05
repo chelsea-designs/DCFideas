@@ -40,14 +40,14 @@
 
             <nav id="navbar" class="navbar">
                 <ul>
-                    <li><a class="nav-link scrollto active" href="{{url_for('home')}}">Home</a></li>
+                    <li><a class="nav-link scrollto" href="{{url_for('home')}}">Home</a></li>
                     <li><a class="nav-link scrollto" href="{{url_for('strands')}}">Strands</a></li>
                     <li><a class="nav-link scrollto" href="{{url_for('ideas')}}">Ideas</a></li>
                     {% if session.user %}
                     <li><a class="getstarted scrollto" href="{{ url_for('profile', username=session['user']) }}">My
                             Profile</a></li>
                     {% else %}
-                    <li><a class="getstarted scrollto" href="{{url_for('login')}}">Log In</a></li>
+                    <li><a class="nav-link scrollto" href="{{url_for('login')}}">Log In</a></li>
                     <li><a class="getstarted scrollto" href="{{url_for('register')}}">Register</a></li>
                     {% endif %}
                 </ul>
