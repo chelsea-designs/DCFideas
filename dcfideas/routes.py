@@ -112,7 +112,10 @@ def add_idea():
 def update_idea(idea_id):
     idea = Idea.query.get_or_404(idea_id)
     strands = list(Strand.query.order_by(Strand.strand_name).all())
-    if session["user"]:
+    if "user" not in session:
+        flash("You must be logged in to view this page.")
+        return redirect(url_for("login"))
+    else:
         if request.method == "POST":
             idea.idea_name=request.form.get("idea_name")
             idea.idea_description=request.form.get("idea_description")
@@ -121,9 +124,6 @@ def update_idea(idea_id):
             db.session.commit()
             return redirect(url_for('ideas'))
             flash("Idea updated")
-    else:
-        flash("You must be logged in to view this page.")
-        return redirect(url_for("login"))
     return render_template("update_idea.html", idea=idea, strands=strands)
 
 @app.route("/delete_idea/<int:idea_id>")
