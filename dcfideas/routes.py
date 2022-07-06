@@ -196,3 +196,17 @@ def delete_account(user_id):
         return redirect(url_for("profile", username=session["user"]))
     # return to home page page
     return redirect(url_for("register"))
+
+# # --- Search Functionality --- #
+# @app.route('/search_query', methods=['POST'])
+# def search_query():
+#     if request.method: "POST"
+#     connection = psycopg2.connect(database="dcfideas")
+#     cursor = conn.cursor()
+#     query=request.form.get('query')
+#     sq_ = request.form.get('searchQuery')
+#     x=request.form.get('x')
+#     cursor.execute("""CREATE TABLE `%s`( NAME VARCHAR(50) DEFAULT NULL) """ % (query))
+#     print(sq_)
+
+#     return render_template('ideas.html', search_query=sq_)

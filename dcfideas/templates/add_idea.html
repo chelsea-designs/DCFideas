@@ -34,11 +34,12 @@
                         </div>
 
                         <div class="col-md-12">
-                            <label for="strand_id">Strand</label><br>
-                            <select id="strand_id" name="strand_id" class="form-control" required>
-                                <option value="" disabled selected>Choose Strand</option>
+                            <label for="strand_selector">Strand</label><br>
+                            <select id="strand_selector" name="strand_selector" class="form-control" required>
+                                <option value="0" disabled selected>Choose Strand</option>
                                 {% for strand in strands %}
-                                <option value="{{ strand.id }}">{{ strand.strand_name }} - {{ strand.strand_element }}
+                                <option value="{{ strand.id }}">{{strand.id}}: {{ strand.strand_name }} -
+                                    {{ strand.strand_element }}
                                 </option>
                                 {% endfor %}
                             </select>
