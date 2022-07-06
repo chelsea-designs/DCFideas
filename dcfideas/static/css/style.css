@@ -2162,58 +2162,8 @@ section {
 --------------------------------------------------------------*/
 .footer {
   background: #F6F9FF;
-  padding: 0 0 30px 0;
+  padding: 0 0 10px 0;
   font-size: 14px;
-}
-
-.footer .footer-newsletter {
-  padding: 50px 0;
-  background: #F6F9FF;
-  border-top: 1px solid #F6F9FF;
-}
-
-.footer .footer-newsletter h4 {
-  font-size: 24px;
-  margin: 0 0 10px 0;
-  padding: 0;
-  line-height: 1;
-  font-weight: 700;
-  color: #012970;
-}
-
-.footer .footer-newsletter form {
-  margin-top: 20px;
-  background: #F6F9FF;
-  padding: 6px 10px;
-  position: relative;
-  border-radius: 4px;
-  border: 1px solid #F6F9FF;
-}
-
-.footer .footer-newsletter form input[type=email] {
-  border: 0;
-  padding: 8px;
-  width: calc(100% - 140px);
-}
-
-.footer .footer-newsletter form input[type=submit] {
-  position: absolute;
-  top: 0;
-  right: 0;
-  bottom: 0;
-  border: 0;
-  background: none;
-  font-size: 16px;
-  padding: 0 30px;
-  margin: 3px;
-  background: #4154F1;
-  color: #F6F9FF;
-  transition: 0.3s;
-  border-radius: 4px;
-}
-
-.footer .footer-newsletter form input[type=submit]:hover {
-  background: #2DB6FA;
 }
 
 .footer .footer-top {
@@ -2326,7 +2276,7 @@ section {
 
 .footer .copyright {
   text-align: center;
-  padding-top: 30px;
+  padding-top: 10px;
   color: #012970;
 }
 
@@ -2337,12 +2287,12 @@ section {
   color: #012970;
 }
 
-.modal-backdrop {
-  z-index: -1;
+body .modal-backdrop.fade.in {
+  z-index: 0;
 }
 
 .modal-dialog {
-  z-index: 10;
+  z-index: 99999;
 }
 
 /*--- 404 / 500 Handling --- */

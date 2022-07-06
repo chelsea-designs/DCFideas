@@ -81,7 +81,7 @@ def logout():
 
 @app.route("/strands")
 def strands():
-    strands = list(Strand.query.order_by(Strand.strand_name).all())
+    strands = list(Strand.query.order_by(Strand.id).all())
     categories = set()
     for x in strands:
         categories.add(x.strand_name)
