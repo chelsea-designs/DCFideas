@@ -63,12 +63,14 @@ def login():
 
 @app.route("/profile/<username>", methods=["GET", "POST"])
 def profile(username):
+    ideas = list(Idea.query.order_by(Idea.idea_name).all())
+
     # grab the session user's username from db
     username = mongo.db.users.find_one(
         {"username": session["user"]})["username"]
 
     if session["user"]:
-        return render_template("profile.html", username=username)
+        return render_template("profile.html", ideas=ideas, username=username)
 
     return redirect(url_for("login"))
 
@@ -104,7 +106,7 @@ def add_idea():
                 idea_name = request.form.get("idea_name"),
                 idea_description = request.form.get("idea_description"),
                 strand_id = request.form.get("strand_selector"),
-                created_by = request.form.get("created_by"),
+                created_by = session["user"],
                 created_at = request.form.get("created_at"),
                 cam_cynnydd = request.form.get("cam_cynnydd_selector"),
                 subject = request.form.get("subject_selector"),

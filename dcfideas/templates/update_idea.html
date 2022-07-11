@@ -16,13 +16,15 @@
                     <div class="row gy-4">
 
                         <div class="col-md-12">
+                            <label for="idea_name">Idea Name</label><br>
                             <input id="idea_name" class="form-control" name="idea_name" minlength="5" maxlength="50"
                                 type="text" placeholder="Idea Name" value="{{idea.idea_name}}" required>
                         </div>
 
                         <div class="col-md-6">
+                            <label for="created_by">Created By</label><br>
                             <input id="created_by" class="form-control" name="created_by" minlength="5" maxlength="50"
-                                type="text" placeholder="Created by who?" value="{{idea.created_by}}" required>
+                                type="text" placeholder="Created by who?" value="{{idea.created_by}}" disabled>
                         </div>
 
                         <div class="col-md-6">
@@ -65,6 +67,7 @@
                         </div>
 
                         <div class="col-md-12">
+                            <label for="strand_selector">Strand</label><br>
                             <select id="strand_id" name="strand_id" class="form-control" required>
                                 <option value="" disabled selected>Choose Strand</option>
                                 {% for strand in strands %}
