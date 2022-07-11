@@ -1,6 +1,5 @@
 from dcfideas import db
 
-
 class Strand(db.Model):
     # schema for the Strand model
     id = db.Column(db.Integer, primary_key=True)
@@ -12,13 +11,30 @@ class Strand(db.Model):
         # __repr__ to represent itself in the form of a string
         return self.strand_name
 
+class Subject(db.Model):
+    # schema for the Subject model
+    id = db.Column(db.Integer, primary_key=True)
+    aole = db.Column(db.String(50), unique=False, nullable=False)
+    subject = db.Column(db.String(50), unique=True, nullable=False)
+
+    def __repr__(self):
+        # __repr__ to represent itself in the form of a string
+        return "#{0} - Area of Learning: {1} - Subject: {2}".format(
+            self.id, self.aole, self.subject
+        )
+
 class Idea(db.Model):
     # schema for the Task model
     id = db.Column(db.Integer, primary_key=True)
     idea_name = db.Column(db.String(50), unique=True, nullable=False)
-    idea_teacher = db.Column(db.String(50), unique=False, nullable=False)
+    cam_cynnydd = db.Column(db.Integer, unique=False, nullable=False)
     idea_description = db.Column(db.Text, nullable=False)
+    subject_id = db.Column(db.Integer, db.ForeignKey("strand.id", ondelete="CASCADE"), nullable=False)
     strand_id = db.Column(db.Integer, db.ForeignKey("strand.id", ondelete="CASCADE"), nullable=False)
+    created_by = db.Column(db.String(50), unique=False, nullable=False)
+    created_at = db.Column(db.DateTime, unique=False, nullable=False)
+    idea_resource = db.Column(db.VARCHAR(500), unique=False, nullable=False)
+
 
     def __repr__(self):
         # __repr__ to represent itself in the form of a string
