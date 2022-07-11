@@ -15,20 +15,53 @@
                 <form class="php-email-form" method="POST" action="{{ url_for('update_idea',idea_id=idea.id) }}">
                     <div class="row gy-4">
 
-                        <div class="col-md-10">
+                        <div class="col-md-12">
                             <input id="idea_name" class="form-control" name="idea_name" minlength="5" maxlength="50"
                                 type="text" placeholder="Idea Name" value="{{idea.idea_name}}" required>
                         </div>
 
-                        <div class="col-md-2 ">
-                            <input id="idea_teacher" class="form-control" name="idea_teacher" minlength="5"
-                                maxlength="50" type="text" placeholder="Teacher Name" value="{{idea.idea_teacher}}"
-                                required>
+                        <div class="col-md-6">
+                            <input id="created_by" class="form-control" name="created_by" minlength="5" maxlength="50"
+                                type="text" placeholder="Created by who?" value="{{idea.created_by}}" required>
+                        </div>
+
+                        <div class="col-md-6">
+                            <label for="created_at">Created At</label><br>
+                            <input id="created_at" class="form-control" name="created_at" minlength="5" maxlength="50"
+                                type="datetime" placeholder="Created when?" value="{{idea.created_at}}" required>
                         </div>
 
                         <div class=" col-md-12">
                             <textarea id="idea_description" name="idea_description" class="form-control" rows="6"
                                 placeholder="Idea Description" required>{{- idea.idea_description -}}</textarea>
+                        </div>
+
+                        <div class="col-md-6">
+                            <label for="cam_cynnydd_selector">Cam Cynnydd</label><br>
+                            <select id="cam_cynnydd_selector" name="cam_cynnydd_selector" class="form-control" required>
+                                <option disabled selected>Choose Cam Cynnydd</option>
+                                <option>2</option>
+                                <option>3</option>
+                                <option>4</option>
+                                <option>5</option>
+                            </select>
+                        </div>
+
+                        <div class="col-md-6">
+                            <label for="subject_selector">Subject</label><br>
+                            <select id="subject_selector" name="subject_selector" class="form-control" required>
+                                <option disabled selected>Choose Subject</option>
+                                <option>Maths</option>
+                                <option>Science</option>
+                                <option>English</option>
+                                <option>Welsh</option>
+                            </select>
+                        </div>
+
+                        <div class="col-md-12">
+                            <label for="idea_resource">Idea Resource Link</label><br>
+                            <textarea id="idea_resource" name="idea_resource" class="form-control" rows="1"
+                                placeholder="Link to Idea Resource" required>{{- idea.idea_resource -}}</textarea>
                         </div>
 
                         <div class="col-md-12">

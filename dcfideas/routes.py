@@ -101,10 +101,14 @@ def add_idea():
     else:
         if request.method == "POST":
             idea = Idea(
-                idea_name=request.form.get("idea_name"),
-                idea_description=request.form.get("idea_description"),
-                strand_id=request.form.get("strand_id"),
-                idea_teacher =request.form.get("idea_teacher"),
+                idea_name = request.form.get("idea_name"),
+                idea_description = request.form.get("idea_description"),
+                strand_id = request.form.get("strand_selector"),
+                created_by = request.form.get("created_by"),
+                created_at = request.form.get("created_at"),
+                cam_cynnydd = request.form.get("cam_cynnydd_selector"),
+                subject = request.form.get("subject_selector"),
+                idea_resource = request.form.get("idea_resource")
             )
             db.session.add(idea)
             db.session.commit()
@@ -122,10 +126,14 @@ def update_idea(idea_id):
         return redirect(url_for("login"))
     else:
         if request.method == "POST":
-            idea.idea_name=request.form.get("idea_name")
-            idea.idea_description=request.form.get("idea_description")
-            idea.strand_id=request.form.get("strand_id")
-            idea.idea_teacher=request.form.get("idea_teacher")
+            idea.idea_name = request.form.get("idea_name"),
+            idea.idea_description = request.form.get("idea_description"),
+            idea.strand_id = request.form.get("strand_selector"),
+            idea.created_by = request.form.get("created_by"),
+            idea.created_at = request.form.get("created_at"),
+            idea.cam_cynnydd = request.form.get("cam_cynnydd_selector"),
+            idea.subject = request.form.get("subject_selector"),
+            idea.idea_resource = request.form.get("idea_resource")
             db.session.commit()
             return redirect(url_for('ideas'))
             flash("Idea updated")
