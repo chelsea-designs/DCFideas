@@ -29,7 +29,7 @@ class Idea(db.Model):
     idea_name = db.Column(db.String(50), unique=True, nullable=False)
     cam_cynnydd = db.Column(db.Integer, unique=False, nullable=False)
     idea_description = db.Column(db.Text, nullable=False)
-    subject_id = db.Column(db.Integer, db.ForeignKey("strand.id", ondelete="CASCADE"), nullable=False)
+    subject = db.Column(db.String(50), unique=False, nullable=False)
     strand_id = db.Column(db.Integer, db.ForeignKey("strand.id", ondelete="CASCADE"), nullable=False)
     created_by = db.Column(db.String(50), unique=False, nullable=False)
     created_at = db.Column(db.DateTime, unique=False, nullable=False)
