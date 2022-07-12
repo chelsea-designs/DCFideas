@@ -72,11 +72,9 @@ DCF Ideas is a web Application, built specifically for the Milestone 3, Data-Cen
 8. As a registered user, I want to be able to delete my account in full, if I no longer wish to remain a member.
 
 #### *Site Administrator*
-1. As a site Administrator, I would want to be able to control the main functionality of the site, including adding new categories and ideas.
-2. As a site Administrator, I would want to be able to edit or delete strands and ideas.
-3. As a site Administrator, I would want to be able to control the ideas added and select weekly featured ideas.
-4. As a site Administrator, I would want to be able to view all idea posts added by users and delete where necessary, keeping the site up-to date.
-5. As a site Administrator, I would want to be able to add new users or delete users who have issues with functionality.
+1. As a site Administrator, I would want to be able to control the ideas added.
+2. As a site Administrator, I would want to be able to view all idea posts added by users, update and delete where necessary, keeping the site up-to date.
+3. As a site Administrator, I would want to be able to add new users or delete users who have issues with functionality.
 
 ---
 
@@ -230,7 +228,6 @@ The Home page is split across three sections:
 - The user will be required to add date to the idea in the following format:
     - Idea Title
     - Chosen Strand
-    - Chosen Topic
     - Date Added
     - idea Description
     - idea Link
@@ -257,19 +254,7 @@ The Home page is split across three sections:
 #### **Add New Idea page**
 - This page can only be viewed by the admin user.
 - If the admin user clicks on the add ideas button on the dashboard, then this page will display.
-- The Add New Topic page features a simple form, where the admin user can input the basic required information. 
 - The form uses validation or error feedback when they enter information in to the input fields.
-- If the admin user clicks Add Topic button, it will add the new topic to the database in the ideas collection.
-- If the user clicks on the cancel button it will take them back to the Manage ideas admin dashboard page.
-
-#### **Edit Idea page**
-- This page can only be viewed by the admin user.
-- If the admin user clicks on the manage ideas button on the dashboard, then this page will display.
-- The current topic information will be shown, displayed in a list of cards.
-- Each topic card will have two buttons. one for editing the details of the topic and one for deleting the topic from the database.
-- The form uses validation or error feedback when they enter information in to the input fields.
-- If the admin user clicks the update button, it will update the topic in the database for the ideas collection.
-- If the user clicks on the cancel button it will take them back to the Manage ideas admin dashboard page.
 
 ### **404 & 500 Page**
 - The custom 404 & 500 Pages contain a simple word layout letting the user know of the error and a button that can be clicked to take the user back to the home page.
@@ -283,7 +268,7 @@ The site has been launched with a minimal viable product phase in mind. This all
 - Additional profile functionality, with the option to add user profile images, a perosnal statement and options around marketing preferences.
 - Functionality to retrieve and update a forgotten password.
 - The ability to bookmark ideas added by other users and view them in a section on the profile page.
-- The ability to run additional search queries on the ideas, allowing for searching by Topic, Descriptions
+- The ability to run additional search queries on the ideas, allowing for searching by Strand, Descriptions
 - Allow users to add other users as friend and add and share posts.
 - Allow an administrator user the option to toggle other site users as administrators.
 - Give site administrators full functionality of updating or deleting user accounts.

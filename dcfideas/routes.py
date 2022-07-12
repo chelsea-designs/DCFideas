@@ -92,7 +92,7 @@ def strands():
 @app.route("/ideas")
 def ideas():
     ideas = list(Idea.query.order_by(Idea.idea_name).all())
-    return render_template("ideas.html", ideas=ideas)
+    return render_template("ideas.html", ideas=ideas, strands=strands)
 
 @app.route("/add_idea", methods=["GET", "POST"])
 def add_idea():
@@ -206,6 +206,20 @@ def delete_account(user_id):
         return redirect(url_for("profile", username=session["user"]))
     # return to home page page
     return redirect(url_for("register"))
+
+@app.route("/full_idea/<int:idea_id>")
+def full_idea(idea_id):
+    """
+    Displays full idea including description and link
+    """
+    strands = list(Strand.query.order_by(Strand.id).all())
+    categories = set()
+    for x in strands:
+        categories.add(x.strand_name)
+    idea = Idea.query.get_or_404(idea_id)
+    recentideas = list(Idea.query.order_by(Idea.created_at.desc()).limit(4).all())
+    print(idea)
+    return render_template("full_idea.html", idea=idea, strands=strands, recentideas=recentideas, categories=categories)
 
 # # --- Search Functionality --- #
 # @app.route('/search_query', methods=['POST'])

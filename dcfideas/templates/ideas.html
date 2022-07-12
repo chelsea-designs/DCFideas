@@ -18,18 +18,23 @@
         <div class="row gy-4">
             {% for idea in ideas %}
             <div class="col-lg-4 col-md-6" data-aos="fade-up" data-aos-delay="200">
-                <div class="service-box blue">
-                    <i class=" ri-discuss-line icon"></i>
-                    <h3>{{ idea.idea_name }}</h3>
-                    <p>CC: {{ idea.cam_cynnydd }} Subject: {{ idea.subject }}</p>
-                    <p><i class="fas fa-user"></i> {{ idea.created_by }}</p>
-                    {% if session.user|lower == idea.created_by|lower %}
-                    <a href="{{ url_for('update_idea', idea_id=idea.id) }}" class="btn btn-outline-secondary">Edit<i
-                            class="bi bi-pencil"></i></a>
-                    <button class="btn btn-secondary" data-bs-toggle="modal"
-                        data-bs-target="#deleteModal{{ loop.index }}">Delete<i class="bi bi-trash"></i></button>
-                    {% endif %}
-                </div>
+                <a href="{{ url_for('full_idea', idea_id=idea.id) }}">
+                    <div class="service-box blue">
+                        <i class=" ri-discuss-line icon"></i>
+                        <h3>{{ idea.idea_name }}</h3>
+                        <div class="row offset-2">
+                            <i class="col-3 fas fa-stairs"></i>{{ idea.cam_cynnydd }}
+                            <i class="col-4 fas fa-user"></i> {{ idea.created_by }}
+                            <i class="col-3 fas fa-list"></i>{{ idea.subject }}
+                        </div>
+                        {% if session.user|lower == idea.created_by|lower or session.user|lower == "admin"|lower %}
+                        <a href="{{ url_for('update_idea', idea_id=idea.id) }}" class="btn btn-outline-secondary">Edit<i
+                                class="bi bi-pencil"></i></a>
+                        <button class="btn btn-secondary" data-bs-toggle="modal"
+                            data-bs-target="#deleteModal{{ loop.index }}">Delete<i class="bi bi-trash"></i></button>
+                        {% endif %}
+                    </div>
+                </a>
             </div>
             <!-- Delete Modal -->
             <div class="modal fade" id="deleteModal{{ loop.index }}" tabindex="-1" aria-labelledby="deleteModalLabel"

@@ -1,0 +1,158 @@
+{% extends "base.html" %}
+{% block content %}
+
+<main id="main">
+
+    <!-- ======= Breadcrumbs ======= -->
+    <section class="breadcrumbs">
+        <div class="container">
+
+            <ol>
+                <li><a href="{{url_for('home')}}">Home</a></li>
+                <li><a href="{{url_for('ideas')}}">Ideas</a></li>
+                <li>{{idea.idea_name}}</li>
+            </ol>
+            <h2>{{ idea.idea_name}}</h2>
+
+        </div>
+    </section><!-- End Breadcrumbs -->
+
+    <!-- ======= Blog Single Section ======= -->
+    <section id="blog" class="blog">
+        <div class="container" data-aos="fade-up">
+
+            <div class="row">
+
+                <div class="col-lg-8 entries">
+
+                    <article class="entry entry-single">
+
+                        <div class="entry-img">
+                            <img src="assets/img/blog/blog-1.jpg" alt="" class="img-fluid">
+                        </div>
+
+                        <h2 class="entry-title">Strand Name - Strand Element: {{idea.idea_name}}</h2>
+
+                        <div class="entry-meta">
+                            <ul>
+                                <li class="d-flex align-items-center"><i class="bi bi-chat-dots"></i>Cam Cynnydd:
+                                    {{idea.cam_cynnydd}}
+                                </li>
+                                <li class="d-flex align-items-center"><i class="bi bi-folder"></i>Subject:
+                                    {{idea.subject}}
+                                </li>
+                            </ul>
+                        </div>
+
+                        <div class="entry-content">
+                            <h3>Idea Description</h3>
+                            <p>{{idea.idea_description}}</p>
+                        </div>
+
+                        <div class="entry-footer">
+                            <i class="bi bi-person"></i>
+                            <ul class="cats">
+                                <li>{{idea.created_by}}</li>
+                            </ul>
+
+                            <i class="bi bi-clock"></i>
+                            <ul class="tags">
+                                <li>{{idea.created_at}}</li>
+                            </ul>
+                        </div>
+
+                    </article><!-- End blog entry -->
+
+                    <div class="blog-author">
+                        <div class="row">
+                            <div class="row">
+                                <h4>Idea Resource Link</h4>
+                            </div>
+                            <div class="col-10">
+                                {{idea.idea_resource}}
+                            </div>
+                            <div class="col-2">
+                                <button href="{{idea.idea_resource}}" class="btn btn-primary col-2"><i
+                                        class="bi-send"></i>Go</button>
+                            </div>
+                        </div>
+                    </div><!-- End blog author bio -->
+                </div><!-- End blog entries list -->
+
+                <div class="col-lg-4">
+
+                    <div class="sidebar">
+                        {% if session.user|lower == idea.created_by|lower or session.user|lower == "admin"|lower %}
+                        <h3 class="sidebar-title">Manage Idea</h3>
+                        <div class="sidebar-item">
+                            <a href="{{ url_for('update_idea', idea_id=idea.id) }}"
+                                class="btn btn-outline-secondary">Edit<i class="bi bi-pencil"></i></a>
+                            <button class="btn btn-secondary" data-bs-toggle="modal"
+                                data-bs-target="#deleteModal">Delete<i class="bi bi-trash"></i></button>
+                        </div>
+                        {% endif %}
+
+                        <h3 class="sidebar-title">Strands</h3>
+
+                        <div class="sidebar-item categories">
+                            <ul>
+                                {% for category in categories %}
+                                <li><a href="{{url_for('ideas')}}">{{category}} <span>(25)</span></a></li>
+                                {% endfor %}
+                            </ul>
+                        </div><!-- End sidebar categories-->
+
+                        <h3 class="sidebar-title">Recent Ideas</h3>
+                        <div class="sidebar-item recent-posts">
+                            {% for recentidea in recentideas %}
+                            <div class="post-item clearfix">
+                                <img src="assets/img/blog/blog-recent-1.jpg" alt="">
+                                <h4><a
+                                        href="{{ url_for('full_idea', idea_id=recentidea.id) }}">{{recentidea.idea_name}}</a>
+                                </h4>
+                                <time datetime="2020-01-01">{{recentidea.created_at}}</time>
+                            </div>
+                            {% endfor %}
+
+                        </div><!-- End sidebar recent posts-->
+
+                        <h3 class="sidebar-title">Subject</h3>
+                        <div class="sidebar-item tags">
+                            <ul>
+                                <li><a href="#">Maths</a></li>
+                                <li><a href="#">English</a></li>
+                                <li><a href="#">Welsh</a></li>
+                            </ul>
+                        </div><!-- End sidebar tags-->
+
+                    </div><!-- End sidebar -->
+
+                </div><!-- End blog sidebar -->
+
+            </div>
+
+        </div>
+    </section><!-- End Blog Single Section -->
+
+</main><!-- End #main -->
+<!-- Delete Modal -->
+<div class="modal fade" id="deleteModal" tabindex="-1" aria-labelledby="deleteModalLabel" aria-hidden="true">
+    <div class="modal-dialog">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h5 class="modal-title" id="deleteModalLabel">Delete Item</h5>
+                <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+            </div>
+            <div class="modal-body">
+                <p>Are you sure you want to delete this idea?</p>
+                <p>Once deleted it cannot be retrieved.</p>
+            </div>
+            <div class="modal-footer">
+                <a href="{{ url_for('delete_idea', idea_id=idea.id) }}" class="btn btn-secondary">Delete<i
+                        class="bi bi-trash"></i></a>
+                <button type="button" class="btn btn-primary" data-bs-dismiss="modal">Close</button>
+            </div>
+        </div>
+    </div>
+</div>
+{% endblock %}
