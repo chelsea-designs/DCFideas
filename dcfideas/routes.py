@@ -131,7 +131,7 @@ def update_idea(idea_id):
             idea.idea_name = request.form.get("idea_name"),
             idea.idea_description = request.form.get("idea_description"),
             idea.strand_id = request.form.get("strand_selector"),
-            idea.created_by = request.form.get("created_by"),
+            idea.created_by = session["user"],
             idea.created_at = request.form.get("created_at"),
             idea.cam_cynnydd = request.form.get("cam_cynnydd_selector"),
             idea.subject = request.form.get("subject_selector"),

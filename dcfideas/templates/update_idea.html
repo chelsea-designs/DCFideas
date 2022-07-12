@@ -41,22 +41,22 @@
                         <div class="col-md-6">
                             <label for="cam_cynnydd_selector">Cam Cynnydd</label><br>
                             <select id="cam_cynnydd_selector" name="cam_cynnydd_selector" class="form-control" required>
-                                <option disabled selected>Choose Cam Cynnydd</option>
-                                <option>2</option>
-                                <option>3</option>
-                                <option>4</option>
-                                <option>5</option>
+                                <option value="0" disabled>Choose Cam Cynnydd</option>
+                                <option value="2">2</option>
+                                <option value="3">3</option>
+                                <option value="4">4</option>
+                                <option value="5">5</option>
                             </select>
                         </div>
 
                         <div class="col-md-6">
                             <label for="subject_selector">Subject</label><br>
                             <select id="subject_selector" name="subject_selector" class="form-control" required>
-                                <option disabled selected>Choose Subject</option>
-                                <option>Maths</option>
-                                <option>Science</option>
-                                <option>English</option>
-                                <option>Welsh</option>
+                                <option disabled>Choose Subject</option>
+                                <option value="Maths">Maths</option>
+                                <option value="Science">Science</option>
+                                <option value="English">English</option>
+                                <option value="Welsh">Welsh</option>
                             </select>
                         </div>
 
@@ -68,15 +68,16 @@
 
                         <div class="col-md-12">
                             <label for="strand_selector">Strand</label><br>
-                            <select id="strand_id" name="strand_id" class="form-control" required>
-                                <option value="" disabled selected>Choose Strand</option>
+                            <select id="strand_selector" name="strand_selector" class="form-control" required>
+                                <option value="0" disabled>Choose Strand</option>
                                 {% for strand in strands %}
-                                {% if strand.id == idea.strand_id | int %}
-                                <option value="{{ strand.id }}" selected>{{ strand.strand_name }} -
+                                {% if strand.id | int == idea.strand_id | int %}
+                                <option value="{{ strand.id }}" selected>{{ strand.id }}: {{ strand.strand_name }} -
                                     {{ strand.strand_element }}
                                 </option>
                                 {% else %}
-                                <option value="{{ strand.id }}">{{ strand.strand_name }} - {{ strand.strand_element }}
+                                <option value="{{ strand.id }}">{{ strand.id }}: {{ strand.strand_name }} -
+                                    {{ strand.strand_element }}
                                 </option>
                                 {% endif %}
                                 {% endfor %}
