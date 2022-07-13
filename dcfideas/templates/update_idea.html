@@ -15,12 +15,6 @@
                 <form class="php-email-form" method="POST" action="{{ url_for('update_idea',idea_id=idea.id) }}">
                     <div class="row gy-4">
 
-                        <div class="col-md-12">
-                            <label for="idea_name">Idea Name</label><br>
-                            <input id="idea_name" class="form-control" name="idea_name" minlength="5" maxlength="50"
-                                type="text" placeholder="Idea Name" value="{{idea.idea_name}}" required>
-                        </div>
-
                         <div class="col-md-6">
                             <label for="created_by">Created By</label><br>
                             <input id="created_by" class="form-control" name="created_by" minlength="5" maxlength="50"
@@ -28,12 +22,19 @@
                         </div>
 
                         <div class="col-md-6">
-                            <label for="created_at">Created At</label><br>
+                            <label for="created_at">Modified At</label><br>
                             <input id="created_at" class="form-control" name="created_at" minlength="5" maxlength="50"
-                                type="datetime" placeholder="Created when?" value="{{idea.created_at}}" required>
+                                type="datetime" placeholder="Created when?" value="{{idea.created_at}}" disabled>
+                        </div>
+
+                        <div class="col-md-12">
+                            <label for="idea_name">Idea Name</label><br>
+                            <input id="idea_name" class="form-control" name="idea_name" minlength="5" maxlength="50"
+                                type="text" placeholder="Idea Name" value="{{idea.idea_name}}" required>
                         </div>
 
                         <div class=" col-md-12">
+                            <label for="idea_description">Idea Description</label><br>
                             <textarea id="idea_description" name="idea_description" class="form-control" rows="6"
                                 placeholder="Idea Description" required>{{- idea.idea_description -}}</textarea>
                         </div>
@@ -66,12 +67,22 @@
                                 placeholder="Link to Idea Resource" required>{{- idea.idea_resource -}}</textarea>
                         </div>
 
+                        <!-- If I comment this out, strand is not prepopulated, if I leave it in strand is prepopulated. How are they linked?!
+                            <div class="col-md-12">
+                            <label for="strand_selector">Strand</label><br>
+                            <select id="strand_selector" name="strand_selector" class="form-control">
+                                {% for strand in strands %}
+                                {{ strand.id}}
+                                {{ idea.strand_id }}
+                                {% endfor %}
+                            </select>
+                        </div> -->
+
                         <div class="col-md-12">
                             <label for="strand_selector">Strand</label><br>
                             <select id="strand_selector" name="strand_selector" class="form-control" required>
-                                <option value="0" disabled>Choose Strand</option>
                                 {% for strand in strands %}
-                                {% if strand.id | int == idea.strand_id | int %}
+                                {% if strand.id == idea.strand_id %}
                                 <option value="{{ strand.id }}" selected>{{ strand.id }}: {{ strand.strand_name }} -
                                     {{ strand.strand_element }}
                                 </option>
