@@ -97,7 +97,8 @@
                         <div class="sidebar-item categories">
                             <ul>
                                 {% for category in categories %}
-                                <li><a href="{{url_for('ideas')}}">{{category}} <span>(25)</span></a></li>
+                                <li><a href="{{ url_for('ideas') }}">{{category}}
+                                        <span>(25)</span></a></li>
                                 {% endfor %}
                             </ul>
                         </div><!-- End sidebar categories-->

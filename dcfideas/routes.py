@@ -92,16 +92,22 @@ def strands():
 @app.route("/ideas")
 def ideas():
     ideas = list(Idea.query.order_by(Idea.idea_name).all())
-    return render_template("ideas.html", ideas=ideas, strands=strands)
+    return render_template("ideas.html", ideas=ideas)
+
+# @app.route("/filter_ideas/<int:column_name>")
+# def filter_ideas(column_name):
+#     filterideas = list(Idea.query.filter_by(strand_id=column_name).all())
+#     return render_template("ideas.html", filterideas=filterideas)
 
 @app.route("/add_idea", methods=["GET", "POST"])
 def add_idea():
-    strands = list(Strand.query.order_by(Strand.strand_name).all())
+    strands = list(Strand.query.order_by(Strand.id).all())
     if "user" not in session:
         flash("You must be logged in to add ideas.")
         return redirect(url_for("login"))
     else:
         if request.method == "POST":
+            print("testing")
             idea = Idea(
                 idea_name = request.form.get("idea_name"),
                 idea_description = request.form.get("idea_description"),
@@ -122,11 +128,13 @@ def add_idea():
 @app.route("/update_idea/<int:idea_id>", methods=["GET", "POST"])
 def update_idea(idea_id):
     idea = Idea.query.get_or_404(idea_id)
-    strands = list(Strand.query.order_by(Strand.strand_name).all())
+    strands = list(Strand.query.order_by(Strand.id).all())
     if "user" not in session:
         flash("You must be logged in to view edit ideas.")
         return redirect(url_for("login"))
     else:
+        print("testing")
+        print(request.form.get("strand_selector"))
         if request.method == "POST":
             idea.idea_name = request.form.get("idea_name"),
             idea.idea_description = request.form.get("idea_description"),
@@ -212,13 +220,16 @@ def full_idea(idea_id):
     """
     Displays full idea including description and link
     """
-    strands = list(Strand.query.order_by(Strand.id).all())
-    categories = set()
-    for x in strands:
-        categories.add(x.strand_name)
-    idea = Idea.query.get_or_404(idea_id)
-    recentideas = list(Idea.query.order_by(Idea.created_at.desc()).limit(4).all())
-    print(idea)
+    if "user" not in session:
+        flash("You must be logged in to view full idea details.")
+        return redirect(url_for("login"))
+    else:
+        strands = list(Strand.query.order_by(Strand.id).all())
+        categories = set()
+        for x in strands:
+            categories.add(x.strand_name)
+        idea = Idea.query.get_or_404(idea_id)
+        recentideas = list(Idea.query.order_by(Idea.created_at.desc()).limit(4).all())
     return render_template("full_idea.html", idea=idea, strands=strands, recentideas=recentideas, categories=categories)
 
 # # --- Search Functionality --- #
