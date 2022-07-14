@@ -58,6 +58,7 @@ def full_idea(idea_id):
     """
     Displays full idea including description and link
     """
+    ideas = list(Idea.query.filter_by(Idea.strand_id == 2).all())
     if "user" not in session:
         flash("You must be logged in to view full idea details.")
         return redirect(url_for("login"))
