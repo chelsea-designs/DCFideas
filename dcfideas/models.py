@@ -25,6 +25,7 @@ class Subject(db.Model):
 
 class Idea(db.Model):
     # schema for the Task model
+    id = db.Column(db.Integer, primary_key=True)
     idea_name = db.Column(db.String(50), unique=True, nullable=False)
     cam_cynnydd = db.Column(db.Integer, unique=False, nullable=False)
     idea_description = db.Column(db.Text, nullable=False)
@@ -38,7 +39,7 @@ class Idea(db.Model):
     def __repr__(self):
         # __repr__ to represent itself in the form of a string
         return "#{0} - Idea: {1}".format(
-            db.Column(db.Integer, primary_key=True), self.idea_name
+            self.id, self.idea_name
         )
 
 class Users(db.Model):
