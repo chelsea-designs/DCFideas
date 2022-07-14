@@ -253,5 +253,14 @@ def delete_account(user_id):
 #     print(sq_)
 #     return render_template('ideas.html', search_query=sq_)
 
-# --- Filter Ideas  --- #
+# --- Filter Ideas By Strand Id  --- #
+@app.route("/ideas/strand_id<int:strandId>")
+def filter_ideas_by_strand_id(strandId):
+    ideas = list(Idea.query.filter_by(strand_id = strandId).all())
+    return render_template("ideas.html", ideas=ideas)
 
+# --- Filter Ideas By Subject  --- #
+@app.route("/ideas/subject<subject>")
+def filter_ideas_by_subject(subject):
+    ideas = list(Idea.query.filter_by(subject = subject).all())
+    return render_template("ideas.html", ideas=ideas)

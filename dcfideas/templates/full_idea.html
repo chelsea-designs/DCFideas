@@ -120,7 +120,11 @@
                         <h3 class="sidebar-title">Subject</h3>
                         <div class="sidebar-item tags">
                             <ul>
-                                <li><a href="#">Maths</a></li>
+                                {% for idea in ideas %}
+                                <li><a
+                                        href="{{ url_for('filter_ideas_by_subject', subject=idea.subject) }}">{{idea.subject}}</a>
+                                </li>
+                                {% endfor %}
                                 <li><a href="#">English</a></li>
                                 <li><a href="#">Welsh</a></li>
                             </ul>

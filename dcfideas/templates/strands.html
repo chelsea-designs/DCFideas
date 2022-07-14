@@ -15,7 +15,9 @@
                 <div class="count-box">
                     <div>
                         <h4>{{strand.strand_element}}</h4>
-                        <a href="{{ url_for('ideas') }}" class="btn btn-secondary">View Ideas</a>
+                        <a href="{{ url_for('filter_ideas_by_strand_id', strandId=strand.id) }}"
+                            class="btn btn-secondary">View
+                            Ideas</a>
                         {% if session.user %}
                         <a href="{{ url_for('add_idea') }}" class="btn btn-primary strand-button"
                             data-strand="{{ strand.id }}">Add Idea</a>
