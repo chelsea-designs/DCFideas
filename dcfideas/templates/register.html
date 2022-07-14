@@ -1,8 +1,12 @@
 {% extends "base.html" %}
 {% block content %}
+<header class="section-header">
+    <p>Register for an Account</p>
+</header>
+
 <div class="card text-center offset-2 col-8">
     <div class="card-header">
-        Create an account
+        Already Registered? <a href="{{ url_for('login') }}">Login instead</a>.
     </div>
     <form class="card-body" method="POST" action="{{ url_for('register') }}">
         <div class="row">
@@ -26,7 +30,7 @@
         </div>
     </form>
     <div class="card-footer text-muted">
-        Already Registered? <a href="{{ url_for('login') }}">Login instead</a>.
+        Registration gives you access to full idea details and the ability to create and store your own ideas.
     </div>
 </div>
 {% endblock %}

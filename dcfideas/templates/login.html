@@ -1,8 +1,12 @@
 {% extends "base.html" %}
 {% block content %}
+<header class="section-header">
+    <p>Log in to Your Account</p>
+</header>
+
 <div class="card text-center offset-2 col-8">
     <div class="card-header">
-        Log in to your account
+        Not Registered? <a href="{{ url_for('register') }}">Register here</a>.
     </div>
     <form class="card-body" method="POST" action="{{ url_for('login') }}">
         <div class="row">
@@ -26,7 +30,7 @@
         </div>
     </form>
     <div class="card-footer text-muted">
-        Not Registered? <a href="{{ url_for('register') }}">Register here</a>.
+        Forgot your password?
     </div>
 </div>
 {% endblock %}
