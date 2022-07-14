@@ -84,20 +84,24 @@ def update_idea(idea_id):
         flash("You must be logged in to view edit ideas.")
         return redirect(url_for("login"))
     else:
-        print("testing")
-        print(request.form.get("strand_selector"))
-        if request.method == "POST":
-            idea.idea_name = request.form.get("idea_name"),
-            idea.idea_description = request.form.get("idea_description"),
-            idea.strand_id = request.form.get("strand_selector"),
-            idea.created_by = session["user"],
-            idea.created_at = datetime.now().strftime("%Y-%m-%d %H:%M:%S"),
-            idea.cam_cynnydd = request.form.get("cam_cynnydd_selector"),
-            idea.subject = request.form.get("subject_selector"),
-            idea.idea_resource = request.form.get("idea_resource")
-            db.session.commit()
-            return redirect(url_for('ideas'))
-            flash("Idea updated")
+        if session["user"].lower() == idea.created_by.lower() or session["user"].lower() == "admin".lower():
+            print("testing")
+            print(request.form.get("strand_selector"))
+            if request.method == "POST":
+                idea.idea_name = request.form.get("idea_name"),
+                idea.idea_description = request.form.get("idea_description"),
+                idea.strand_id = request.form.get("strand_selector"),
+                idea.created_by = session["user"],
+                idea.created_at = datetime.now().strftime("%Y-%m-%d %H:%M:%S"),
+                idea.cam_cynnydd = request.form.get("cam_cynnydd_selector"),
+                idea.subject = request.form.get("subject_selector"),
+                idea.idea_resource = request.form.get("idea_resource")
+                db.session.commit()
+                return redirect(url_for('ideas'))
+                flash("Idea updated")
+        else:
+            flash("You cannot update other users' ideas.")
+            return redirect(url_for("ideas"))
     return render_template("update_idea.html", idea=idea, strands=strands)
 
 # --- Delete Ideas --- #
@@ -108,9 +112,13 @@ def delete_idea(idea_id):
         flash("You must be logged in to delete ideas.")
         return redirect(url_for("login"))
     else:
-        db.session.delete(idea)
-        db.session.commit()
-        flash("Idea deleted")
+        if session["user"].lower() == idea.created_by.lower() or session["user"].lower() == "admin".lower():
+            db.session.delete(idea)
+            db.session.commit()
+            flash("Idea deleted")
+        else:
+            flash("You cannot delete other users' ideas.")
+            return redirect(url_for("ideas"))
     return redirect(url_for("ideas"))
 
 
@@ -268,3 +276,4 @@ def filter_ideas_by_strand_id(strandId):
 def filter_ideas_by_subject(subject):
     ideas = list(Idea.query.filter_by(subject = subject).all())
     return render_template("ideas.html", ideas=ideas)
+
