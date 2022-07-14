@@ -40,13 +40,13 @@ def add_idea():
     return render_template("add_idea.html", strands=strands)
 
 # --- Read Ideas --- #
-@app.route("/strands")
-def strands():
+@app.route("/about")
+def about():
     strands = list(Strand.query.order_by(Strand.id).all())
     categories = set()
     for x in strands:
         categories.add(x.strand_name)
-    return render_template("strands.html", strands=strands, categories=categories)
+    return render_template("about.html", strands=strands, categories=categories)
 
 @app.route("/ideas")
 def ideas():
