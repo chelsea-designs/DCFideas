@@ -26,4 +26,34 @@
     </div>
 
 </section><!-- End Hero -->
+<section id="recent-blog-posts" class="recent-blog-posts">
+    <div class="container aos-init" data-aos="fade-up">
+        <header class="section-header">
+            <h2>Ideas
+            </h2>
+            <p>Recent ideas from our Website
+            </p>
+        </header>
+        <div class="row">
+            {% for recentidea in recentideas %}
+            <div class="col-lg-4">
+                <div class="post-box">
+                    <div class="post-img">
+                        <img src="assets/img/blog/blog-1.jpg" class="img-fluid" alt="">
+                    </div>
+                    <span class="post-date">{{recentidea.created_at}}
+                    </span>
+                    <h3 class="post-title">{{recentidea.idea_name}}
+                    </h3>
+                    <a href="blog-single.html" class="readmore stretched-link mt-auto">
+                        <a href="{{ url_for('full_idea', idea_id=recentidea.id) }}"><span>Read More <i
+                                    class="bi bi-arrow-right">
+                                </i></span></a>
+                    </a>
+                </div>
+            </div>
+            {% endfor %}
+        </div>
+    </div>
+</section>
 {% endblock %}

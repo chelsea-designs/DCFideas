@@ -8,7 +8,8 @@ from datetime import datetime
 
 @app.route("/")
 def home():
-    return render_template("index.html")
+    recentideas = list(Idea.query.order_by(Idea.created_at.desc()).limit(4).all())
+    return render_template("index.html", recentideas=recentideas)
 
 
 # ---------- Ideas CRUD Functionality ---------- #
@@ -276,4 +277,5 @@ def filter_ideas_by_strand_id(strandId):
 def filter_ideas_by_subject(subject):
     ideas = list(Idea.query.filter_by(subject = subject).all())
     return render_template("ideas.html", ideas=ideas)
+
 

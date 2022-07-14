@@ -1,35 +1,237 @@
 {% extends "base.html" %}
 {% block content %}
 
-<section id="counts" class="counts">
-    <div class="container" data-aos="fade-up">
-        <header class="section-header">
-            <p>DCF Overview</p>
-        </header>
-        {% for category in categories %}
-        <h3>{{category}}</h3>
-        <div class="row gy-4">
-            {% for strand in strands %}
-            {% if strand.strand_name == category %}
-            <div class="col-lg-3 col-md-6">
-                <div class="count-box">
-                    <div>
-                        <h4>{{strand.strand_element}}</h4>
-                        <a href="{{ url_for('filter_ideas_by_strand_id', strandId=strand.id) }}"
-                            class="btn btn-secondary">View
-                            Ideas</a>
-                        {% if session.user %}
-                        <a href="{{ url_for('add_idea') }}" class="btn btn-primary strand-button"
-                            data-strand="{{ strand.id }}">Add Idea</a>
-                        {% endif %}
+<section id="about" class="about">
+    <div class="container aos-init aos-animate" data-aos="fade-up">
+        <div class="row gx-0">
+            <div class="col-lg-6 d-flex flex-column justify-content-center aos-init aos-animate" data-aos="fade-up"
+                data-aos-delay="200">
+                <div class="content">
+                    <h3>What is the DCF for Wales
+                    </h3>
+                    <h2>If you’re looking for more information on the Digital Competence Framework (DCF) Wales
+                        schools will be taking on from September 2022 you can find it here.
+                    </h2>
+                    <p> The DCF which stands for Digital Competence Frameworkin Wales 2022, also known as
+                        "Cymhwysedd digidol" in Welsh, is an integral part of the new Curriculum in Welsh schools.
+                        It is an area of learning that sets out to teach children the knowledge, attitude and skills
+                        they need to be able to use technology and systems confidently, creatively and critically.
+
+                        From September 2022 the literacy, numeracy and digital competence area of learning and
+                        experience (AoLE), along with the other six areas, will be mandatory in all Welsh schools.
+
+                        The AoLE offers cross-circular information that will be essential to all learning and
+                        enables learners to develop lifelong skills. The joint Literacy and Numeracy Framework (LNF)
+                        and DCF area will be used across all areas to ensure learners have many opportunities to
+                        develop and apply these skills. This will set them up to be able to adapt and thrive in the
+                        modern world, being capable of learning and adapting to new skills
+                    </p>
+                    <div class="text-center text-lg-start">
+                        <a href="#"
+                            class="btn-read-more d-inline-flex align-items-center justify-content-center align-self-center">
+                            <span>Read More
+                            </span>
+                            <i class="bi bi-arrow-right">
+                            </i>
+                        </a>
                     </div>
                 </div>
             </div>
-            {% endif %}
+            <div class="col-lg-6 d-flex align-items-center aos-init aos-animate" data-aos="zoom-out"
+                data-aos-delay="200">
+                <img src="{{ url_for('static',filename='img/hero-img.png')}}" class="img-fluid" alt="">
+            </div>
+        </div>
+    </div>
+</section>
+<section id="pricing" class="pricing">
+    <div class="container aos-init aos-animate" data-aos="fade-up">
+        <header class="section-header">
+            <h2>Four Strands</h2>
+            <p>DCF Strands</p>
+        </header>
+        <div class="row gy-4 aos-init aos-animate" data-aos="fade-left">
+            {% for category in categories %}
+            <div class="col-lg-3 col-md-6 aos-init aos-animate" data-aos="zoom-in" data-aos-delay="100">
+                <div class="box">
+                    <h3>{{category}}</h3>
+                    <img src="{{ url_for('static',filename='img/dinasyddiaeth.png')}}" class="img-fluid" alt="">
+                    <ul>
+                        {% for strand in strands %}
+                        {% if strand.strand_name == category %}
+                        <li>
+                            {{strand.strand_element}}<br>
+                            <a href="{{ url_for('filter_ideas_by_strand_id', strandId=strand.id) }}" class=""><i
+                                    class="bi bi-eye">
+                                </i></a>
+                            {% if session.user %}
+                            <a href="{{ url_for('add_idea') }}" class="strand-button" data-strand="{{ strand.id }}"><i
+                                    class="bi bi-plus">
+                                </i></a>
+                            {% endif %}
+                        </li>
+                        {% endif %}
+                        {% endfor %}
+                    </ul>
+                    <a href="" class="btn-buy">View Ideas
+                    </a>
+                </div>
+            </div>
             {% endfor %}
         </div>
-        {% endfor %}
-        <br>
+    </div>
+</section>
+<section id="values" class="values">
+    <div class="container aos-init aos-animate" data-aos="fade-up">
+        <header class="section-header">
+            <h2>Opportunities across the curriculum</h2>
+            <p>Cross-curricula Frameworks</p>
+        </header>
+        <div class="row">
+            <div class="col-lg-4 aos-init aos-animate" data-aos="fade-up" data-aos-delay="200">
+                <div class="box">
+                    <img src="{{ url_for('static',filename='img/values-1.png')}}" class="img-fluid" alt="">
+                    <h3>Numeracy
+                    </h3>
+                    <p>Being able to use numbers and solve problems in real-life situations
+                    </p>
+                </div>
+            </div>
+            <div class="col-lg-4 mt-4 mt-lg-0 aos-init aos-animate" data-aos="fade-up" data-aos-delay="400">
+                <div class="box">
+                    <img src="{{ url_for('static',filename='img/values-2.png')}}" class="img-fluid" alt="">
+                    <h3>Literacy
+                    </h3>
+                    <p>Developing listening, reading, speaking and writing skills
+                    </p>
+                </div>
+            </div>
+            <div class="col-lg-4 mt-4 mt-lg-0 aos-init aos-animate" data-aos="fade-up" data-aos-delay="600">
+                <div class="box">
+                    <img src="{{ url_for('static',filename='img/values-3.png')}}" class="img-fluid" alt="">
+                    <h3>Digital Competence
+                    </h3>
+                    <p>Being confident using a range of technologies to help them function, communicating
+                        effectively and making sense of the world
+                    </p>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+<section id="features" class="features">
+    <div class="container aos-init aos-animate" data-aos="fade-up">
+        <header class="section-header">
+            <h2>What are the Areas of Learning and Experience (AoLE)?
+            </h2>
+            <p>Areas of Learning and Experience
+            </p>
+            The six areas of learning and experience are:
+        </header>
+        <div class="row">
+            <div class="col-lg-6">
+                <img src="{{ url_for('static',filename='img/features.png')}}" class="img-fluid" alt="">
+            </div>
+            <div class="col-lg-6 mt-5 mt-lg-0 d-flex">
+                <div class="row align-self-center gy-4">
+                    <div class="col-md-6 aos-init aos-animate" data-aos="zoom-out" data-aos-delay="200">
+                        <div class="feature-box d-flex align-items-center">
+                            <i class="bi bi-check">
+                            </i>
+                            <h3>Expressive Arts
+                            </h3>
+                        </div>
+                    </div>
+                    <div class="col-md-6 aos-init aos-animate" data-aos="zoom-out" data-aos-delay="300">
+                        <div class="feature-box d-flex align-items-center">
+                            <i class="bi bi-check">
+                            </i>
+                            <h3>Health and well-being
+                            </h3>
+                        </div>
+                    </div>
+                    <div class="col-md-6 aos-init aos-animate" data-aos="zoom-out" data-aos-delay="400">
+                        <div class="feature-box d-flex align-items-center">
+                            <i class="bi bi-check">
+                            </i>
+                            <h3>Humanities
+                            </h3>
+                        </div>
+                    </div>
+                    <div class="col-md-6 aos-init aos-animate" data-aos="zoom-out" data-aos-delay="500">
+                        <div class="feature-box d-flex align-items-center">
+                            <i class="bi bi-check">
+                            </i>
+                            <h3>Languages, Literacy and Communication
+                            </h3>
+                        </div>
+                    </div>
+                    <div class="col-md-6 aos-init aos-animate" data-aos="zoom-out" data-aos-delay="600">
+                        <div class="feature-box d-flex align-items-center">
+                            <i class="bi bi-check">
+                            </i>
+                            <h3>Mathematics and Numeracy
+                            </h3>
+                        </div>
+                    </div>
+                    <div class="col-md-6 aos-init aos-animate" data-aos="zoom-out" data-aos-delay="700">
+                        <div class="feature-box d-flex align-items-center">
+                            <i class="bi bi-check">
+                            </i>
+                            <h3>Science and Technology
+                            </h3>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+<section id="team" class="team">
+    <div class="container aos-init" data-aos="fade-up">
+        <header class="section-header">
+            <h2>Four Purposes
+            </h2>
+            <p>What are the four purposes of learning?
+            </p>
+            <br>
+            <span>The six AoLEs and the new Welsh curriculum are all centred around four purposes, which the Welsh
+                Government has agreed on and put forward as the main aims for children’s educational outcomes.
+                <br>The four purposes are aiming to develop the children into becoming:</span>
+        </header>
+        <div class="row gy-4">
+            <div class="col-lg-3 col-md-6 d-flex align-items-stretch aos-init" data-aos="fade-up" data-aos-delay="100">
+                <div class="member">
+                    <div class="member-info">
+                        <h4>Ambitious, capable learners
+                        </h4>
+                    </div>
+                </div>
+            </div>
+            <div class="col-lg-3 col-md-6 d-flex align-items-stretch aos-init" data-aos="fade-up" data-aos-delay="200">
+                <div class="member">
+                    <div class="member-info">
+                        <h4>Enterprising, creative contributors</h4>
+                    </div>
+                </div>
+            </div>
+            <div class="col-lg-3 col-md-6 d-flex align-items-stretch aos-init" data-aos="fade-up" data-aos-delay="300">
+                <div class="member">
+                    <div class="member-info">
+                        <h4>Ethical, informed citizens
+                        </h4>
+                    </div>
+                </div>
+            </div>
+            <div class="col-lg-3 col-md-6 d-flex align-items-stretch aos-init" data-aos="fade-up" data-aos-delay="400">
+                <div class="member">
+                    <div class="member-info">
+                        <h4>Healthy, confident individuals
+                        </h4>
+                    </div>
+                </div>
+            </div>
+        </div>
     </div>
 </section>
 {% endblock %}
