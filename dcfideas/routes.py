@@ -62,13 +62,17 @@ def full_idea(idea_id):
         flash("You must be logged in to view full idea details.")
         return redirect(url_for("login"))
     else:
+        dinasyddiaeth_count = Idea.query.filter(Idea.strand_id.between(1,4)).count()
+        rhyngweithio_count = Idea.query.filter(Idea.strand_id.between(5,7)).count()
+        cynhyrchu_count = Idea.query.filter(Idea.strand_id.between(8,10)).count()
+        data_count = Idea.query.filter(Idea.strand_id.between(11,12)).count()
         strands = list(Strand.query.order_by(Strand.id).all())
         categories = set()
         for x in strands:
             categories.add(x.strand_name)
         idea = Idea.query.get_or_404(idea_id)
         recentideas = list(Idea.query.order_by(Idea.created_at.desc()).limit(4).all())
-    return render_template("full_idea.html", idea=idea, strands=strands, recentideas=recentideas, categories=categories)
+    return render_template("full_idea.html", idea=idea, strands=strands, recentideas=recentideas, categories=categories, dinasyddiaeth_count=dinasyddiaeth_count, rhyngweithio_count=rhyngweithio_count, cynhyrchu_count=cynhyrchu_count, data_count=data_count)
 
 
 # --- Update Ideas --- #

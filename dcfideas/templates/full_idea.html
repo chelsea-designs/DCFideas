@@ -94,10 +94,29 @@
 
                         <div class="sidebar-item categories">
                             <ul>
-                                {% for category in categories %}
-                                <li><a href="{{ url_for('ideas') }}">{{category}}
-                                        <span>(25)</span></a></li>
-                                {% endfor %}
+                                <li>
+                                    <a href="{{url_for('ideas')}}">Dinasyddiaeth
+                                        <span>({{dinasyddiaeth_count}})</span>
+                                    </a>
+                                </li>
+
+                                <li>
+                                    <a href="{{url_for('ideas')}}">Rhyngweithio a Chydweithio
+                                        <span>({{rhyngweithio_count}})</span>
+                                    </a>
+                                </li>
+
+                                <li>
+                                    <a href="{{url_for('ideas')}}">Cynhyrchu
+                                        <span>({{cynhyrchu_count}})</span>
+                                    </a>
+                                </li>
+
+                                <li>
+                                    <a href="{{url_for('ideas')}}">Data a Meddwl Cyfrifiadurol
+                                        <span>({{data_count}})</span>
+                                    </a>
+                                </li>
                             </ul>
                         </div><!-- End sidebar categories-->
 
