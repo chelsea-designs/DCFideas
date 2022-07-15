@@ -50,7 +50,7 @@
             <div class="col-lg-3 col-md-6 aos-init aos-animate" data-aos="zoom-in" data-aos-delay="100">
                 <div class="box">
                     <h3>{{category}}</h3>
-                    <img src="{{ url_for('static',filename='img/dinasyddiaeth.png')}}" class="img-fluid" alt="">
+                    <img src="{{ url_for('static',filename='img/'+category|lower+'.png')}}" class="img-fluid" alt="">
                     <ul>
                         {% for strand in strands %}
                         {% if strand.strand_name == category %}
@@ -68,7 +68,8 @@
                         {% endif %}
                         {% endfor %}
                     </ul>
-                    <a href="" class="btn-buy">View Ideas
+                    <a href="" class="btn-buy">View
+                        Ideas
                     </a>
                 </div>
             </div>

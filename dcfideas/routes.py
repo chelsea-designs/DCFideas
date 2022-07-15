@@ -278,4 +278,15 @@ def filter_ideas_by_subject(subject):
     ideas = list(Idea.query.filter_by(subject = subject).all())
     return render_template("ideas.html", ideas=ideas)
 
-
+# --- Filter Ideas By Strand Name  --- #
+# @app.route("/ideas/strand_id<int:strandId>")
+# def filter_ideas_by_strand_name(strandId):
+#     if strandId.between('1', '4'):
+#         ideas = list(Idea.query.filter(strandId.between('1', '4')))
+#     if strandId.between('5', '7'):
+#         ideas = list(Idea.query.filter(strandId.between('5', '7')))
+#     if strandId.between('8', '10'):
+#         ideas = list(Idea.query.filter(strandId.between('8', '10')))
+#     if strandId.between('11', '12'):
+#         ideas = list(Idea.query.filter(strandId.between('11', '12')))
+#     return render_template("ideas.html", ideas=ideas)

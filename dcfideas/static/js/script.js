@@ -300,3 +300,16 @@ $(".idea-button").click(function () {
 window.onload = function () {
   $('#strand_selector').val(localStorage.getItem("storageName"));
 };
+
+// Toggle password visibility
+//https://www.w3schools.com/howto/howto_js_toggle_password.asp
+$(".password-visible").click(function () {
+  id = $(this).attr("data-target");
+  if ($(`#${id}`).attr("type") == "password") {
+    $(`#${id}`).attr("type", "text");
+    $(this).removeClass("fa-eye").addClass("fa-eye-slash");
+  } else if ($(`#${id}`).attr("type") == "text") {
+    $(`#${id}`).attr("type", "password");
+    $(this).removeClass("fa-eye-slash").addClass("fa-eye");
+  }
+});

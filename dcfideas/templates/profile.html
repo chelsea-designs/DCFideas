@@ -35,10 +35,11 @@
                     id="formChangePass">
                     <div class="row">
                         <div class="input-field col s12">
+                            <label for="new_password">New Password</label><br>
                             <i class="fas fa-lock"></i>
-                            <input id="new_password" name="new_password" type="text" minlength="5" maxlength="15"
+                            <input id="new_password" name="new_password" type="password" minlength="5" maxlength="15"
                                 pattern="^[a-zA-Z0-9]{5,15}$" class="validate" required>
-                            <label for="new_password">Change Password</label>
+                            <i class="password-visible far fa-eye" data-target="new_password"></i>
                         </div>
                     </div>
                 </form>
@@ -65,9 +66,10 @@
                 <form action="{{ url_for('delete_account', user_id=username) }}" method="POST" id="formDelAccount">
                     <div class="row">
                         <div class="input-field col-12">
+                            <label for="confirm_deletion">Confirm Password to Delete</label><br>
                             <input id="confirm_deletion" name="confirm_deletion" minlength="5" maxlength="15"
-                                pattern="^[a-zA-Z0-9]{5,15}$" type="text" class="validate" required>
-                            <label for="confirm_deletion">User Password</label>
+                                pattern="^[a-zA-Z0-9]{5,15}$" type="password" class="validate" required>
+                            <i class="password-visible far fa-eye" data-target="confirm_deletion"></i>
                         </div>
                     </div>
                 </form>
