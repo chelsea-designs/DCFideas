@@ -9,7 +9,8 @@ from datetime import datetime
 @app.route("/")
 def home():
     recentideas = list(Idea.query.order_by(Idea.created_at.desc()).limit(4).all())
-    return render_template("index.html", recentideas=recentideas)
+    strands = list(Strand.query.order_by(Strand.id).all())
+    return render_template("index.html", recentideas=recentideas, strands=strands)
 
 
 # ---------- Ideas CRUD Functionality ---------- #

@@ -28,8 +28,7 @@
                     <article class="entry entry-single">
                         {% for strand in strands %}
                         {% if strand.id == idea.strand_id %}
-                        <h2 class="entry-title">{{strand.strand_name}} - {{strand.strand_element}}: {{idea.idea_name}}
-                        </h2>
+                        <h2 class="entry-title">{{strand.strand_name}} - {{strand.strand_element}}</h2>
                         {% endif %}
                         {% endfor %}
                         <div class="entry-meta">
@@ -122,14 +121,19 @@
                         <h3 class="sidebar-title">Recent Ideas</h3>
                         <div class="sidebar-item recent-posts">
                             {% for recentidea in recentideas %}
+                            {% for strand in strands %}
+                            {% if strand.id == recentidea.strand_id %}
                             <div class="post-item clearfix">
                                 <img src="{{ url_for('static',filename='img/strand-icons/strand'+recentidea.strand_id|string+'.png')}}"
                                     alt="" class="img-fluid">
                                 <h4><a
                                         href="{{ url_for('full_idea', idea_id=recentidea.id) }}">{{recentidea.idea_name}}</a>
                                 </h4>
+                                <h4>{{strand.strand_name}} - {{strand.strand_element}}</h4>
                                 <time datetime="2020-01-01">{{recentidea.created_at}}</time>
                             </div>
+                            {% endif %}
+                            {% endfor %}
                             {% endfor %}
 
                         </div><!-- End sidebar recent posts-->
