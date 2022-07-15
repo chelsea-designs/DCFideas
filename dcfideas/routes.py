@@ -52,7 +52,8 @@ def about():
 @app.route("/ideas")
 def ideas():
     ideas = list(Idea.query.order_by(Idea.idea_name).all())
-    return render_template("ideas.html", ideas=ideas)
+    strands = list(Strand.query.order_by(Strand.id).all())
+    return render_template("ideas.html", ideas=ideas, strands=strands)
 
 @app.route("/full_idea/<int:idea_id>")
 def full_idea(idea_id):
