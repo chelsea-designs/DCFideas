@@ -19,7 +19,8 @@
             {% for idea in ideas %}
             <div class="col-lg-4 col-md-6" data-aos="fade-up" data-aos-delay="200">
                 <div class="service-box blue">
-                    <i class=" ri-discuss-line icon"></i>
+                    <img src="{{ url_for('static',filename='img/strand-icons/strand'+idea.strand_id|string+'.png')}}"
+                        alt="" class="img-fluid">
                     <h3>{{ idea.idea_name }}</h3>
                     <ul class="p-0 m-0 list-unstyled">
                         <li><i class="fas fa-trophy"></i> {{ idea.cam_cynnydd }}</li>

@@ -28,7 +28,8 @@
                     <article class="entry entry-single">
 
                         <div class="entry-img">
-                            <img src="assets/img/blog/blog-1.jpg" alt="" class="img-fluid">
+                            <img src="{{ url_for('static',filename='img/strand-icons/strand'+idea.strand_id|string+'.png')}}"
+                                alt="" class="img-fluid">
                         </div>
 
                         <h2 class="entry-title">Strand Name - Strand Element: {{idea.idea_name}}</h2>
@@ -124,7 +125,8 @@
                         <div class="sidebar-item recent-posts">
                             {% for recentidea in recentideas %}
                             <div class="post-item clearfix">
-                                <img src="assets/img/blog/blog-recent-1.jpg" alt="">
+                                <img src="{{ url_for('static',filename='img/strand-icons/strand'+recentidea.strand_id|string+'.png')}}"
+                                    alt="" class="img-fluid">
                                 <h4><a
                                         href="{{ url_for('full_idea', idea_id=recentidea.id) }}">{{recentidea.idea_name}}</a>
                                 </h4>
