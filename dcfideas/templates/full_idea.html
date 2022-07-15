@@ -26,9 +26,12 @@
                 <div class="col-lg-8 entries">
 
                     <article class="entry entry-single">
-
-                        <h2 class="entry-title">Strand Name - Strand Element: {{idea.idea_name}}</h2>
-
+                        {% for strand in strands %}
+                        {% if strand.id == idea.strand_id %}
+                        <h2 class="entry-title">{{strand.strand_name}} - {{strand.strand_element}}: {{idea.idea_name}}
+                        </h2>
+                        {% endif %}
+                        {% endfor %}
                         <div class="entry-meta">
                             <ul>
                                 <li class="d-flex align-items-center"><i class="bi bi-chat-dots"></i>Cam Cynnydd:
