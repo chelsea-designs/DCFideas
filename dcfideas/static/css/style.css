@@ -1279,12 +1279,11 @@ section {
 }
 
 .team .member .member-info {
-  padding: 10px 15px 20px 15px;
+  padding: 20px 15px 20px 15px;
 }
 
 .team .member .member-info h4 {
   font-weight: 700;
-  margin-bottom: 5px;
   font-size: 20px;
   color: #012970;
 }
@@ -1307,11 +1306,6 @@ section {
 .team .member:hover {
   transform: scale(1.08);
   box-shadow: 0px 0 30px rgba(1, 41, 112, 0.1);
-}
-
-.team .member:hover .social {
-  right: 8px;
-  opacity: 1;
 }
 
 /*--------------------------------------------------------------
@@ -2152,4 +2146,8 @@ body .modal-backdrop.fade.in {
 .flashes {
   background-color: #F6F9FF;
   color: #012970;
+}
+
+.btn-login {
+  width: fit-content;
 }
