@@ -26,7 +26,7 @@
                             class="btn-read-more d-inline-flex align-items-center justify-content-center align-self-center">
                             <span>Read More
                             </span>
-                            <i class="bi bi-arrow-right">
+                            <i class="fas fa-arrow-right">
                             </i>
                         </a>
                     </div>
@@ -50,18 +50,19 @@
             <div class="col-lg-3 col-md-6 aos-init aos-animate" data-aos="zoom-in" data-aos-delay="100">
                 <div class="box">
                     <h3>{{category}}</h3>
-                    <img src="{{ url_for('static',filename='img/'+category|lower+'.png')}}" class="img-fluid" alt="">
+                    <img src="{{ url_for('static',filename='img/'+category.lower().replace(' ','')+'.png')}}"
+                        class="img-fluid" alt="">
                     <ul>
                         {% for strand in strands %}
                         {% if strand.strand_name == category %}
                         <li>
                             {{strand.strand_element}}<br>
                             <a href="{{ url_for('filter_ideas_by_strand_id', strandId=strand.id) }}" class=""><i
-                                    class="bi bi-eye">
+                                    class="fas fa-eye">
                                 </i></a>
                             {% if session.user %}
                             <a href="{{ url_for('add_idea') }}" class="strand-button" data-strand="{{ strand.id }}"><i
-                                    class="bi bi-plus">
+                                    class="fas fa-plus">
                                 </i></a>
                             {% endif %}
                         </li>
@@ -132,7 +133,7 @@
                 <div class="row align-self-center gy-4">
                     <div class="col-md-6 aos-init aos-animate" data-aos="zoom-out" data-aos-delay="200">
                         <div class="feature-box d-flex align-items-center">
-                            <i class="bi bi-check">
+                            <i class="fas fa-check">
                             </i>
                             <h3>Expressive Arts
                             </h3>
@@ -140,7 +141,7 @@
                     </div>
                     <div class="col-md-6 aos-init aos-animate" data-aos="zoom-out" data-aos-delay="300">
                         <div class="feature-box d-flex align-items-center">
-                            <i class="bi bi-check">
+                            <i class="fas fa-check">
                             </i>
                             <h3>Health and well-being
                             </h3>
@@ -148,7 +149,7 @@
                     </div>
                     <div class="col-md-6 aos-init aos-animate" data-aos="zoom-out" data-aos-delay="400">
                         <div class="feature-box d-flex align-items-center">
-                            <i class="bi bi-check">
+                            <i class="fas fa-check">
                             </i>
                             <h3>Humanities
                             </h3>
@@ -156,7 +157,7 @@
                     </div>
                     <div class="col-md-6 aos-init aos-animate" data-aos="zoom-out" data-aos-delay="500">
                         <div class="feature-box d-flex align-items-center">
-                            <i class="bi bi-check">
+                            <i class="fas fa-check">
                             </i>
                             <h3>Languages, Literacy and Communication
                             </h3>
@@ -164,7 +165,7 @@
                     </div>
                     <div class="col-md-6 aos-init aos-animate" data-aos="zoom-out" data-aos-delay="600">
                         <div class="feature-box d-flex align-items-center">
-                            <i class="bi bi-check">
+                            <i class="fas fa-check">
                             </i>
                             <h3>Mathematics and Numeracy
                             </h3>
@@ -172,7 +173,7 @@
                     </div>
                     <div class="col-md-6 aos-init aos-animate" data-aos="zoom-out" data-aos-delay="700">
                         <div class="feature-box d-flex align-items-center">
-                            <i class="bi bi-check">
+                            <i class="fas fa-check">
                             </i>
                             <h3>Science and Technology
                             </h3>

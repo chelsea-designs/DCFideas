@@ -25,9 +25,9 @@
                         alt="" class="img-fluid">
                     <h3>{{ idea.idea_name }}</h3>
                     <ul class="p-0 m-0 list-unstyled">
-                        <li><i class="fas fa-trophy"></i> {{ idea.cam_cynnydd }}</li>
+                        <li><i class="fas fa-tasks"></i> {{ idea.cam_cynnydd }}</li>
                         <li><i class="fas fa-user"></i> {{ idea.created_by }}</li>
-                        <li><i class="fas fa-list"></i> {{ idea.subject }}</li>
+                        <li><i class="fas fa-tags"></i> {{ idea.subject }}</li>
                         <li>
                             {{strand.strand_name}}: {{strand.strand_element}}
                         </li>
@@ -37,9 +37,9 @@
                     {% endfor %}
                     {% if session.user|lower == idea.created_by|lower or session.user|lower == "admin"|lower %}
                     <a href="{{ url_for('update_idea', idea_id=idea.id) }}" class="btn btn-outline-secondary">Edit<i
-                            class="bi bi-pencil"></i></a>
+                            class="fas fa-pencil"></i></a>
                     <button class="btn btn-secondary" data-bs-toggle="modal"
-                        data-bs-target="#deleteModal{{ loop.index }}">Delete<i class="bi bi-trash"></i></button>
+                        data-bs-target="#deleteModal{{ loop.index }}">Delete<i class="fas fa-trash"></i></button>
                     {% endif %}
                 </div>
             </div>
@@ -57,7 +57,7 @@
                         </div>
                         <div class="modal-footer">
                             <a href="{{ url_for('delete_idea', idea_id=idea.id) }}" class="btn btn-secondary">Delete<i
-                                    class="bi bi-trash"></i></a>
+                                    class="fas fa-trash"></i></a>
                             <button type="button" class="btn btn-primary" data-bs-dismiss="modal">Close</button>
                         </div>
                     </div>

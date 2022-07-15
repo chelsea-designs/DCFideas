@@ -33,10 +33,10 @@
                         {% endfor %}
                         <div class="entry-meta">
                             <ul>
-                                <li class="d-flex align-items-center"><i class="bi bi-chat-dots"></i>Cam Cynnydd:
+                                <li class="d-flex align-items-center"><i class="fas fa-chat-dots"></i>Cam Cynnydd:
                                     {{idea.cam_cynnydd}}
                                 </li>
-                                <li class="d-flex align-items-center"><i class="bi bi-folder"></i>Subject:
+                                <li class="d-flex align-items-center"><i class="fas fa-folder"></i>Subject:
                                     {{idea.subject}}
                                 </li>
                             </ul>
@@ -48,12 +48,12 @@
                         </div>
 
                         <div class="entry-footer">
-                            <i class="bi bi-person"></i>
+                            <i class="fas fa-person"></i>
                             <ul class="cats">
                                 <li>{{idea.created_by}}</li>
                             </ul>
 
-                            <i class="bi bi-clock"></i>
+                            <i class="fas fa-clock"></i>
                             <ul class="tags">
                                 <li>{{idea.created_at}}</li>
                             </ul>
@@ -82,9 +82,9 @@
                         <h3 class="sidebar-title">Manage Idea</h3>
                         <div class="sidebar-item">
                             <a href="{{ url_for('update_idea', idea_id=idea.id) }}"
-                                class="btn btn-outline-secondary">Edit<i class="bi bi-pencil"></i></a>
+                                class="btn btn-outline-secondary">Edit<i class="fas fa-pencil"></i></a>
                             <button class="btn btn-secondary" data-bs-toggle="modal"
-                                data-bs-target="#deleteModal">Delete<i class="bi bi-trash"></i></button>
+                                data-bs-target="#deleteModal">Delete<i class="fas fa-trash"></i></button>
                         </div>
                         {% endif %}
 
@@ -175,7 +175,7 @@
             </div>
             <div class="modal-footer">
                 <a href="{{ url_for('delete_idea', idea_id=idea.id) }}" class="btn btn-secondary">Delete<i
-                        class="bi bi-trash"></i></a>
+                        class="fas fa-trash"></i></a>
                 <button type="button" class="btn btn-primary" data-bs-dismiss="modal">Close</button>
             </div>
         </div>
