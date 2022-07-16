@@ -265,28 +265,30 @@ def search():
 
     return render_template("ideas.html", searched = searched, ideas = ideas, strands=strands)
 
-
 # --- Filter Ideas By Strand Id  --- #
 @app.route("/ideas/strand_id<int:strandId>")
 def filter_ideas_by_strand_id(strandId):
     ideas = list(Idea.query.filter_by(strand_id = strandId).all())
-    return render_template("ideas.html", ideas=ideas)
+    strands = list(Strand.query.order_by(Strand.id).all())
+    return render_template("ideas.html", ideas=ideas, strands=strands)
 
 # --- Filter Ideas By Subject  --- #
 @app.route("/ideas/subject<subject>")
 def filter_ideas_by_subject(subject):
     ideas = list(Idea.query.filter_by(subject = subject).all())
-    return render_template("ideas.html", ideas=ideas)
+    strands = list(Strand.query.order_by(Strand.id).all())
+    return render_template("ideas.html", ideas=ideas, strands=strands)
 
-# --- Filter Ideas By Strand Name  --- #
-# @app.route("/ideas/strand_id<int:strandId>")
-# def filter_ideas_by_strand_name(strandId):
-#     if strandId.between('1', '4'):
-#         ideas = list(Idea.query.filter(strandId.between('1', '4')))
-#     if strandId.between('5', '7'):
-#         ideas = list(Idea.query.filter(strandId.between('5', '7')))
-#     if strandId.between('8', '10'):
-#         ideas = list(Idea.query.filter(strandId.between('8', '10')))
-#     if strandId.between('11', '12'):
-#         ideas = list(Idea.query.filter(strandId.between('11', '12')))
-#     return render_template("ideas.html", ideas=ideas)
+# --- Filter Ideas By Cam Cynnydd  --- #
+@app.route("/ideas/cam_cynnydd<cc>")
+def filter_ideas_by_cam_cynnydd(cc):
+    ideas = list(Idea.query.filter_by(cam_cynnydd = cc).all())
+    strands = list(Strand.query.order_by(Strand.id).all())
+    return render_template("ideas.html", ideas=ideas, strands=strands)
+
+# --- Filter Ideas By User  --- #
+@app.route("/ideas/user<username>")
+def filter_ideas_by_user(username):
+    ideas = list(Idea.query.filter_by(created_by = username).all())
+    strands = list(Strand.query.order_by(Strand.id).all())
+    return render_template("ideas.html", ideas=ideas, strands=strands)

@@ -1,4 +1,4 @@
-# **DCF Ideas**
+F# **DCF Ideas**
 
 DCF Ideas is a web Application, built specifically for the Milestone 3, Data-Centric Development Project for the Code Institute Full Stack Software Development Diploma. The purpose of the project, is to give users access to sharable information and ideas, around the Digital Competence Framework (DCF) for schools, through a number of different platforms. The Application is built, following the "CRUD" principles and will allow users to Create, Read, Update and Delete content. 
 
@@ -468,7 +468,8 @@ echo web: python app.py
 ## Credits
 
 ### **Content**
-- The code and text for this website was created by Chelsea Williams.
+- Text about the Digital Competence Framework from [Twinkl DCF](https://www.twinkl.co.uk/teaching-wiki/dcf-wales#:~:text=The%20DCF%20(Wales)&text=developing%20listening%2C%20reading%2C%20speaking%20and,technologies%20to%20help%20them%20function)
+- All other code and text for this website was created by Chelsea Williams.
 
 ### **Media**
 - The main Image on the home page is from [Pixabay](https://pixabay.com/)

@@ -33,11 +33,14 @@
                         {% endfor %}
                         <div class="entry-meta">
                             <ul>
-                                <li class="d-flex align-items-center"><i class="fas fa-chat-dots"></i>Cam Cynnydd:
-                                    {{idea.cam_cynnydd}}
+                                <li class="d-flex align-items-center">
+                                    <a href="{{ url_for('filter_ideas_by_cam_cynnydd', cc=idea.cam_cynnydd) }}">Cam
+                                        Cynnydd:
+                                        {{idea.cam_cynnydd}}</a>
                                 </li>
-                                <li class="d-flex align-items-center"><i class="fas fa-folder"></i>Subject:
-                                    {{idea.subject}}
+                                <li class="d-flex align-items-center">
+                                    <a href="{{ url_for('filter_ideas_by_subject', subject=idea.subject) }}">Subject:
+                                        {{idea.subject}}</a>
                                 </li>
                             </ul>
                         </div>
@@ -50,7 +53,9 @@
                         <div class="entry-footer">
                             <i class="fas fa-person"></i>
                             <ul class="cats">
-                                <li>{{idea.created_by}}</li>
+                                <li><i class="fas fa-user"></i> <a
+                                        href="{{ url_for('filter_ideas_by_user', username=idea.created_by) }}">{{idea.created_by}}</a>
+                                </li>
                             </ul>
 
                             <i class="fas fa-clock"></i>
@@ -141,7 +146,7 @@
                         <h3 class="sidebar-title">Subject</h3>
                         <div class="sidebar-item tags">
                             <ul>
-                                {% for idea in ideas %}
+                                {% for subject in subjects %}
                                 <li><a
                                         href="{{ url_for('filter_ideas_by_subject', subject=idea.subject) }}">{{idea.subject}}</a>
                                 </li>
