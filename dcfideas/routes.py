@@ -255,18 +255,16 @@ def delete_account(user_id):
 
 # ---------- Search and Filter Functionality ---------- #
 
-# --- Search  --- #
-# @app.route('/search_query', methods=['POST'])
-# def search_query():
-#     if request.method: "POST"
-#     connection = psycopg2.connect(database="dcfideas")
-#     cursor = conn.cursor()
-#     query=request.form.get('query')
-#     sq_ = request.form.get('searchQuery')
-#     x=request.form.get('x')
-#     cursor.execute("""CREATE TABLE `%s`( NAME VARCHAR(50) DEFAULT NULL) """ % (query))
-#     print(sq_)
-#     return render_template('ideas.html', search_query=sq_)
+# --- New Search --- #
+@app.route('/search', methods=["POST"])
+def search():
+    if request.method: "POST"
+    searched = request.form.get('searched')
+    ideas = Idea.query.filter(Idea.idea_description.like('%' + searched + '%')).order_by(Idea.idea_name).all()
+    strands = list(Strand.query.order_by(Strand.id).all())
+
+    return render_template("ideas.html", searched = searched, ideas = ideas, strands=strands)
+
 
 # --- Filter Ideas By Strand Id  --- #
 @app.route("/ideas/strand_id<int:strandId>")

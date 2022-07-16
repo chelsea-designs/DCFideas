@@ -15,6 +15,19 @@
             {% endif %}
         </header>
 
+        <form method="POST" action="{{ url_for('search')}}">
+            <div class="row">
+                <label for="searched">Search Ideas</label>
+                <div class="input-field col-sm-12 col-md-8 col-xl-10">
+                    <input class="form-control" type="search" placeholder="Search" aria-label="Search" name="searched">
+                </div>
+                <div class="col-sm-12 col-md-4 col-xl-2 text-center">
+                    <button class="btn btn-primary" type="submit">Search</button>
+                    <a href="{{ url_for('ideas') }}" class="btn btn-outline-secondary">Reset</a>
+                </div>
+            </div>
+        </form>
+
         <div class="row gy-4">
             {% for idea in ideas %}
             <div class="col-lg-4 col-md-6" data-aos="fade-up" data-aos-delay="200">
