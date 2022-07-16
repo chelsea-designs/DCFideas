@@ -94,15 +94,28 @@
         {% for idea in ideas if session.user|lower == idea.created_by|lower %}
         <div class="col-lg-4 col-md-6" data-aos="fade-up" data-aos-delay="200">
             <div class="service-box blue">
-                <img src="{{ url_for('static',filename='img/strand-icons/strand'+idea.strand_id|string+'.png')}}" alt=""
-                    class="img-fluid">
+                {% for strand in strands %}
+                {% if strand.id == idea.strand_id %}
+                <img src="{{ url_for('static',filename='img/'+strand.strand_name.lower().replace(' ','')+'.png')}}"
+                    alt="" class="img-fluid">
                 <h3>{{ idea.idea_name }}</h3>
                 <ul class="p-0 m-0 list-unstyled">
-                    <li><i class="fas fa-tasks"></i> {{ idea.cam_cynnydd }}</li>
-                    <li><i class="fas fa-user"></i> {{ idea.created_by }}</li>
-                    <li><i class="fas fa-tags"></i> {{ idea.subject }}</li>
+                    <li>Cam Cynnydd: <a
+                            href="{{ url_for('filter_ideas_by_cam_cynnydd', cc=idea.cam_cynnydd) }}">{{idea.cam_cynnydd}}</a>
+                    </li>
+                    <li>Created By: <a
+                            href="{{ url_for('filter_ideas_by_user', username=idea.created_by) }}">{{ idea.created_by }}</a>
+                    </li>
+                    <li>Subject: <a
+                            href="{{ url_for('filter_ideas_by_subject', subject=idea.subject) }}">{{idea.subject}}</a>
+                    </li>Strand:
+                    <li><a href="{{ url_for('filter_ideas_by_strand_id', strandId=idea.strand_id) }}">{{strand.strand_name}}:
+                            {{strand.strand_element}}</a>
+                    </li>
                     <li><a href="{{ url_for('full_idea', idea_id=idea.id) }}">Read more...</a></li>
                 </ul>
+                {% endif %}
+                {% endfor %}
                 {% if session.user|lower == idea.created_by|lower or session.user|lower == "admin"|lower %}
                 <a href="{{ url_for('update_idea', idea_id=idea.id) }}" class="btn btn-outline-secondary">Edit<i
                         class="fas fa-pencil"></i></a>

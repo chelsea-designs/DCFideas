@@ -146,13 +146,8 @@
                         <h3 class="sidebar-title">Subject</h3>
                         <div class="sidebar-item tags">
                             <ul>
-                                {% for subject in subjects %}
-                                <li><a
-                                        href="{{ url_for('filter_ideas_by_subject', subject=idea.subject) }}">{{idea.subject}}</a>
+                                <li><a href="{{ url_for('filter_ideas_by_subject', subject='Maths') }}">Maths</a>
                                 </li>
-                                {% endfor %}
-                                <li><a href="#">English</a></li>
-                                <li><a href="#">Welsh</a></li>
                             </ul>
                         </div><!-- End sidebar tags-->
 

@@ -483,5 +483,6 @@ echo web: python app.py
 
 ### **Acknowledgements**
 - Thanks to my mentor Narender Singh for guiding me throughout this project.
+- Thank you to Shane Muir, a Code Institute alumnus, who responded to my Slack pleas for help!
 
 ##### back to [top](#contents)
