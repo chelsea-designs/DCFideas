@@ -43,10 +43,13 @@
                             <label for="cam_cynnydd_selector">Cam Cynnydd</label><br>
                             <select id="cam_cynnydd_selector" name="cam_cynnydd_selector" class="form-control" required>
                                 <option value="0" disabled>Choose Cam Cynnydd</option>
-                                <option value="2">2</option>
-                                <option value="3">3</option>
-                                <option value="4">4</option>
-                                <option value="5">5</option>
+                                {% for cam_cynnydd in camau_cynnydd %}
+                                {% if cam_cynnydd|int == idea.cam_cynnydd|int %}
+                                <option value="{{cam_cynnydd}}" selected>{{cam_cynnydd}}</option>
+                                {% else %}
+                                <option value="{{cam_cynnydd}}">{{cam_cynnydd}}</option>
+                                {% endif %}
+                                {% endfor %}
                             </select>
                         </div>
 
@@ -71,16 +74,10 @@
                                 placeholder="Link to Idea Resource" required>{{- idea.idea_resource -}}</textarea>
                         </div>
 
-                        <!-- If I comment this out, strand is not prepopulated, if I leave it in strand is prepopulated. How are they linked?!
-                            <div class="col-md-12">
-                            <label for="strand_selector">Strand</label><br>
-                            <select id="strand_selector" name="strand_selector" class="form-control">
-                                {% for strand in strands %}
-                                {{ strand.id}}
-                                {{ idea.strand_id }}
-                                {% endfor %}
-                            </select>
-                        </div> -->
+                        <!-- Bug: If I remove the snippet below the strand beneath doesn't prepopulate-->
+                        <select id="strand_selector" disabled class="d-none">
+                        </select>
+                        <!-- End of snippet -->
 
                         <div class="col-md-12">
                             <label for="strand_selector">Strand</label><br>

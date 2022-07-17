@@ -20,6 +20,8 @@ def home():
 def add_idea():
     strands = list(Strand.query.order_by(Strand.id).all())
     subjects = ['Cymraeg','Saesneg','Ffrangeg','Sbaeneg','Hanes','Daearyddiaeth','Addysg Grefyddol','Busnes','Celf','Cerddoriaeth','Drama','Mathemateg','Bioleg','Cemeg','Ffiseg','Technoleg Digidol','Dylunio a Thechnoleg','Tecstiliau','Graffeg','Addysg Gorfforol','Bwyd a Maeth','ABCh','Bagloriaeth Cymru']
+    camau_cynnydd = ['2','3','4','5']
+
     if "user" not in session:
         flash("You must be logged in to add ideas.")
         return redirect(url_for("login"))
@@ -40,7 +42,7 @@ def add_idea():
             db.session.commit()
             return redirect(url_for('ideas'))
             flash("Idea added")
-    return render_template("add_idea.html", strands=strands, subjects=subjects)
+    return render_template("add_idea.html", strands=strands, subjects=subjects, camau_cynnydd=camau_cynnydd)
 
 # --- Read Ideas --- #
 @app.route("/about")
@@ -86,6 +88,7 @@ def update_idea(idea_id):
     idea = Idea.query.get_or_404(idea_id)
     strands = list(Strand.query.order_by(Strand.id).all())
     subjects = ['Cymraeg','Saesneg','Ffrangeg','Sbaeneg','Hanes','Daearyddiaeth','Addysg Grefyddol','Busnes','Celf','Cerddoriaeth','Drama','Mathemateg','Bioleg','Cemeg','Ffiseg','Technoleg Digidol','Dylunio a Thechnoleg','Tecstiliau','Graffeg','Addysg Gorfforol','Bwyd a Maeth','ABCh','Bagloriaeth Cymru']
+    camau_cynnydd = ['2','3','4','5']
     if "user" not in session:
         flash("You must be logged in to view edit ideas.")
         return redirect(url_for("login"))
@@ -108,7 +111,7 @@ def update_idea(idea_id):
         else:
             flash("You cannot update other users' ideas.")
             return redirect(url_for("ideas"))
-    return render_template("update_idea.html", idea=idea, strands=strands, subjects=subjects)
+    return render_template("update_idea.html", idea=idea, strands=strands, subjects=subjects, camau_cynnydd=camau_cynnydd)
 
 # --- Delete Ideas --- #
 @app.route("/delete_idea/<int:idea_id>")

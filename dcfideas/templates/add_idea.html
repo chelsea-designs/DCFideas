@@ -30,10 +30,9 @@
                             <label for="cam_cynnydd_selector">Cam Cynnydd</label><br>
                             <select id="cam_cynnydd_selector" name="cam_cynnydd_selector" class="form-control" required>
                                 <option disabled selected>Choose Cam Cynnydd</option>
-                                <option value="2">2</option>
-                                <option value="3">3</option>
-                                <option value="4">4</option>
-                                <option value="5">5</option>
+                                {% for cam_cynnydd in camau_cynnydd %}
+                                <option value="{{cam_cynnydd}}">{{cam_cynnydd}}</option>
+                                {% endfor %}
                             </select>
                         </div>
 
