@@ -53,11 +53,15 @@
                         <div class="col-md-6">
                             <label for="subject_selector">Subject</label><br>
                             <select id="subject_selector" name="subject_selector" class="form-control" required>
-                                <option disabled>Choose Subject</option>
-                                <option value="Maths">Maths</option>
-                                <option value="Science">Science</option>
-                                <option value="English">English</option>
-                                <option value="Welsh">Welsh</option>
+                                <option value="0" disabled selected>Choose a subject</option>
+                                {% for subject in subjects %}
+                                {% if subject == idea.subject %}
+                                <option value="{{ subject }}" selected>{{ subject }}</option>
+                                {% else %}
+                                <option value="{{ subject }}">{{ subject }}
+                                </option>
+                                {% endif %}
+                                {% endfor %}
                             </select>
                         </div>
 
@@ -81,8 +85,9 @@
                         <div class="col-md-12">
                             <label for="strand_selector">Strand</label><br>
                             <select id="strand_selector" name="strand_selector" class="form-control" required>
+                                <option value="0" disabled selected>Choose a strand</option>
                                 {% for strand in strands %}
-                                {% if strand.id == idea.strand_id %}
+                                {% if strand.id |int == idea.strand_id |int %}
                                 <option value="{{ strand.id }}" selected>{{ strand.id }}: {{ strand.strand_name }} -
                                     {{ strand.strand_element }}
                                 </option>

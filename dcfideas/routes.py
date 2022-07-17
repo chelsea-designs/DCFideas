@@ -19,6 +19,7 @@ def home():
 @app.route("/add_idea", methods=["GET", "POST"])
 def add_idea():
     strands = list(Strand.query.order_by(Strand.id).all())
+    subjects = ['Cymraeg','Saesneg','Ffrangeg','Sbaeneg','Hanes','Daearyddiaeth','Addysg Grefyddol','Busnes','Celf','Cerddoriaeth','Drama','Mathemateg','Bioleg','Cemeg','Ffiseg','Technoleg Digidol','Dylunio a Thechnoleg','Tecstiliau','Graffeg','Addysg Gorfforol','Bwyd a Maeth','ABCh','Bagloriaeth Cymru']
     if "user" not in session:
         flash("You must be logged in to add ideas.")
         return redirect(url_for("login"))
@@ -39,7 +40,7 @@ def add_idea():
             db.session.commit()
             return redirect(url_for('ideas'))
             flash("Idea added")
-    return render_template("add_idea.html", strands=strands)
+    return render_template("add_idea.html", strands=strands, subjects=subjects)
 
 # --- Read Ideas --- #
 @app.route("/about")
@@ -73,9 +74,10 @@ def full_idea(idea_id):
         categories = set()
         for x in strands:
             categories.add(x.strand_name)
+        subjects = ['Cymraeg','Saesneg','Ffrangeg','Sbaeneg','Hanes','Daearyddiaeth','Addysg Grefyddol','Busnes','Celf','Cerddoriaeth','Drama','Mathemateg','Bioleg','Cemeg','Ffiseg','Technoleg Digidol','Dylunio a Thechnoleg','Tecstiliau','Graffeg','Addysg Gorfforol','Bwyd a Maeth','ABCh','Bagloriaeth Cymru']
         idea = Idea.query.get_or_404(idea_id)
         recentideas = list(Idea.query.order_by(Idea.created_at.desc()).limit(4).all())
-    return render_template("full_idea.html", idea=idea, strands=strands, recentideas=recentideas, categories=categories, dinasyddiaeth_count=dinasyddiaeth_count, rhyngweithio_count=rhyngweithio_count, cynhyrchu_count=cynhyrchu_count, data_count=data_count)
+    return render_template("full_idea.html", idea=idea, strands=strands, recentideas=recentideas, categories=categories, dinasyddiaeth_count=dinasyddiaeth_count, rhyngweithio_count=rhyngweithio_count, cynhyrchu_count=cynhyrchu_count, data_count=data_count, subjects=subjects)
 
 
 # --- Update Ideas --- #
@@ -83,6 +85,7 @@ def full_idea(idea_id):
 def update_idea(idea_id):
     idea = Idea.query.get_or_404(idea_id)
     strands = list(Strand.query.order_by(Strand.id).all())
+    subjects = ['Cymraeg','Saesneg','Ffrangeg','Sbaeneg','Hanes','Daearyddiaeth','Addysg Grefyddol','Busnes','Celf','Cerddoriaeth','Drama','Mathemateg','Bioleg','Cemeg','Ffiseg','Technoleg Digidol','Dylunio a Thechnoleg','Tecstiliau','Graffeg','Addysg Gorfforol','Bwyd a Maeth','ABCh','Bagloriaeth Cymru']
     if "user" not in session:
         flash("You must be logged in to view edit ideas.")
         return redirect(url_for("login"))
@@ -105,7 +108,7 @@ def update_idea(idea_id):
         else:
             flash("You cannot update other users' ideas.")
             return redirect(url_for("ideas"))
-    return render_template("update_idea.html", idea=idea, strands=strands)
+    return render_template("update_idea.html", idea=idea, strands=strands, subjects=subjects)
 
 # --- Delete Ideas --- #
 @app.route("/delete_idea/<int:idea_id>")

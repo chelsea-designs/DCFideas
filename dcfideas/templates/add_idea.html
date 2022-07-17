@@ -40,11 +40,10 @@
                         <div class="col-md-6">
                             <label for="subject_selector">Subject</label><br>
                             <select id="subject_selector" name="subject_selector" class="form-control" required>
-                                <option value="None" disabled selected>Choose Subject</option>
-                                <option value="Maths">Maths</option>
-                                <option value="Science">Science</option>
-                                <option value="English">English</option>
-                                <option value="Welsh">Welsh</option>
+                                <option value="0" disabled selected>Choose a subject</option>
+                                {% for subject in subjects %}
+                                <option value="{{subject}}">{{subject}}</option>
+                                {% endfor %}
                             </select>
                         </div>
 

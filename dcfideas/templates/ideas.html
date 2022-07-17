@@ -50,15 +50,16 @@
                         <li><a href="{{ url_for('filter_ideas_by_strand_id', strandId=idea.strand_id) }}">{{strand.strand_name}}:
                                 {{strand.strand_element}}</a>
                         </li>
-                        <li><a href="{{ url_for('full_idea', idea_id=idea.id) }}">Read more...</a></li>
                     </ul>
+                    <a href="{{ url_for('full_idea', idea_id=idea.id) }}" class=" btn btn-primary">View <i
+                            class="fas fa-eye"></i></a>
                     {% endif %}
                     {% endfor %}
                     {% if session.user|lower == idea.created_by|lower or session.user|lower == "admin"|lower %}
-                    <a href="{{ url_for('update_idea', idea_id=idea.id) }}" class="btn btn-outline-secondary">Edit<i
-                            class="fas fa-pencil"></i></a>
+                    <a href="{{ url_for('update_idea', idea_id=idea.id) }}" class="btn btn-outline-primary">Edit <i
+                            class="fas fa-pen"></i></a>
                     <button class="btn btn-secondary" data-bs-toggle="modal"
-                        data-bs-target="#deleteModal{{ loop.index }}">Delete<i class="fas fa-trash"></i></button>
+                        data-bs-target="#deleteModal{{ loop.index }}">Delete <i class="fas fa-trash"></i></button>
                     {% endif %}
                 </div>
             </div>

@@ -87,7 +87,7 @@
                         <h3 class="sidebar-title">Manage Idea</h3>
                         <div class="sidebar-item">
                             <a href="{{ url_for('update_idea', idea_id=idea.id) }}"
-                                class="btn btn-outline-secondary">Edit<i class="fas fa-pencil"></i></a>
+                                class="btn btn-outline-secondary">Edit<i class="fas fa-pen"></i></a>
                             <button class="btn btn-secondary" data-bs-toggle="modal"
                                 data-bs-target="#deleteModal">Delete<i class="fas fa-trash"></i></button>
                         </div>
@@ -142,15 +142,15 @@
                             {% endfor %}
 
                         </div><!-- End sidebar recent posts-->
-
                         <h3 class="sidebar-title">Subject</h3>
                         <div class="sidebar-item tags">
                             <ul>
-                                <li><a href="{{ url_for('filter_ideas_by_subject', subject='Maths') }}">Maths</a>
+                                {% for subject in subjects %}
+                                <li><a href="{{ url_for('filter_ideas_by_subject', subject=subject) }}">{{subject}}</a>
                                 </li>
+                                {% endfor %}
                             </ul>
                         </div><!-- End sidebar tags-->
-
                     </div><!-- End sidebar -->
 
                 </div><!-- End blog sidebar -->
