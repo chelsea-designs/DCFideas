@@ -82,7 +82,7 @@
                         <div class="col-md-12">
                             <label for="strand_selector">Strand</label><br>
                             <select id="strand_selector" name="strand_selector" class="form-control" required>
-                                <option value="0" disabled selected>Choose a strand</option>
+                                <option value="0" disabled>Choose a strand</option>
                                 {% for strand in strands %}
                                 {% if strand.id |int == idea.strand_id |int %}
                                 <option value="{{ strand.id }}" selected>{{ strand.id }}: {{ strand.strand_name }} -
