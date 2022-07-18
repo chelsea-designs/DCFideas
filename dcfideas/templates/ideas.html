@@ -28,6 +28,50 @@
                 </div>
             </div>
         </form><br>
+
+        <div class="row">
+            <div class="strandDropdown col-4 btn-outline-primary">
+                <a class="btn dropdown-toggle" data-bs-toggle="dropdown" href="#">
+                    Strand
+                    <span class="caret"></span>
+                </a>
+                <ul class="dropdown-menu" role="menu" aria-labelledby="dLabel">
+                    {% for category in categories %}
+                    <li>
+                        <a href="{{ url_for('filter_ideas_by_strand_name', strand_name=category) }}"
+                            class="mx-4">{{category}}</a>
+                    </li>
+                    {% endfor %}
+                </ul>
+            </div>
+            <div class="subjectDropdown col-4 btn-outline-primary">
+                <a class="btn dropdown-toggle" data-bs-toggle="dropdown" href="#">
+                    Subject
+                    <span class="caret"></span>
+                </a>
+                <ul class="dropdown-menu" role="menu" aria-labelledby="dLabel">
+                    {% for subject in subjects %}
+                    <li>
+                        <a href="{{ url_for('filter_ideas_by_subject', subject=subject) }}" class="mx-4">{{subject}}</a>
+                    </li>
+                    {% endfor %}
+                </ul>
+            </div>
+            <!-- <div class="subjectDropdown col-4 btn-outline-primary">
+                <a class="btn dropdown-toggle" data-bs-toggle="dropdown" href="#">
+                    Subject
+                    <span class="caret"></span>
+                </a>
+                <ul class="dropdown-menu" role="menu" aria-labelledby="dLabel">
+                    {% for subject in subjects %}
+                    <li>
+                        <a href="{{ url_for('ideas')}}?subject={{subject}}" class="mx-4">{{subject}}</a>
+                    </li>
+                    {% endfor %}
+                </ul>
+            </div> -->
+        </div>
+
         {% if ideas|length > 0 %}
         <div class="row gy-4">
             {% for idea in ideas %}
