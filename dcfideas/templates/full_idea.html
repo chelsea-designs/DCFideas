@@ -96,30 +96,14 @@
                         <h3 class="sidebar-title">Strands</h3>
 
                         <div class="sidebar-item categories">
-                            <ul>
+                            <ul>{% for category in categories %}
                                 <li>
-                                    <a href="{{url_for('ideas')}}">Dinasyddiaeth
+                                    <a href="{{ url_for('filter_ideas_by_strand_name', strand_name=category) }}">{{category}}
                                         <span>({{dinasyddiaeth_count}})</span>
+                                        <span>{{category.lower().replace(' ','')}}</span>
                                     </a>
                                 </li>
-
-                                <li>
-                                    <a href="{{url_for('ideas')}}">Rhyngweithio a Chydweithio
-                                        <span>({{rhyngweithio_count}})</span>
-                                    </a>
-                                </li>
-
-                                <li>
-                                    <a href="{{url_for('ideas')}}">Cynhyrchu
-                                        <span>({{cynhyrchu_count}})</span>
-                                    </a>
-                                </li>
-
-                                <li>
-                                    <a href="{{url_for('ideas')}}">Data a Meddwl Cyfrifiadurol
-                                        <span>({{data_count}})</span>
-                                    </a>
-                                </li>
+                                {% endfor %}
                             </ul>
                         </div><!-- End sidebar categories-->
 

@@ -194,6 +194,7 @@ Manual testing of all elements and functionality on every page
 ### Bugs and Fixes
 1. Bug: The mobile menu was appearing off screen, requiring user to scroll horizontally to find it.
    -  Fix: To fix this I used css to show borders for elements to inspect which might be causing unwanted scrolling. I saw this method [here](https://blog.wernull.com/2013/04/debug-ghost-css-elements-causing-unwanted-scrolling/). This showed me that an email address in the footer was overflowing off the screen to the right, I moved the email and phone as icons in the footer and this fixed the issue.
+   - [Mobile Menu Off Screen](dcfideas/static/img/testing/mobile-menu-off-screen.png)
 
 ### Outstanding Bugs
 - A bug was picked up, when testing the Form Validation for the select dropdowns on the create and edit idea pages. If a cateogry is selected, border-bottom does not change to a validated state of green, it instead changes to an invalidated state of red. This was discusssed in depth with the support team at the Code Institue who tested the functionality their end. Upon testing their end, the validation was working as it should. This prompted further testing on my side with different devices, and the validation again appeared to work as it should. The issue appeared to be based on something from my system, and as of yet, I am unable to find a reason for it. The issue also happens when testing on other browsers on my system. As it stands, the user will see the validation work correctly.

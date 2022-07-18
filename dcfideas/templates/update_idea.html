@@ -12,7 +12,7 @@
         <div class="row gy-4">
 
             <div class="col-lg-12">
-                <form class="php-email-form" method="POST" action="{{ url_for('update_idea',idea_id=idea.id) }}">
+                <form method="POST" action="{{ url_for('update_idea',idea_id=idea.id) }}">
                     <div class="row gy-4">
 
                         <div class="col-md-6">
@@ -98,9 +98,6 @@
                         </div>
 
                         <div class="col-md-12 text-center">
-                            <div class="loading">Loading</div>
-                            <div class="error-message"></div>
-                            <div class="sent-message">Your message has been sent. Thank you!</div>
 
                             <button type="submit">Edit Idea <i class="fas fa-paper-plane"></i></button>
                         </div>
