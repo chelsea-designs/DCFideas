@@ -68,10 +68,6 @@ def full_idea(idea_id):
         flash("You must be logged in to view full idea details.")
         return redirect(url_for("login"))
     else:
-        dinasyddiaeth_count = Idea.query.filter(Idea.strand_id.between(1,4)).count()
-        rhyngweithioachydweithio_count = Idea.query.filter(Idea.strand_id.between(5,7)).count()
-        cynhyrchu_count = Idea.query.filter(Idea.strand_id.between(8,10)).count()
-        dataameddwlcyfrifiadurol_count = Idea.query.filter(Idea.strand_id.between(11,12)).count()
         strands = list(Strand.query.order_by(Strand.id).all())
         categories = set()
         for x in strands:
@@ -79,7 +75,7 @@ def full_idea(idea_id):
         subjects = ['Cymraeg','Saesneg','Ffrangeg','Sbaeneg','Hanes','Daearyddiaeth','Addysg Grefyddol','Busnes','Celf','Cerddoriaeth','Drama','Mathemateg','Bioleg','Cemeg','Ffiseg','Technoleg Digidol','Dylunio a Thechnoleg','Tecstiliau','Graffeg','Addysg Gorfforol','Bwyd a Maeth','ABCh','Bagloriaeth Cymru']
         idea = Idea.query.get_or_404(idea_id)
         recentideas = list(Idea.query.order_by(Idea.created_at.desc()).limit(3).all())
-    return render_template("full_idea.html", idea=idea, strands=strands, recentideas=recentideas, categories=categories, dinasyddiaeth_count=dinasyddiaeth_count, rhyngweithioachydweithio_count=rhyngweithioachydweithio_count, cynhyrchu_count=cynhyrchu_count, dataameddwlcyfrifiadurol_count=dataameddwlcyfrifiadurol_count, subjects=subjects)
+    return render_template("full_idea.html", idea=idea, strands=strands, recentideas=recentideas, categories=categories, subjects=subjects)
 
 
 # --- Update Ideas --- #

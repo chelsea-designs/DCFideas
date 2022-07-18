@@ -46,7 +46,7 @@ section {
 
 .section-header {
   text-align: center;
-  padding: 100px 0px
+  padding: 100px 0px 50px 0px;
 }
 
 .section-header h2 {
@@ -953,6 +953,10 @@ section {
 
 .team .member .member-info {
   padding: 20px 15px 20px 15px;
+  min-height: 120px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
 }
 
 .team .member .member-info h4 {
@@ -1556,42 +1560,4 @@ body .modal-backdrop.fade.in {
 
 .btn-login {
   width: fit-content;
-}
-
-.tooltip {
-  position: relative;
-  display: inline-block;
-}
-
-.tooltip .tooltiptext {
-  visibility: hidden;
-  width: 140px;
-  background-color: #555;
-  color: #fff;
-  text-align: center;
-  border-radius: 6px;
-  padding: 5px;
-  position: absolute;
-  z-index: 1;
-  bottom: 150%;
-  left: 50%;
-  margin-left: -75px;
-  opacity: 0;
-  transition: opacity 0.3s;
-}
-
-.tooltip .tooltiptext::after {
-  content: "";
-  position: absolute;
-  top: 100%;
-  left: 50%;
-  margin-left: -5px;
-  border-width: 5px;
-  border-style: solid;
-  border-color: #555 transparent transparent transparent;
-}
-
-.tooltip:hover .tooltiptext {
-  visibility: visible;
-  opacity: 1;
 }

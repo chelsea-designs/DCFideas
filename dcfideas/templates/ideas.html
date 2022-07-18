@@ -28,7 +28,7 @@
                 </div>
             </div>
         </form><br>
-
+        {% if ideas|length > 0 %}
         <div class="row gy-4">
             {% for idea in ideas %}
             <div class="col-lg-4 col-md-6" data-aos="fade-up" data-aos-delay="200">
@@ -86,6 +86,11 @@
             </div>
             {% endfor %}
         </div>
+        {% else %}
+        <h4 class="text-center py-5">No ideas to display, how about <a href="{{ url_for('add_idea') }}"
+                class="idea-button">creating
+                a new one?</a></h4>
+        {% endif %}
 
     </div>
 </section>

@@ -70,16 +70,11 @@
                         <h4>Idea Resource Link</h4>
                         <div class="row">
                             <div class="col-12">
-                                <!-- The text field -->
-                                <input type="text" value="{{idea.idea_resource}}" id="myInput">
-
-                                <!-- The button used to copy the text -->
-                                <div class="tooltip">
-                                    <button class="btn btn-primary" onclick="myFunction()" onmouseout="outFunc()">
-                                        <span class="tooltiptext" id="myTooltip">Copy to clipboard</span>
-                                        Copy text <i class="fas fa-copy"></i>
-                                    </button>
-                                </div>
+                                <input class="col-10" type="text" value="{{idea.idea_resource}}" id="linkInput"
+                                    disabled>
+                                <button class="btn btn-outline-secondary col-1" onclick="copyLink()">
+                                    <i class="fas fa-copy"></i>
+                                </button>
                             </div>
                         </div>
                     </div><!-- End blog author bio -->
@@ -102,11 +97,9 @@
 
                         <div class="sidebar-item categories">
                             <ul>{% for category in categories %}
+
                                 <li>
                                     <a href="{{ url_for('filter_ideas_by_strand_name', strand_name=category) }}">{{category}}
-                                        <span>({{dinasyddiaeth_count}})</span>
-                                        <span>{{category.lower().replace(' ','')}}</span>
-                                        <span>?? {{category.strand_id}}</span>
                                     </a>
                                 </li>
                                 {% endfor %}
