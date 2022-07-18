@@ -40,13 +40,13 @@ h6 {
 # Sections
 --------------------------------------------------------------*/
 section {
-  padding: 60px 0;
+  padding: 0px 0;
   overflow: hidden;
 }
 
 .section-header {
   text-align: center;
-  padding-bottom: 40px;
+  padding: 100px 0px
 }
 
 .section-header h2 {
@@ -173,7 +173,7 @@ section {
 .header {
   transition: all 0.5s;
   z-index: 997;
-  padding: 20px 0;
+  padding: 30px 0;
 }
 
 .header.header-scrolled {
@@ -681,7 +681,7 @@ section {
 .features .feature-box i {
   line-height: 0;
   background: #F6F9FF;
-  padding: 4px;
+  padding: 20px;
   margin-right: 10px;
   font-size: 24px;
   border-radius: 3px;
@@ -1550,10 +1550,48 @@ body .modal-backdrop.fade.in {
 
 /*--- Flashes --- */
 .flashes {
-  background-color: #F6F9FF;
-  color: #012970;
+  color: #F6F9FF;
+  background-color: #012970;
 }
 
 .btn-login {
   width: fit-content;
+}
+
+.tooltip {
+  position: relative;
+  display: inline-block;
+}
+
+.tooltip .tooltiptext {
+  visibility: hidden;
+  width: 140px;
+  background-color: #555;
+  color: #fff;
+  text-align: center;
+  border-radius: 6px;
+  padding: 5px;
+  position: absolute;
+  z-index: 1;
+  bottom: 150%;
+  left: 50%;
+  margin-left: -75px;
+  opacity: 0;
+  transition: opacity 0.3s;
+}
+
+.tooltip .tooltiptext::after {
+  content: "";
+  position: absolute;
+  top: 100%;
+  left: 50%;
+  margin-left: -5px;
+  border-width: 5px;
+  border-style: solid;
+  border-color: #555 transparent transparent transparent;
+}
+
+.tooltip:hover .tooltiptext {
+  visibility: visible;
+  opacity: 1;
 }

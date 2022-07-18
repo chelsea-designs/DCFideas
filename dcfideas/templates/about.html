@@ -1,6 +1,11 @@
 {% extends "base.html" %}
 {% block content %}
 
+<header class="section-header">
+    <h2>About</h2>
+    <p>The Digital Competence Framework</p>
+</header>
+
 <section id="about" class="about">
     <div class="container aos-init aos-animate" data-aos="fade-up">
         <div class="row gx-0">
@@ -69,7 +74,7 @@
                         {% endif %}
                         {% endfor %}
                     </ul>
-                    <a href="" class="btn-buy">View
+                    <a href="{{ url_for('filter_ideas_by_strand_name', strand_name=category) }}" class="btn-buy">View
                         Ideas
                     </a>
                 </div>

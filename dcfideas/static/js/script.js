@@ -197,3 +197,20 @@ $(".password-visible").click(function () {
     $(this).removeClass("fa-eye-slash").addClass("fa-eye");
   }
 });
+
+// Copy Link Text
+//https://www.w3schools.com/howto/howto_js_copy_clipboard.asp
+function myFunction() {
+  var copyText = document.getElementById("myInput");
+  copyText.select();
+  copyText.setSelectionRange(0, 99999);
+  navigator.clipboard.writeText(copyText.value);
+
+  var tooltip = document.getElementById("myTooltip");
+  tooltip.innerHTML = "Copied: " + copyText.value;
+}
+
+function outFunc() {
+  var tooltip = document.getElementById("myTooltip");
+  tooltip.innerHTML = "Copy to clipboard";
+}

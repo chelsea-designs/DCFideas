@@ -8,7 +8,7 @@ from datetime import datetime
 
 @app.route("/")
 def home():
-    recentideas = list(Idea.query.order_by(Idea.created_at.desc()).limit(4).all())
+    recentideas = list(Idea.query.order_by(Idea.created_at.desc()).limit(3).all())
     strands = list(Strand.query.order_by(Strand.id).all())
     return render_template("index.html", recentideas=recentideas, strands=strands)
 
@@ -78,7 +78,7 @@ def full_idea(idea_id):
             categories.add(x.strand_name)
         subjects = ['Cymraeg','Saesneg','Ffrangeg','Sbaeneg','Hanes','Daearyddiaeth','Addysg Grefyddol','Busnes','Celf','Cerddoriaeth','Drama','Mathemateg','Bioleg','Cemeg','Ffiseg','Technoleg Digidol','Dylunio a Thechnoleg','Tecstiliau','Graffeg','Addysg Gorfforol','Bwyd a Maeth','ABCh','Bagloriaeth Cymru']
         idea = Idea.query.get_or_404(idea_id)
-        recentideas = list(Idea.query.order_by(Idea.created_at.desc()).limit(4).all())
+        recentideas = list(Idea.query.order_by(Idea.created_at.desc()).limit(3).all())
     return render_template("full_idea.html", idea=idea, strands=strands, recentideas=recentideas, categories=categories, dinasyddiaeth_count=dinasyddiaeth_count, rhyngweithioachydweithio_count=rhyngweithioachydweithio_count, cynhyrchu_count=cynhyrchu_count, dataameddwlcyfrifiadurol_count=dataameddwlcyfrifiadurol_count, subjects=subjects)
 
 
@@ -278,20 +278,6 @@ def filter_ideas_by_strand_id(strandId):
     ideas = list(Idea.query.filter_by(strand_id = strandId).all())
     strands = list(Strand.query.order_by(Strand.id).all())
     return render_template("ideas.html", ideas=ideas, strands=strands)
-
-# --- Filter Ideas By Strand Name --- #
-# @app.route("/ideas/strand_id<int:strandId>")
-# def filter_ideas_by_strand_name(strandId):
-#     strands = list(Strand.query.order_by(Strand.id).all())
-#     if 1 <= strandId <= 4:
-#         ideas = list(Idea.query.filter(Idea.strand_id.between(1,4)).all())
-#     elif 5 <= strandId <= 7:
-#         ideas = list(Idea.query.filter(Idea.strand_id.between(5,7)).all())
-#     elif 8 <= strandId <= 10:
-#         ideas = list(Idea.query.filter(Idea.strand_id.between(8,10)).all())
-#     elif 11 <= strandId <= 12:
-#         ideas = list(Idea.query.filter(Idea.strand_id.between(11,12)).all())
-#     return render_template("ideas.html", ideas=ideas, strands=strands)
 
 # --- Filter Ideas By Strand Name  --- #
 @app.route("/ideas/strand_name<strand_name>")
