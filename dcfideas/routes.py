@@ -85,7 +85,7 @@ def update_idea(idea_id):
     else:
         if session["user"].lower() == idea.created_by.lower() or session["user"].lower() == "admin".lower():
             print("testing")
-            print(request.form.get("strand_selector"))
+            print(idea.strand_id)
             if request.method == "POST":
                 idea.idea_name = request.form.get("idea_name"),
                 idea.idea_description = request.form.get("idea_description"),

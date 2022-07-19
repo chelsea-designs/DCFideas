@@ -174,15 +174,15 @@
 
 $(".strand-button").click(function () {
   getValue = $(this).data('strand');
-  localStorage.setItem("storageName", getValue);
+  localStorage.setItem("storeStrand", getValue);
 });
 
 $(".idea-button").click(function () {
-  localStorage.setItem("storageName", 0);
+  localStorage.setItem("storeStrand", 0);
 });
 
 window.onload = function () {
-  $('#strand_selector').val(localStorage.getItem("storageName"));
+  $('#strand_selector').val(localStorage.getItem("storeStrand"));
 };
 
 // Toggle password visibility
@@ -207,7 +207,8 @@ function copyLink() {
   navigator.clipboard.writeText(copyLink.value);
 }
 
-//Submenu
+//Submenu Dropdown
+// https://www.w3schools.com/bootstrap/tryit.asp?filename=trybs_ref_js_dropdown_multilevel_css&stacked=h
 $(document).ready(function () {
   $('.dropdown-submenu a.test').on("click", function (e) {
     $(this).next('ul').toggle();

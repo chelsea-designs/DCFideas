@@ -14,7 +14,7 @@
 
 body {
   font-family: "Open Sans", sans-serif;
-  color: #848484;
+  color: #565656;
 }
 
 a {
@@ -231,7 +231,7 @@ section {
   font-family: "Nunito", sans-serif;
   font-size: 16px;
   font-weight: 700;
-  color: #0B198F;
+  color: #012970;
   white-space: nowrap;
   transition: 0.3s;
 }
@@ -261,7 +261,7 @@ section {
 
 .navbar .getstarted:hover,
 .navbar .getstarted:focus:hover {
-  color: #F6F9FF;
+  color: #565656;
   background: #2DB6FA;
 }
 
@@ -459,7 +459,7 @@ section {
 }
 
 .hero h2 {
-  color: #848484;
+  color: #565656;
   margin: 15px 0 0 0;
   font-size: 26px;
 }
@@ -651,7 +651,7 @@ section {
   font-size: 36px;
   display: block;
   font-weight: 600;
-  color: #0B198F;
+  color: #012970;
 }
 
 .counts .count-box p {
@@ -731,7 +731,7 @@ section {
 
 .features .feature-icons .content .icon-box p {
   font-size: 15px;
-  color: #848484;
+  color: #565656;
 }
 
 /*--------------------------------------------------------------
@@ -758,7 +758,7 @@ section {
 }
 
 .services .service-box h3 {
-  color: #848484;
+  color: #012970;
   font-weight: 700;
 }
 
@@ -796,8 +796,13 @@ section {
 
 .services .service-box:hover h3,
 .services .service-box:hover p,
-.services .service-box:hover .read-more {
-  color: #F6F9FF;
+.services .service-box:hover .read-more,
+.services .service-box:hover ul li a {
+  color: #565656;
+}
+
+.services .service-box:hover ul li a {
+  color: #012970;
 }
 
 .services .service-box:hover .icon {
@@ -833,7 +838,7 @@ section {
 
 .pricing .price {
   font-size: 36px;
-  color: #848484;
+  color: #565656;
   font-weight: 600;
   font-family: "Poppins", sans-serif;
 }
@@ -857,7 +862,7 @@ section {
 .pricing ul {
   padding: 0;
   list-style: none;
-  color: #848484;
+  color: #565656;
   text-align: center;
   line-height: 26px;
   font-size: 16px;
@@ -922,7 +927,7 @@ section {
   font-weight: 600;
   border: 0;
   font-size: 18px;
-  color: #848484;
+  color: #565656;
   text-align: left;
 }
 
@@ -983,7 +988,7 @@ section {
   display: block;
   font-size: 14px;
   font-weight: 400;
-  color: #848484;
+  color: #565656;
 }
 
 .team .member .member-info p {
@@ -991,7 +996,7 @@ section {
   font-size: 14px;
   padding-top: 15px;
   line-height: 26px;
-  color: #848484;
+  color: #565656;
 }
 
 .team .member:hover {
@@ -1067,7 +1072,7 @@ section {
 # Contact
 --------------------------------------------------------------*/
 .contact .info-box {
-  color: #848484;
+  color: #565656;
   background: #F6F9FF;
   padding: 30px;
 }
@@ -1166,7 +1171,7 @@ section {
 }
 
 .blog .entry .entry-meta a {
-  color: #848484;
+  color: #565656;
   font-size: 14px;
   display: inline-block;
   line-height: 1;
@@ -1193,7 +1198,7 @@ section {
 }
 
 .blog .entry .entry-footer a {
-  color: #0B198F;
+  color: #012970;
   transition: 0.3s;
 }
 
@@ -1225,7 +1230,7 @@ section {
 
 .blog .entry .entry-footer .tags li+li::before {
   padding-right: 6px;
-  color: #848484;
+  color: #565656;
   content: ",";
 }
 
@@ -1271,7 +1276,7 @@ section {
 
 .blog .blog-author p {
   font-style: italic;
-  color: #848484;
+  color: #565656;
 }
 
 .blog .sidebar {
@@ -1352,7 +1357,7 @@ section {
 
 .blog .sidebar .categories ul a span {
   padding-left: 5px;
-  color: #848484;
+  color: #565656;
   font-size: 14px;
 }
 
@@ -1385,7 +1390,7 @@ section {
   margin-left: 95px;
   font-style: italic;
   font-size: 14px;
-  color: #848484;
+  color: #565656;
 }
 
 .blog .sidebar .tags {
@@ -1526,7 +1531,7 @@ section {
 }
 
 .footer .footer-top .footer-links ul a {
-  color: #0B198F;
+  color: #012970;
   transition: 0.3s;
   display: inline-block;
   line-height: 1;

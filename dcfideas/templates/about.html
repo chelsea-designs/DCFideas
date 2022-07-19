@@ -39,7 +39,8 @@
             </div>
             <div class="col-lg-6 d-flex align-items-center aos-init aos-animate" data-aos="zoom-out"
                 data-aos-delay="200">
-                <img src="{{ url_for('static',filename='img/hero-img.png')}}" class="img-fluid" alt="">
+                <img src="{{ url_for('static',filename='img/hero-img.png')}}" class="img-fluid"
+                    alt="image showing people using technology">
             </div>
         </div>
     </div>
@@ -56,7 +57,7 @@
                 <div class="box">
                     <h3>{{category}}</h3>
                     <img src="{{ url_for('static',filename='img/'+category.lower().replace(' ','')+'.png')}}"
-                        class="img-fluid" alt="">
+                        class="img-fluid" alt="icons to represent each category">
                     <ul>
                         {% for strand in strands %}
                         {% if strand.strand_name == category %}
@@ -92,7 +93,8 @@
         <div class="row">
             <div class="col-lg-4 aos-init aos-animate" data-aos="fade-up" data-aos-delay="200">
                 <div class="box">
-                    <img src="{{ url_for('static',filename='img/values-1.png')}}" class="img-fluid" alt="">
+                    <img src="{{ url_for('static',filename='img/values-1.png')}}" class="img-fluid"
+                        alt="icon to represent numeracy">
                     <h3>Numeracy
                     </h3>
                     <p>Being able to use numbers and solve problems in real-life situations
@@ -101,7 +103,8 @@
             </div>
             <div class="col-lg-4 mt-4 mt-lg-0 aos-init aos-animate" data-aos="fade-up" data-aos-delay="400">
                 <div class="box">
-                    <img src="{{ url_for('static',filename='img/values-2.png')}}" class="img-fluid" alt="">
+                    <img src="{{ url_for('static',filename='img/values-2.png')}}" class="img-fluid"
+                        alt="icon to represent literacy">
                     <h3>Literacy
                     </h3>
                     <p>Developing listening, reading, speaking and writing skills
@@ -110,7 +113,8 @@
             </div>
             <div class="col-lg-4 mt-4 mt-lg-0 aos-init aos-animate" data-aos="fade-up" data-aos-delay="600">
                 <div class="box">
-                    <img src="{{ url_for('static',filename='img/values-3.png')}}" class="img-fluid" alt="">
+                    <img src="{{ url_for('static',filename='img/values-3.png')}}" class="img-fluid"
+                        alt="icon to represent digital competence">
                     <h3>Digital Competence
                     </h3>
                     <p>Being confident using a range of technologies to help them function, communicating
@@ -132,7 +136,8 @@
         </header>
         <div class="row">
             <div class="col-lg-6">
-                <img src="{{ url_for('static',filename='img/features.png')}}" class="img-fluid" alt="">
+                <img src="{{ url_for('static',filename='img/features.png')}}" class="img-fluid"
+                    alt="image of people holding cogs working together">
             </div>
             <div class="col-lg-6 mt-5 mt-lg-0 d-flex">
                 <div class="row align-self-center gy-4">

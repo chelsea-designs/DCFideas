@@ -8,7 +8,7 @@
             <h2>Get Inspired</h2>
             <p>Browse and Create Ideas</p>
             {% if session.user %}
-            <a href="{{ url_for('add_idea') }}" class="idea-button btn btn-primary">Add Idea <i
+            <a href="{{ url_for('add_idea') }}" class="idea-button btn btn-primary mt-3">Add Idea <i
                     class="fas fa-plus-square right"></i></a>
             {% else %}
             Please <a href="{{url_for('login')}}">Log In</a> or <a href="{{url_for('register')}}">Register</a> to add
@@ -119,7 +119,7 @@
                     {% for strand in strands %}
                     {% if strand.id == idea.strand_id %}
                     <img src="{{ url_for('static',filename='img/'+strand.strand_name.lower().replace(' ','')+'.png')}}"
-                        alt="" class="img-fluid">
+                        alt="icons to represent each category" class="img-fluid">
                     <h3>{{ idea.idea_name }}</h3>
                     <ul class="p-0 m-0 list-unstyled">
                         <li>Cam Cynnydd: <a
