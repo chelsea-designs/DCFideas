@@ -993,7 +993,7 @@ section {
   transition: 0.3s;
 }
 
-.recent-idea-posts .idea-box .readmore {
+.recent-idea-posts .idea-box .full-details {
   display: flex;
   align-items: center;
   font-weight: 600;
@@ -1001,7 +1001,7 @@ section {
   transition: 0.3s;
 }
 
-.recent-idea-posts .idea-box .readmore i {
+.recent-idea-posts .idea-box .full-details i {
   line-height: 0;
   margin-left: 4px;
   font-size: 18px;
