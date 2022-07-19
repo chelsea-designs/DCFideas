@@ -53,7 +53,9 @@
                                                     {% for subject in subjects %}
                                                     <li>
                                                         <a href="{{ url_for('filter_ideas_by_query_param')}}?subject={{subject}}"
-                                                            class="mx-4">{{subject}}</a>
+                                                            class="mx-4">
+                                                            {{subject}}
+                                                        </a>
                                                     </li>
                                                     {% endfor %}
                                                 </ul>

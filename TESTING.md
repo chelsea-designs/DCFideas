@@ -90,16 +90,16 @@
 - Addressing errors and warnings: W3C CSS validator showed one [one error](dcfideas/static/img/testing/w3c-css-before.png), this was because the 0 had no unit, I [changed the 0 to be 0s](dcfideas/static/img/testing/css-unit-fix.png), this [solved the issue](dcfideas/static/img/testing/w3c-css-before.png).
 
 ### [HTML: W3C Markup Validation](https://validator.w3.org/)
-- To validate the HTML code of the project by pasting code in by direct input method. Note the W3C Validator for HTML does not understand the Jinja templating syntax therefore if there are warnings related to this, this can be safely ignored.
+- Note the W3C Validator for HTML does not understand the Jinja templating syntax, therefore to validate the HTML code for this project I right clicked and used 'View Source Code', copied and pasted this code in by direct input method, this avoided issues with Jinja. 
 - Testing and results per page:
-   - Home Page - [No errors]()
-   - About Page - [No errors]()
-   - Ideas Page - [No errors]()
-   - Full Idea Page - [No errors]()
-   - Login Page - [No errors]()
-   - Register 404 Page - [No errors]()
-   - Error 404 Page - [No errors]()
-   - Error 500 Page - [No errors]()
+   - Home Page - [No errors](dcfideas/static/img/testing/w3-html-home.png)
+   - About Page - [No errors](dcfideas/static/img/testing/w3-html-about.png)
+   - Ideas Page - [One Error](dcfideas/static/img/testing/w3-html-ideas.png)
+   - Full Idea Page - [No errors](dcfideas/static/img/testing/w3-html-full-idea.png)
+   - Login Page - [No errors](dcfideas/static/img/testing/w3-html-login.png)
+   - Register Page - [No errors](dcfideas/static/img/testing/w3-html-register.png)
+   - Error 404 Page - [No errors](dcfideas/static/img/testing/w3-html-404.png)
+- One Error: The one error I received on the ideas page is because of the space between the href and class attribute, this is due to the formatter splitting onto two lines as the row was too long.
 
 ### [Python: PEP8 Online](http://pep8online.com/)
 - Validating the Python code of the project was done by pasting the code from each Python file in turn into PEP8 Online.

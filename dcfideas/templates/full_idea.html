@@ -1,153 +1,147 @@
 {% extends "base.html" %}
 {% block content %}
 
-<main id="main">
+<!-- ======= Breadcrumbs ======= -->
+<div class="breadcrumbs section">
+    <div class="container">
 
-    <!-- ======= Breadcrumbs ======= -->
-    <div class="breadcrumbs section">
-        <div class="container">
+        <ol>
+            <li><a href="{{url_for('home')}}">Home</a></li>
+            <li><a href="{{ url_for('filter_ideas_by_query_param')}}">Ideas</a></li>
+            <li>{{idea.idea_name}}</li>
+        </ol>
+        <h2>{{ idea.idea_name}}</h2>
 
-            <ol>
-                <li><a href="{{url_for('home')}}">Home</a></li>
-                <li><a href="{{ url_for('filter_ideas_by_query_param')}}">Ideas</a></li>
-                <li>{{idea.idea_name}}</li>
-            </ol>
-            <h2>{{ idea.idea_name}}</h2>
+    </div>
+</div><!-- End Breadcrumbs -->
 
-        </div>
-    </div><!-- End Breadcrumbs -->
+<!-- ======= full-idea Single Section ======= -->
+<div id="full-idea" class="full-idea section">
+    <div class="container" data-aos="fade-up">
 
-    <!-- ======= full-idea Single Section ======= -->
-    <div id="full-idea" class="full-idea section">
-        <div class="container" data-aos="fade-up">
+        <div class="row">
 
-            <div class="row">
+            <div class="col-lg-8 entries">
 
-                <div class="col-lg-8 entries">
+                <article class="entry entry-single">
+                    {% for strand in strands %}
+                    {% if strand.id == idea.strand_id %}
+                    <h2 class="entry-title">{{strand.strand_name}} - {{strand.strand_element}}</h2>
+                    {% endif %}
+                    {% endfor %}
+                    <div class="entry-meta">
+                        <ul>
+                            <li class="d-flex align-items-center">
+                                <a href="{{ url_for('filter_ideas_by_query_param')}}?cam_cynnydd={{idea.cam_cynnydd}}">Cam
+                                    Cynnydd:
+                                    {{idea.cam_cynnydd}}</a>
+                            </li>
+                            <li class="d-flex align-items-center">
+                                <a href="{{ url_for('filter_ideas_by_query_param')}}?subject={{idea.subject}}">Subject:
+                                    {{idea.subject}}</a>
+                            </li>
+                        </ul>
+                    </div>
 
-                    <article class="entry entry-single">
+                    <div class="entry-content">
+                        <h3>Idea Description</h3>
+                        <p>{{idea.idea_description}}</p>
+                    </div>
+
+                    <div class="entry-footer">
+                        <i class="fas fa-person"></i>
+                        <ul class="cats">
+                            <li><i class="fas fa-user"></i> <a
+                                    href="{{ url_for('filter_ideas_by_query_param')}}?created_by={{idea.created_by}}">{{idea.created_by}}</a>
+                            </li>
+                        </ul>
+
+                        <i class="fas fa-clock"></i>
+                        <ul class="tags">
+                            <li>{{idea.created_at}}</li>
+                        </ul>
+                    </div>
+
+                </article><!-- End full-idea entry -->
+
+                <div class="full-idea-author">
+                    <div class="row">
+                        <div class="col-12">
+                            <h4><label for="link-input">
+                                    Idea Resource Link
+                                </label></h4>
+                            <input class="col-10" type="text" value="{{idea.idea_resource}}" id="link-input" disabled>
+                            <button class="btn btn-outline-secondary col-1" onclick="copyLink()">
+                                <i class="fas fa-copy"></i><span class="sr-only">Copy resource link</span>
+                            </button>
+                        </div>
+                    </div>
+                </div><!-- End full-idea author bio -->
+            </div><!-- End full-idea entries list -->
+
+            <div class="col-lg-4">
+
+                <div class="sidebar">
+                    {% if session.user|lower == idea.created_by|lower or session.user|lower == "admin"|lower %}
+                    <h3 class="sidebar-title">Manage Idea</h3>
+                    <div class="sidebar-item">
+                        <a href="{{ url_for('update_idea', idea_id=idea.id) }}" class="btn btn-outline-secondary">Edit<i
+                                class="fas fa-pen"></i></a>
+                        <button class="btn btn-secondary" data-bs-toggle="modal" data-bs-target="#delete-idea">Delete<i
+                                class="fas fa-trash"></i></button>
+                    </div>
+                    {% endif %}
+
+                    <h3 class="sidebar-title">Strands</h3>
+
+                    <div class="sidebar-item categories">
+                        <ul>{% for category in categories %}
+
+                            <li>
+                                <a href="{{ url_for('filter_ideas_by_strand_name', strand_name=category) }}">{{category}}
+                                </a>
+                            </li>
+                            {% endfor %}
+                        </ul>
+                    </div><!-- End sidebar categories-->
+
+                    <h3 class="sidebar-title">Recent Ideas</h3>
+                    <div class="sidebar-item recent-posts">
+                        {% for recentidea in recentideas %}
                         {% for strand in strands %}
-                        {% if strand.id == idea.strand_id %}
-                        <h2 class="entry-title">{{strand.strand_name}} - {{strand.strand_element}}</h2>
+                        {% if strand.id == recentidea.strand_id %}
+                        <div class="post-item clearfix">
+                            <img src="{{ url_for('static',filename='img/strand-icons/strand-'+recentidea.strand_id|string+'.png')}}"
+                                alt="icon to represent {{strand.strand_name}}" class="img-fluid">
+                            <h4><a href="{{ url_for('full_idea', idea_id=recentidea.id) }}">{{recentidea.idea_name}}</a>
+                            </h4>
+                            <h4>{{strand.strand_name}} - {{strand.strand_element}}</h4>
+                            <time datetime="2020-01-01">{{recentidea.created_at}}</time>
+                        </div>
                         {% endif %}
                         {% endfor %}
-                        <div class="entry-meta">
-                            <ul>
-                                <li class="d-flex align-items-center">
-                                    <a
-                                        href="{{ url_for('filter_ideas_by_query_param')}}?cam_cynnydd={{idea.cam_cynnydd}}">Cam
-                                        Cynnydd:
-                                        {{idea.cam_cynnydd}}</a>
-                                </li>
-                                <li class="d-flex align-items-center">
-                                    <a href="{{ url_for('filter_ideas_by_query_param')}}?subject={{idea.subject}}">Subject:
-                                        {{idea.subject}}</a>
-                                </li>
-                            </ul>
-                        </div>
+                        {% endfor %}
 
-                        <div class="entry-content">
-                            <h3>Idea Description</h3>
-                            <p>{{idea.idea_description}}</p>
-                        </div>
-
-                        <div class="entry-footer">
-                            <i class="fas fa-person"></i>
-                            <ul class="cats">
-                                <li><i class="fas fa-user"></i> <a
-                                        href="{{ url_for('filter_ideas_by_query_param')}}?created_by={{idea.created_by}}">{{idea.created_by}}</a>
-                                </li>
-                            </ul>
-
-                            <i class="fas fa-clock"></i>
-                            <ul class="tags">
-                                <li>{{idea.created_at}}</li>
-                            </ul>
-                        </div>
-
-                    </article><!-- End full-idea entry -->
-
-                    <div class="full-idea-author">
-                        <div class="row">
-                            <div class="col-12">
-                                <label for="link-input">
-                                    <h4>Idea Resource Link</h4>
-                                </label>
-                                <input class="col-10" type="text" value="{{idea.idea_resource}}" id="link-input"
-                                    disabled>
-                                <button class="btn btn-outline-secondary col-1" onclick="copyLink()">
-                                    <i class="fas fa-copy"></i><span class="sr-only">Copy resource link</span>
-                                </button>
-                            </div>
-                        </div>
-                    </div><!-- End full-idea author bio -->
-                </div><!-- End full-idea entries list -->
-
-                <div class="col-lg-4">
-
-                    <div class="sidebar">
-                        {% if session.user|lower == idea.created_by|lower or session.user|lower == "admin"|lower %}
-                        <h3 class="sidebar-title">Manage Idea</h3>
-                        <div class="sidebar-item">
-                            <a href="{{ url_for('update_idea', idea_id=idea.id) }}"
-                                class="btn btn-outline-secondary">Edit<i class="fas fa-pen"></i></a>
-                            <button class="btn btn-secondary" data-bs-toggle="modal"
-                                data-bs-target="#delete-idea">Delete<i class="fas fa-trash"></i></button>
-                        </div>
-                        {% endif %}
-
-                        <h3 class="sidebar-title">Strands</h3>
-
-                        <div class="sidebar-item categories">
-                            <ul>{% for category in categories %}
-
-                                <li>
-                                    <a href="{{ url_for('filter_ideas_by_strand_name', strand_name=category) }}">{{category}}
-                                    </a>
-                                </li>
-                                {% endfor %}
-                            </ul>
-                        </div><!-- End sidebar categories-->
-
-                        <h3 class="sidebar-title">Recent Ideas</h3>
-                        <div class="sidebar-item recent-posts">
-                            {% for recentidea in recentideas %}
-                            {% for strand in strands %}
-                            {% if strand.id == recentidea.strand_id %}
-                            <div class="post-item clearfix">
-                                <img src="{{ url_for('static',filename='img/strand-icons/strand-'+recentidea.strand_id|string+'.png')}}"
-                                    alt="icon to represent {{strand.strand_name}}" class="img-fluid">
-                                <h4><a
-                                        href="{{ url_for('full_idea', idea_id=recentidea.id) }}">{{recentidea.idea_name}}</a>
-                                </h4>
-                                <h4>{{strand.strand_name}} - {{strand.strand_element}}</h4>
-                                <time datetime="2020-01-01">{{recentidea.created_at}}</time>
-                            </div>
-                            {% endif %}
+                    </div><!-- End sidebar recent posts-->
+                    <h3 class="sidebar-title">Subject</h3>
+                    <div class="sidebar-item tags">
+                        <ul>
+                            {% for subject in subjects %}
+                            <li><a
+                                    href="{{ url_for('filter_ideas_by_query_param')}}?subject={{idea.subject}}">{{subject}}</a>
+                            </li>
                             {% endfor %}
-                            {% endfor %}
+                        </ul>
+                    </div><!-- End sidebar tags-->
+                </div><!-- End sidebar -->
 
-                        </div><!-- End sidebar recent posts-->
-                        <h3 class="sidebar-title">Subject</h3>
-                        <div class="sidebar-item tags">
-                            <ul>
-                                {% for subject in subjects %}
-                                <li><a
-                                        href="{{ url_for('filter_ideas_by_query_param')}}?subject={{idea.subject}}">{{subject}}</a>
-                                </li>
-                                {% endfor %}
-                            </ul>
-                        </div><!-- End sidebar tags-->
-                    </div><!-- End sidebar -->
-
-                </div><!-- End full-idea sidebar -->
-
-            </div>
+            </div><!-- End full-idea sidebar -->
 
         </div>
-    </div><!-- End full-idea Single Section -->
 
-</main><!-- End #main -->
+    </div>
+</div><!-- End full-idea Single Section -->
+
 <!-- Delete Modal -->
 <div class="modal fade" id="delete-idea" tabindex="-1" aria-labelledby="delete-idea-label" aria-hidden="true">
     <div class="modal-dialog">
