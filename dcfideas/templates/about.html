@@ -11,11 +11,11 @@
             <div class="col-lg-6 d-flex flex-column justify-content-center aos-init aos-animate" data-aos="fade-up"
                 data-aos-delay="200">
                 <div class="content">
-                    <h3>What is the DCF for Wales
-                    </h3>
-                    <h2>The DCF stands for Digital Competence Framework in Wales 2022, also known as
-                        "Cymhwysedd Digidol" in Welsh, is an integral part of the new Curriculum in Welsh schools.
+                    <h2>What is the DCF for Wales
                     </h2>
+                    <h3>The DCF stands for Digital Competence Framework in Wales 2022, also known as
+                        "Cymhwysedd Digidol" in Welsh, is an integral part of the new Curriculum in Welsh schools.
+                    </h3>
                     <p> It is an area of learning that sets out to teach children the knowledge, attitude and skills
                         they need to be able to use technology and systems confidently, creatively and critically.
 
@@ -55,7 +55,7 @@
                 <div class="box">
                     <h3>{{category}}</h3>
                     <img src="{{ url_for('static',filename='img/strand-icons/'+category.lower().replace(' ','-')+'.png')}}"
-                        class="img-fluid" alt="icons to represent each category">
+                        class="img-fluid" circular logo representing the four strands">
                     <ul>
                         {% for strand in strands %}
                         {% if strand.strand_name == category %}
@@ -203,31 +203,31 @@
             <div class="col-lg-3 col-md-6 aos-init" data-aos="fade-up" data-aos-delay="100">
                 <div class="purpose">
                     <div class="purpose-info">
-                        <h4>Ambitious, capable learners
-                        </h4>
+                        <h3>Ambitious, capable learners
+                        </h3>
                     </div>
                 </div>
             </div>
             <div class="col-lg-3 col-md-6 aos-init" data-aos="fade-up" data-aos-delay="200">
                 <div class="purpose">
                     <div class="purpose-info">
-                        <h4>Enterprising, creative contributors</h4>
+                        <h3>Enterprising, creative contributors</h3>
                     </div>
                 </div>
             </div>
             <div class="col-lg-3 col-md-6 aos-init" data-aos="fade-up" data-aos-delay="300">
                 <div class="purpose">
                     <div class="purpose-info">
-                        <h4>Ethical, informed citizens
-                        </h4>
+                        <h3>Ethical, informed citizens
+                        </h3>
                     </div>
                 </div>
             </div>
             <div class="col-lg-3 col-md-6 aos-init" data-aos="fade-up" data-aos-delay="400">
                 <div class="purpose">
                     <div class="purpose-info">
-                        <h4>Healthy, confident individuals
-                        </h4>
+                        <h3>Healthy, confident individuals
+                        </h3>
                     </div>
                 </div>
             </div>

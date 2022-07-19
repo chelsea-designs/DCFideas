@@ -69,10 +69,17 @@
 ## Testing and Validation
 
 ### [Lighthouse (Google Dev Tools)](https://chrome.google.com/webstore/detail/lighthouse/blipmdconlkpinefehnmjammfjpmpbjk?hl=en)
-- The [Lighthouse Report](dcfideas/static/img/testing/lighthouse.png) for the site's main home page was a success, with all measures above 95.
+- For the purposes of lighthouse testing, I am happy with scores about 90 for all 4 metrics.
+- Reports per page:
+   - Home Page - [Success](dcfideas/static/img/testing/lighthouse-desktop-home.png)
+   - About Page - [Success](dcfideas/static/img/testing/lighthouse-desktop-about.png)
+   - Ideas Page - [Success](dcfideas/static/img/testing/lighthouse-desktop-ideas.png)
+   - Full Idea Page - [Success](dcfideas/static/img/testing/lighthouse-desktop-full-idea.png)
+   - Login Page - [Success](dcfideas/static/img/testing/lighthouse-desktop-login.png)
+   - Register Page - [Success](dcfideas/static/img/testing/lighthouse-desktop-register.png)
 
 ### [Am I Responsive](http://ami.responsivedesign.is/)
-- To [view images](dcfideas/static/img/testing/am-i-responsive.png) of the website on different devices.
+- To [view images](dcfideas/static/img/testing/am-i-responsive.png) of the website on various devices.
 
 ### [Javascript: JSHint](https://jshint.com/)
 - Validating the JS code of the project was done by pasting code into JSHint.
@@ -101,6 +108,18 @@
    - [routes.py Passed](dcfideas/static/img/testing/pep8-python-routes.png)
    - [run.py Passed](dcfideas/static/img/testing/pep8-python-run.png)
    - [init.py Passed](dcfideas/static/img/testing/pep8-python-init.png)
+
+### [Accessibility: Wave](https://wave.webaim.org/)
+- To validate the HTML code of the project by pasting code in by direct input method. Note the W3C Validator for HTML does not understand the Jinja templating syntax therefore if there are warnings related to this, this can be safely ignored.
+- Testing and results per page:
+   - Home Page - [No errors]()
+   - About Page - [No errors]()
+   - Ideas Page - [No errors]()
+   - Full Idea Page - [No errors]()
+   - Login Page - [No errors]()
+   - Register 404 Page - [No errors]()
+   - Error 404 Page - [No errors]()
+   - Error 500 Page - [No errors]()
 
 ---
 ## **Manual testing**
@@ -177,11 +196,15 @@ Manual testing of all elements and functionality on every page
 
 ### Bugs and Fixes
 1. Bug: The mobile menu was appearing off screen, requiring user to scroll horizontally to find it.
-   -  Fix: To fix this I used css to show borders for elements to inspect which might be causing unwanted scrolling. I saw this method [here](https://blog.wernull.com/2013/04/debug-ghost-css-elements-causing-unwanted-scrolling/). This showed me that an email address in the footer was overflowing off the screen to the right, I moved the email and phone as icons in the footer and this fixed the issue.
-   - [Mobile Menu Off Screen](dcfideas/static/img/testing/mobile-menu-off-screen.png)
+   -  Fix: To fix this I used css to show borders for elements to inspect which might be causing unwanted scrolling. I saw this method [here](https://blog.wernull.com/2013/04/debug-ghost-css-elements-causing-unwanted-scrolling/). This showed me that an email address in the footer was overflowing off the screen to the right, I moved the email and phone as icons in the footer and this [fixed the issue](dcfideas/static/img/testing/mobile-menu-off-screen.png).
+2. Bug: [The strand boxes were different heights and the 'View' buttons were not in line with each other.](dcfideas/static/img/testing/strand-boxes.png)
+   -  Fix: [To fix this I added a min-height to all the boxes](dcfideas/static/img/testing/strand-box-fix-1.png), and then [changed the position of the 'View' buttons to absolute and bottom:0, then added margins and width to center it nicely.](dcfideas/static/img/testing/strand-box-fix-2.png)
+3. Bug: [The footer was not right at the bottom of the page, it was leaving a gap](dcfideas/static/img/testing/footer-gap.png)
+   -  Fix: [To fix this I used flexboxes](dcfideas/static/img/testing/footer-fix.png) following [this tutoria](https://css-tricks.com/couple-takes-sticky-footer/)
+
 
 ### Outstanding Bugs
-- A bug was picked up, when testing the Form Validation for the select dropdowns on the create and edit idea pages. If a cateogry is selected, border-bottom does not change to a validated state of green, it instead changes to an invalidated state of red. This was discusssed in depth with the support team at the Code Institue who tested the functionality their end. Upon testing their end, the validation was working as it should. This prompted further testing on my side with different devices, and the validation again appeared to work as it should. The issue appeared to be based on something from my system, and as of yet, I am unable to find a reason for it. The issue also happens when testing on other browsers on my system. As it stands, the user will see the validation work correctly.
+- Dropdown for strand should open down but opens up.
 
 ---
 

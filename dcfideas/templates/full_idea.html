@@ -116,7 +116,7 @@
                             {% if strand.id == recentidea.strand_id %}
                             <div class="post-item clearfix">
                                 <img src="{{ url_for('static',filename='img/strand-icons/strand-'+recentidea.strand_id|string+'.png')}}"
-                                    alt="icons to represent each strand" class="img-fluid">
+                                    alt="icon to represent {{strand.strand_name}}" class="img-fluid">
                                 <h4><a
                                         href="{{ url_for('full_idea', idea_id=recentidea.id) }}">{{recentidea.idea_name}}</a>
                                 </h4>

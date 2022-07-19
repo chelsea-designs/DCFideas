@@ -76,9 +76,10 @@
                                             </div>
                                             <div class="dropdown col-4 text-center">
                                                 <button class="btn btn-default dropdown-toggle btn-outline-primary"
-                                                    type="button" data-bs-toggle="dropdown">Strands
+                                                    type="button" data-bs-toggle="dropdown"><span
+                                                        id="strand-label">Strand</span>
                                                     <span class="caret"></span></button>
-                                                <ul class="dropdown-menu">
+                                                <ul class="dropdown-menu" aria-labelledby="strand-label">
                                                     {% for category in categories %}
                                                     <li class="dropdown-submenu">
                                                         <a class="test mx-4" tabindex="-1" href="#">{{category}} <i
@@ -120,7 +121,7 @@
                     {% for strand in strands %}
                     {% if strand.id == idea.strand_id %}
                     <img src="{{ url_for('static',filename='img/strand-icons/'+strand.strand_name.lower().replace(' ','-')+'.png')}}"
-                        alt="icons to represent each category" class="img-fluid">
+                        alt="icon to represent {{strand.strand_name}}" class="img-fluid">
                     <h3>{{ idea.idea_name }}</h3>
                     <ul class="p-0 m-0 list-unstyled">
                         <li>Cam Cynnydd: <a

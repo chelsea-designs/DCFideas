@@ -96,7 +96,7 @@
                 {% for strand in strands %}
                 {% if strand.id == idea.strand_id %}
                 <img src="{{ url_for('static',filename='img/strand-icons/'+strand.strand_name.lower().replace(' ','-')+'.png')}}"
-                    alt="icons to represent each category" class="img-fluid">
+                    alt="icon to represent {{strand.strand_name}}" class="img-fluid">
                 <h3>{{ idea.idea_name }}</h3>
                 <ul class="p-0 m-0 list-unstyled">
                     <li>Cam Cynnydd: <a
