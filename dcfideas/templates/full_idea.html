@@ -68,13 +68,15 @@
                     </article><!-- End full-idea entry -->
 
                     <div class="full-idea-author">
-                        <h4>Idea Resource Link</h4>
                         <div class="row">
                             <div class="col-12">
+                                <label for="link-input">
+                                    <h4>Idea Resource Link</h4>
+                                </label>
                                 <input class="col-10" type="text" value="{{idea.idea_resource}}" id="link-input"
                                     disabled>
                                 <button class="btn btn-outline-secondary col-1" onclick="copyLink()">
-                                    <i class="fas fa-copy"></i>
+                                    <i class="fas fa-copy"></i><span class="sr-only">Copy resource link</span>
                                 </button>
                             </div>
                         </div>
