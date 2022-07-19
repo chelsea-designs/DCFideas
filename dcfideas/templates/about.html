@@ -55,7 +55,7 @@
                 <div class="box">
                     <h3>{{category}}</h3>
                     <img src="{{ url_for('static',filename='img/strand-icons/'+category.lower().replace(' ','-')+'.png')}}"
-                        class="img-fluid" alt="circular logo representing the four strands">
+                        class="img-fluid" alt="icon for {{category}}">
                     <ul>
                         {% for strand in strands %}
                         {% if strand.strand_name == category %}
@@ -132,7 +132,7 @@
         <div class="row">
             <div class="col-lg-6">
                 <img src="{{ url_for('static',filename='img/aoles.png')}}" class="img-fluid"
-                    alt="image of people holding cogs working together">
+                    alt="image of people building technology together">
             </div>
             <div class="col-lg-6 mt-5 mt-lg-0 d-flex">
                 <div class="row align-self-center gy-4">
