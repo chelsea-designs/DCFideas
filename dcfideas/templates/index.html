@@ -27,7 +27,7 @@
     </div>
 
 </section><!-- End Hero -->
-<section id="recent-blog-posts" class="recent-blog-posts">
+<section id="recent-idea-posts" class="recent-idea-posts">
     <div class="container aos-init" data-aos="fade-up">
         <header class="section-header">
             <h2>Recent Ideas</h2>
@@ -38,7 +38,7 @@
             {% for strand in strands %}
             {% if strand.id == recentidea.strand_id %}
             <div class="col-lg-4">
-                <div class="post-box">
+                <div class="idea-box">
                     <span class="post-date">{{recentidea.created_at}} </span>
                     <h3 class="post-title">{{recentidea.idea_name}}</h3>
                     <span>{{strand.strand_name}} - {{strand.strand_element}}</span>

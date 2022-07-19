@@ -17,8 +17,8 @@
         </div>
     </section><!-- End Breadcrumbs -->
 
-    <!-- ======= Blog Single Section ======= -->
-    <section id="blog" class="blog">
+    <!-- ======= full-idea Single Section ======= -->
+    <section id="full-idea" class="full-idea">
         <div class="container" data-aos="fade-up">
 
             <div class="row">
@@ -65,9 +65,9 @@
                             </ul>
                         </div>
 
-                    </article><!-- End blog entry -->
+                    </article><!-- End full-idea entry -->
 
-                    <div class="blog-author">
+                    <div class="full-idea-author">
                         <h4>Idea Resource Link</h4>
                         <div class="row">
                             <div class="col-12">
@@ -78,8 +78,8 @@
                                 </button>
                             </div>
                         </div>
-                    </div><!-- End blog author bio -->
-                </div><!-- End blog entries list -->
+                    </div><!-- End full-idea author bio -->
+                </div><!-- End full-idea entries list -->
 
                 <div class="col-lg-4">
 
@@ -114,7 +114,7 @@
                             {% if strand.id == recentidea.strand_id %}
                             <div class="post-item clearfix">
                                 <img src="{{ url_for('static',filename='img/strand-icons/strand'+recentidea.strand_id|string+'.png')}}"
-                                    alt="" class="img-fluid">
+                                    alt="icons to represent each strand" class="img-fluid">
                                 <h4><a
                                         href="{{ url_for('full_idea', idea_id=recentidea.id) }}">{{recentidea.idea_name}}</a>
                                 </h4>
@@ -138,12 +138,12 @@
                         </div><!-- End sidebar tags-->
                     </div><!-- End sidebar -->
 
-                </div><!-- End blog sidebar -->
+                </div><!-- End full-idea sidebar -->
 
             </div>
 
         </div>
-    </section><!-- End Blog Single Section -->
+    </section><!-- End full-idea Single Section -->
 
 </main><!-- End #main -->
 <!-- Delete Modal -->

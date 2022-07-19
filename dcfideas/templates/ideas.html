@@ -1,6 +1,6 @@
 {% extends "base.html" %}
 {% block content %}
-<section id="services" class="services">
+<section id="ideas" class="ideas">
 
     <div class="container" data-aos="fade-up">
 
@@ -115,7 +115,7 @@
         <div class="row gy-4">
             {% for idea in ideas %}
             <div class="col-lg-4 col-md-6" data-aos="fade-up" data-aos-delay="200">
-                <div class="service-box blue">
+                <div class="idea-box blue">
                     {% for strand in strands %}
                     {% if strand.id == idea.strand_id %}
                     <img src="{{ url_for('static',filename='img/'+strand.strand_name.lower().replace(' ','')+'.png')}}"
