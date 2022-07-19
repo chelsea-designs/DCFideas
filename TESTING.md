@@ -68,10 +68,8 @@
 
 ## Testing and Validation
 
-### Lighthouse (Google Dev Tools)
-
-- The Lighthouse Report for the site's main home page was as follows:
-   - [Lighthouse Report](dcfideas/static/img/testing/lighthouse.png)
+### [Lighthouse (Google Dev Tools)](https://chrome.google.com/webstore/detail/lighthouse/blipmdconlkpinefehnmjammfjpmpbjk?hl=en)
+- The [Lighthouse Report](dcfideas/static/img/testing/lighthouse.png) for the site's main home page was a success, with all measures above 95.
 
 ### [Am I Responsive](http://ami.responsivedesign.is/)
 - To [view images](dcfideas/static/img/testing/am-i-responsive.png) of the website on different devices.

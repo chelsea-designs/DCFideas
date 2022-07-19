@@ -62,11 +62,11 @@
                         <li>
                             {{strand.strand_element}}<br>
                             <a href="{{ url_for('filter_ideas_by_query_param')}}?strand_id={{strand.id}}" class=""><i
-                                    class="fas fa-eye">
+                                    class="fas fa-eye"><span class="sr-only">View ideas in this strand</span>
                                 </i></a>
                             {% if session.user %}
                             <a href="{{ url_for('add_idea') }}" class="strand-button" data-strand="{{ strand.id }}"><i
-                                    class="fas fa-plus">
+                                    class="fas fa-plus"><span class="sr-only">Add ideas to this strand</span>
                                 </i></a>
                             {% endif %}
                         </li>
