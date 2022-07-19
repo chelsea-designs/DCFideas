@@ -206,3 +206,12 @@ function copyLink() {
   copyLink.setSelectionRange(0, 99999);
   navigator.clipboard.writeText(copyLink.value);
 }
+
+//Submenu
+$(document).ready(function () {
+  $('.dropdown-submenu a.test').on("click", function (e) {
+    $(this).next('ul').toggle();
+    e.stopPropagation();
+    e.preventDefault();
+  });
+});

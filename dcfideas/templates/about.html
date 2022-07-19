@@ -27,9 +27,9 @@
                         enables learners to develop lifelong skills.
                     </p>
                     <div class="text-center text-lg-start">
-                        <a href="#"
+                        <a href="{{url_for('filter_ideas_by_query_param')}}"
                             class="btn-read-more d-inline-flex align-items-center justify-content-center align-self-center">
-                            <span>Read More
+                            <span>Get Ideas
                             </span>
                             <i class="fas fa-arrow-right">
                             </i>
@@ -62,7 +62,7 @@
                         {% if strand.strand_name == category %}
                         <li>
                             {{strand.strand_element}}<br>
-                            <a href="{{ url_for('filter_ideas_by_strand_id', strandId=strand.id) }}" class=""><i
+                            <a href="{{ url_for('filter_ideas_by_query_param')}}?strand_id={{strand.id}}" class=""><i
                                     class="fas fa-eye">
                                 </i></a>
                             {% if session.user %}

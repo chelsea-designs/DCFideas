@@ -16,61 +16,100 @@
             {% endif %}
         </header>
 
-        <form method="POST" action="{{ url_for('search')}}">
-            <div class="row">
-                <label for="searched">Search Ideas</label>
-                <div class="input-field col-sm-12 col-md-8 col-xl-10">
-                    <input class="form-control" type="search" placeholder="Search" aria-label="Search" name="searched">
-                </div>
-                <div class="col-sm-12 col-md-4 col-xl-2 text-center">
-                    <button class="btn btn-primary" type="submit">Search</button>
-                    <a href="{{ url_for('ideas') }}" class="btn btn-outline-secondary">Reset</a>
-                </div>
-            </div>
-        </form><br>
+        <section id="accordion" class="accordion mb-5">
+            <div class="container aos-init aos-animate" data-aos="fade-up">
+                <div class="row">
+                    <div class="col-lg-12">
+                        <div class="accordion accordion-flush" id="searchBox">
+                            <div class="accordion-item">
+                                <h2 class="accordion-header">
+                                    <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse"
+                                        data-bs-target="#searchContent">
+                                        Search and Filter Ideas
+                                    </button>
+                                </h2>
+                                <div id="searchContent" class="accordion-collapse collapse" data-bs-parent="#searchBox">
+                                    <div class="accordion-body">
+                                        <form method="POST" action="{{ url_for('search')}}">
+                                            <div class="row">
+                                                <label for="searched">Search Ideas</label>
+                                                <div class="input-field col-sm-12 col-md-8 col-xl-10">
+                                                    <input class="form-control" type="search" placeholder="Search"
+                                                        aria-label="Search" name="searched">
+                                                </div>
+                                                <div class="col-sm-12 col-md-4 col-xl-2 text-center">
+                                                    <button class="btn btn-primary" type="submit">Search</button>
+                                                </div>
+                                            </div>
+                                        </form><br>
+                                        <div class="row">
+                                            <div class="subjectDropdown col-4 text-center">
+                                                <a class="btn dropdown-toggle btn-outline-primary"
+                                                    data-bs-toggle="dropdown" href="#">
+                                                    Subject
+                                                    <span class="caret"></span>
+                                                </a>
+                                                <ul class="dropdown-menu" role="menu" aria-labelledby="dLabel">
+                                                    {% for subject in subjects %}
+                                                    <li>
+                                                        <a href="{{ url_for('filter_ideas_by_query_param')}}?subject={{subject}}"
+                                                            class="mx-4">{{subject}}</a>
+                                                    </li>
+                                                    {% endfor %}
+                                                </ul>
+                                            </div>
+                                            <div class="camCynnyddDropdown col-4 text-center">
+                                                <a class="btn dropdown-toggle btn-outline-primary"
+                                                    data-bs-toggle="dropdown" href="#">
+                                                    Cam Cynnydd
+                                                    <span class="caret"></span>
+                                                </a>
+                                                <ul class="dropdown-menu" role="menu" aria-labelledby="dLabel">
+                                                    {% for cam_cynnydd in camau_cynnydd %}
+                                                    <li>
+                                                        <a href="{{ url_for('filter_ideas_by_query_param')}}?cam_cynnydd={{cam_cynnydd}}"
+                                                            class="mx-4">{{cam_cynnydd}}</a>
+                                                    </li>
+                                                    {% endfor %}
+                                                </ul>
+                                            </div>
+                                            <div class="dropdown col-4 text-center">
+                                                <button class="btn btn-default dropdown-toggle btn-outline-primary"
+                                                    type="button" data-bs-toggle="dropdown">Strands
+                                                    <span class="caret"></span></button>
+                                                <ul class="dropdown-menu">
+                                                    {% for category in categories %}
+                                                    <li class="dropdown-submenu">
+                                                        <a class="test mx-4" tabindex="-1" href="#">{{category}} <i
+                                                                class="fas fa-caret-down"></i></a>
+                                                        <ul class="dropdown-menu dropdown-colour">
+                                                            {% for strand in strands %}
+                                                            {% if strand.strand_name==category %}
+                                                            <li>
+                                                                <a href="{{ url_for('filter_ideas_by_query_param')}}?strand_id={{strand.id}}"
+                                                                    class="mx-4">{{strand.strand_element}}</a>
+                                                            </li>
+                                                            {% endif %}
+                                                            {% endfor %}
+                                                        </ul>
+                                                    </li>
+                                                    {% endfor %}
+                                                </ul>
+                                            </div>
 
-        <div class="row">
-            <div class="strandDropdown col-4 btn-outline-primary">
-                <a class="btn dropdown-toggle" data-bs-toggle="dropdown" href="#">
-                    Strand
-                    <span class="caret"></span>
-                </a>
-                <ul class="dropdown-menu" role="menu" aria-labelledby="dLabel">
-                    {% for category in categories %}
-                    <li>
-                        <a href="{{ url_for('filter_ideas_by_strand_name', strand_name=category) }}"
-                            class="mx-4">{{category}}</a>
-                    </li>
-                    {% endfor %}
-                </ul>
+                                        </div>
+                                        <div class="row text-center mt-2">
+                                            <a href="{{ url_for('filter_ideas_by_query_param') }}"
+                                                class="btn btn-secondary offset-5 col-2">Reset</a>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
             </div>
-            <div class="subjectDropdown col-4 btn-outline-primary">
-                <a class="btn dropdown-toggle" data-bs-toggle="dropdown" href="#">
-                    Subject
-                    <span class="caret"></span>
-                </a>
-                <ul class="dropdown-menu" role="menu" aria-labelledby="dLabel">
-                    {% for subject in subjects %}
-                    <li>
-                        <a href="{{ url_for('filter_ideas_by_subject', subject=subject) }}" class="mx-4">{{subject}}</a>
-                    </li>
-                    {% endfor %}
-                </ul>
-            </div>
-            <!-- <div class="subjectDropdown col-4 btn-outline-primary">
-                <a class="btn dropdown-toggle" data-bs-toggle="dropdown" href="#">
-                    Subject
-                    <span class="caret"></span>
-                </a>
-                <ul class="dropdown-menu" role="menu" aria-labelledby="dLabel">
-                    {% for subject in subjects %}
-                    <li>
-                        <a href="{{ url_for('ideas')}}?subject={{subject}}" class="mx-4">{{subject}}</a>
-                    </li>
-                    {% endfor %}
-                </ul>
-            </div> -->
-        </div>
+        </section>
 
         {% if ideas|length > 0 %}
         <div class="row gy-4">
@@ -84,15 +123,15 @@
                     <h3>{{ idea.idea_name }}</h3>
                     <ul class="p-0 m-0 list-unstyled">
                         <li>Cam Cynnydd: <a
-                                href="{{ url_for('filter_ideas_by_cam_cynnydd', cc=idea.cam_cynnydd) }}">{{idea.cam_cynnydd}}</a>
+                                href="{{ url_for('filter_ideas_by_query_param')}}?cam_cynnydd={{idea.cam_cynnydd}}">{{idea.cam_cynnydd}}</a>
                         </li>
                         <li>Created By: <a
-                                href="{{ url_for('filter_ideas_by_user', username=idea.created_by) }}">{{ idea.created_by }}</a>
+                                href="{{ url_for('filter_ideas_by_query_param')}}?created_by={{idea.created_by}}">{{ idea.created_by }}</a>
                         </li>
                         <li>Subject: <a
-                                href="{{ url_for('filter_ideas_by_subject', subject=idea.subject) }}">{{idea.subject}}</a>
+                                href="{{ url_for('filter_ideas_by_query_param')}}?subject={{idea.subject}}">{{idea.subject}}</a>
                         </li>Strand:
-                        <li><a href="{{ url_for('filter_ideas_by_strand_id', strandId=idea.strand_id) }}">{{strand.strand_name}}:
+                        <li><a href="{{ url_for('filter_ideas_by_query_param')}}?strand_id={{idea.strand_id}}">{{strand.strand_name}}:
                                 {{strand.strand_element}}</a>
                         </li>
                     </ul>

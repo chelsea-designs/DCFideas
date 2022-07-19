@@ -9,7 +9,7 @@
 
             <ol>
                 <li><a href="{{url_for('home')}}">Home</a></li>
-                <li><a href="{{url_for('ideas')}}">Ideas</a></li>
+                <li><a href="{{ url_for('filter_ideas_by_query_param')}}">Ideas</a></li>
                 <li>{{idea.idea_name}}</li>
             </ol>
             <h2>{{ idea.idea_name}}</h2>
@@ -34,12 +34,13 @@
                         <div class="entry-meta">
                             <ul>
                                 <li class="d-flex align-items-center">
-                                    <a href="{{ url_for('filter_ideas_by_cam_cynnydd', cc=idea.cam_cynnydd) }}">Cam
+                                    <a
+                                        href="{{ url_for('filter_ideas_by_query_param')}}?cam_cynnydd={{idea.cam_cynnydd}}">Cam
                                         Cynnydd:
                                         {{idea.cam_cynnydd}}</a>
                                 </li>
                                 <li class="d-flex align-items-center">
-                                    <a href="{{ url_for('filter_ideas_by_subject', subject=idea.subject) }}">Subject:
+                                    <a href="{{ url_for('filter_ideas_by_query_param')}}?subject={{idea.subject}}">Subject:
                                         {{idea.subject}}</a>
                                 </li>
                             </ul>
@@ -54,7 +55,7 @@
                             <i class="fas fa-person"></i>
                             <ul class="cats">
                                 <li><i class="fas fa-user"></i> <a
-                                        href="{{ url_for('filter_ideas_by_user', username=idea.created_by) }}">{{idea.created_by}}</a>
+                                        href="{{ url_for('filter_ideas_by_query_param')}}?created_by={{idea.created_by}}">{{idea.created_by}}</a>
                                 </li>
                             </ul>
 
@@ -129,7 +130,8 @@
                         <div class="sidebar-item tags">
                             <ul>
                                 {% for subject in subjects %}
-                                <li><a href="{{ url_for('filter_ideas_by_subject', subject=subject) }}">{{subject}}</a>
+                                <li><a
+                                        href="{{ url_for('filter_ideas_by_query_param')}}?subject={{idea.subject}}">{{subject}}</a>
                                 </li>
                                 {% endfor %}
                             </ul>

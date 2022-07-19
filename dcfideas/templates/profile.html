@@ -102,15 +102,15 @@
                 <h3>{{ idea.idea_name }}</h3>
                 <ul class="p-0 m-0 list-unstyled">
                     <li>Cam Cynnydd: <a
-                            href="{{ url_for('filter_ideas_by_cam_cynnydd', cc=idea.cam_cynnydd) }}">{{idea.cam_cynnydd}}</a>
+                            href="{{ url_for('filter_ideas_by_query_param')}}?cam_cynnydd={{idea.cam_cynnydd}}">{{idea.cam_cynnydd}}</a>
                     </li>
                     <li>Created By: <a
-                            href="{{ url_for('filter_ideas_by_user', username=idea.created_by) }}">{{ idea.created_by }}</a>
+                            href="{{ url_for('filter_ideas_by_query_param')}}?created_by={{idea.created_by}}">{{ idea.created_by }}</a>
                     </li>
                     <li>Subject: <a
-                            href="{{ url_for('filter_ideas_by_subject', subject=idea.subject) }}">{{idea.subject}}</a>
+                            href="{{ url_for('filter_ideas_by_query_param')}}?subject={{idea.subject}}">{{idea.subject}}</a>
                     </li>Strand:
-                    <li><a href="{{ url_for('filter_ideas_by_strand_id', strandId=idea.strand_id) }}">{{strand.strand_name}}:
+                    <li><a href="{{ url_for('filter_ideas_by_query_param')}}?strand_id={{strand.id}}">{{strand.strand_name}}:
                             {{strand.strand_element}}</a>
                     </li>
                 </ul>

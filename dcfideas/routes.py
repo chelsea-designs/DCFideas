@@ -53,16 +53,6 @@ def about():
         categories.add(x.strand_name)
     return render_template("about.html", strands=strands, categories=categories)
 
-@app.route("/ideas")
-def ideas():
-    ideas = list(Idea.query.order_by(Idea.idea_name).all())
-    strands = list(Strand.query.order_by(Strand.id).all())
-    categories = set()
-    for x in strands:
-        categories.add(x.strand_name)
-    subjects = ['Cymraeg','Saesneg','Ffrangeg','Sbaeneg','Hanes','Daearyddiaeth','Addysg Grefyddol','Busnes','Celf','Cerddoriaeth','Drama','Mathemateg','Bioleg','Cemeg','Ffiseg','Technoleg Digidol','Dylunio a Thechnoleg','Tecstiliau','Graffeg','Addysg Gorfforol','Bwyd a Maeth','ABCh','Bagloriaeth Cymru']
-    return render_template("ideas.html", ideas=ideas, strands=strands, categories=categories, subjects=subjects)
-
 @app.route("/full_idea/<int:idea_id>")
 def full_idea(idea_id):
     """
@@ -276,17 +266,6 @@ def search():
 
     return render_template("ideas.html", searched = searched, ideas=ideas, strands=strands, subjects=subjects, categories=categories)
 
-# --- Filter Ideas By Strand Id  --- #
-@app.route("/ideas/strand_id<int:strandId>")
-def filter_ideas_by_strand_id(strandId):
-    ideas = list(Idea.query.filter_by(strand_id = strandId).all())
-    subjects = ['Cymraeg','Saesneg','Ffrangeg','Sbaeneg','Hanes','Daearyddiaeth','Addysg Grefyddol','Busnes','Celf','Cerddoriaeth','Drama','Mathemateg','Bioleg','Cemeg','Ffiseg','Technoleg Digidol','Dylunio a Thechnoleg','Tecstiliau','Graffeg','Addysg Gorfforol','Bwyd a Maeth','ABCh','Bagloriaeth Cymru']
-    strands = list(Strand.query.order_by(Strand.id).all())
-    categories = set()
-    for x in strands:
-        categories.add(x.strand_name)
-    return render_template("ideas.html", ideas=ideas, strands=strands, subjects=subjects, categories=categories)
-
 # --- Filter Ideas By Strand Name  --- #
 @app.route("/ideas/strand_name<strand_name>")
 def filter_ideas_by_strand_name(strand_name):
@@ -305,56 +284,28 @@ def filter_ideas_by_strand_name(strand_name):
         ideas = list(Idea.query.filter(Idea.strand_id.between(11,12)).all())
     return render_template("ideas.html", ideas=ideas, strands=strands, subjects=subjects, categories=categories)
 
-# --- Filter Ideas By Subject  --- #
-@app.route("/ideas/subject<subject>")
-def filter_ideas_by_subject(subject):
-    ideas = list(Idea.query.filter_by(subject = subject).all())
+# --- Filter Ideas Using Query Params  --- #
+@app.route("/ideas")
+def filter_ideas_by_query_param():
+    args = request.args
     subjects = ['Cymraeg','Saesneg','Ffrangeg','Sbaeneg','Hanes','Daearyddiaeth','Addysg Grefyddol','Busnes','Celf','Cerddoriaeth','Drama','Mathemateg','Bioleg','Cemeg','Ffiseg','Technoleg Digidol','Dylunio a Thechnoleg','Tecstiliau','Graffeg','Addysg Gorfforol','Bwyd a Maeth','ABCh','Bagloriaeth Cymru']
     strands = list(Strand.query.order_by(Strand.id).all())
+    camau_cynnydd = ['2','3','4','5']
     categories = set()
     for x in strands:
         categories.add(x.strand_name)
-    return render_template("ideas.html", ideas=ideas, strands=strands, subjects=subjects, categories=categories)
-
-# --- Filter Ideas By Cam Cynnydd  --- #
-@app.route("/ideas/cam_cynnydd<cc>")
-def filter_ideas_by_cam_cynnydd(cc):
-    ideas = list(Idea.query.filter_by(cam_cynnydd = cc).all())
-    subjects = ['Cymraeg','Saesneg','Ffrangeg','Sbaeneg','Hanes','Daearyddiaeth','Addysg Grefyddol','Busnes','Celf','Cerddoriaeth','Drama','Mathemateg','Bioleg','Cemeg','Ffiseg','Technoleg Digidol','Dylunio a Thechnoleg','Tecstiliau','Graffeg','Addysg Gorfforol','Bwyd a Maeth','ABCh','Bagloriaeth Cymru']
-    strands = list(Strand.query.order_by(Strand.id).all())
-    categories = set()
-    for x in strands:
-        categories.add(x.strand_name)
-    return render_template("ideas.html", ideas=ideas, strands=strands, subjects=subjects, categories=categories)
-
-# --- Filter Ideas By User  --- #
-@app.route("/ideas/user<username>")
-def filter_ideas_by_user(username):
-    ideas = list(Idea.query.filter_by(created_by = username).all())
-    subjects = ['Cymraeg','Saesneg','Ffrangeg','Sbaeneg','Hanes','Daearyddiaeth','Addysg Grefyddol','Busnes','Celf','Cerddoriaeth','Drama','Mathemateg','Bioleg','Cemeg','Ffiseg','Technoleg Digidol','Dylunio a Thechnoleg','Tecstiliau','Graffeg','Addysg Gorfforol','Bwyd a Maeth','ABCh','Bagloriaeth Cymru']
-    strands = list(Strand.query.order_by(Strand.id).all())
-    categories = set()
-    for x in strands:
-        categories.add(x.strand_name)
-    return render_template("ideas.html", ideas=ideas, strands=strands, subjects=subjects, categories=categories)
-
-# # --- Filter Ideas Using Query Params  --- #
-# @app.route("/ideas")
-# def filter_ideas_by_query_param():
-#     args = request.args
-#     subjects = ['Cymraeg','Saesneg','Ffrangeg','Sbaeneg','Hanes','Daearyddiaeth','Addysg Grefyddol','Busnes','Celf','Cerddoriaeth','Drama','Mathemateg','Bioleg','Cemeg','Ffiseg','Technoleg Digidol','Dylunio a Thechnoleg','Tecstiliau','Graffeg','Addysg Gorfforol','Bwyd a Maeth','ABCh','Bagloriaeth Cymru']
-#     strands = list(Strand.query.order_by(Strand.id).all())
-#     categories = set()
-#     for x in strands:
-#         categories.add(x.strand_name)
-#     if args.get("subject"):
-#         param = args.get("subject")
-#         ideas = list(Idea.query.filter_by(subject=param).all())
-#     elif args.get("cam_cynnydd"):
-#         param = args.get("cam_cynnydd")
-#         ideas = list(Idea.query.filter_by(cam_cynnydd=param).all())
-#     elif args.get("created_by"):
-#         ideas = list(Idea.query.filter_by(created_by=param).all())
-#     else:
-#         ideas = list(Idea.query.order_by(Idea.idea_name).all())
-#     return render_template("ideas.html", subjects=subjects, strands=strands, ideas=ideas, categories=categories)
+    if args.get("subject"):
+        param = args.get("subject")
+        ideas = list(Idea.query.filter_by(subject=param).all())
+    elif args.get("strand_id"):
+        param = args.get("strand_id")
+        ideas = list(Idea.query.filter_by(strand_id=param).all())
+    elif args.get("cam_cynnydd"):
+        param = args.get("cam_cynnydd")
+        ideas = list(Idea.query.filter_by(cam_cynnydd=param).all())
+    elif args.get("created_by"):
+        param = args.get("created_by")
+        ideas = list(Idea.query.filter_by(created_by=param).all())
+    else:
+        ideas = list(Idea.query.order_by(Idea.idea_name).all())
+    return render_template("ideas.html", subjects=subjects, strands=strands, ideas=ideas, categories=categories, camau_cynnydd=camau_cynnydd)

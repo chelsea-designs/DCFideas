@@ -816,6 +816,8 @@ section {
   position: relative;
   overflow: hidden;
   transition: 0.3s;
+  min-height: 650px;
+  margin-bottom: 20px;
 }
 
 .pricing .box:hover {
@@ -883,6 +885,11 @@ section {
   font-weight: 600;
   transition: 0.3s;
   border: 1px solid #4154F1;
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  width: 92%;
+  margin: 10% 4%;
 }
 
 .pricing .btn-buy:hover {
@@ -904,14 +911,14 @@ section {
 }
 
 /*--------------------------------------------------------------
-# F.A.Q
+# Accordion
 --------------------------------------------------------------*/
-.faq .accordion-collapse {
+.accordion .accordion-collapse {
   border: 0;
 }
 
-.faq .accordion-button {
-  padding: 15px 15px 20px 0;
+.accordion .accordion-button {
+  padding: 15px 20px;
   font-weight: 600;
   border: 0;
   font-size: 18px;
@@ -919,17 +926,24 @@ section {
   text-align: left;
 }
 
-.faq .accordion-button:focus {
+.accordion .accordion-button:focus {
   box-shadow: none;
 }
 
-.faq .accordion-button:not(.collapsed) {
+.accordion .accordion-button:is(.collapsed) {
+  background: #4154F1;
+  color: white;
+  border: 0;
+  border-radius: 5px;
+}
+
+.accordion .accordion-button:not(.collapsed) {
   background: none;
   color: #4154F1;
   border-bottom: 0;
 }
 
-.faq .accordion-body {
+.accordion .accordion-body {
   padding: 0 0 25px 0;
   border: 0;
 }
@@ -1560,4 +1574,12 @@ body .modal-backdrop.fade.in {
 
 .btn-login {
   width: fit-content;
+}
+
+.dropdown-submenu {
+  position: relative;
+}
+
+.dropdown-colour {
+  background-color: aliceblue;
 }

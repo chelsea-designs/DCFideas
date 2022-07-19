@@ -35,7 +35,7 @@
                 <ul>
                     <li><a class="nav-link scrollto" href="{{url_for('home')}}">Home</a></li>
                     <li><a class="nav-link scrollto" href="{{url_for('about')}}">About</a></li>
-                    <li><a class="nav-link scrollto" href="{{url_for('ideas')}}">Ideas</a></li>
+                    <li><a class="nav-link scrollto" href="{{url_for('filter_ideas_by_query_param')}}">Ideas</a></li>
                     {% if session.user %}
                     <li><a class="getstarted scrollto" href="{{ url_for('profile', username=session['user']) }}">My
                             Profile</a></li>
@@ -94,8 +94,10 @@
                         <ul>
                             <li><i class="fas fa-chevron-right"></i> <a href="{{url_for('home')}}">Home</a></li>
                             <li><i class="fas fa-chevron-right"></i> <a href="{{url_for('about')}}">About</a></li>
-                            <li><i class="fas fa-chevron-right"></i> <a href="{{url_for('ideas')}}">Ideas</a></li>
-                            <li><i class="fas fa-chevron-right"></i> <a href="{{ url_for('add_idea') }}">Add Idea</a>
+                            <li><i class="fas fa-chevron-right"></i> <a
+                                    href="{{url_for('filter_ideas_by_query_param')}}">Ideas</a></li>
+                            <li><i class="fas fa-chevron-right"></i> <a href="{{ url_for('add_idea') }}"
+                                    class="idea-button">Add Idea</a>
                             </li>
                             <li><i class="fas fa-chevron-right"></i> <a href="{{url_for('login')}}">Login</a></li>
                         </ul>
