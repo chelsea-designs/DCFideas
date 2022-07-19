@@ -1489,8 +1489,16 @@ body .modal-backdrop.fade.in {
 }
 
 /*--------------------------------------------------------------
-# Buttons
+# Account Pages
 --------------------------------------------------------------*/
+.card-header {
+  color: #012970;
+}
+
+.card-footer {
+  color: #012970;
+}
+
 .btn-account {
   width: fit-content;
 }
