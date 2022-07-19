@@ -80,17 +80,13 @@
 - To view images of the website on different devices.
 - [Am I Responsive ](/documentation/images/testing-images/am-I-responsive-home.png)
 
-### JavaScript
-- [JSHint](https://jshint.com/)
-   - [JavaScript Validation](/documentation/images/testing-images/jshint.png)
-   - Addressing errors and warnings: 
-      - In the initial testing a warning for ''let' is available in ES6 (use 'esversion: 6') is presented. If the following shrot line of code is added, /*jshint esversion: 6 */ to the top of code so that JSHint does not raise unnecessary warnings for ECMAScript 6 features, the the initial warning no longer appears and can be safely ignored.
-      - JSHint flags Jquery $ symbol as an undefined variable - safely ignored. 
+### [Javascript: JSHint](https://jshint.com/)
+- Validating the JS code of the project was done by pasting code into JSHint.
+- Addressing errors and warnings: JSHint shows [an error](dcfideas/static/img/testing/jshint.png) for unused variables however these are function names used in other files therefore I'm happy to disregard these warnings.
 
 ### [CSS: W3C CSS validation](https://jigsaw.w3.org/css-validator/)
-- To validate the CCS code of the project pasting code in by direct input method.
-- The validation of the css file shows no issues and passes its checks in full
-- [CSS Validation](/documentation/images/testing-images/css-validation.png)
+- Validating the CCS code of the project was done by pasting code in by direct input method.
+- Addressing errors and warnings: W3C CSS validator showed one [one error](dcfideas/static/img/testing/w3c-css-before.png), this was because the 0 had no unit, I [changed the 0 to be 0s](dcfideas/static/img/testing/css-unit-fix.png), this [solved the issue](dcfideas/static/img/testing/w3c-css-before.png).
 
 ### [HTML: W3C Markup Validation](https://validator.w3.org/)
 - To validate the HTML code of the project by pasting code in by direct input method. Note the W3C Validator for HTML does not understand the Jinja templating syntax therefore if there are warnings related to this, this can be safely ignored.
@@ -114,9 +110,13 @@
    - Error Pages - No errors in testing and finally
       - [Error Pages Final](/documentation/images/validator_screenshots/html_validator_404_page_test.png)
 
-### Python
-- [PEP8 Online](http://pep8online.com/) - Pythoon file is PEP8 compliant
-   - [Python Validation](/documentation/images/testing-images/pep8-validation.png)
+### [Python: PEP8 Online](http://pep8online.com/)
+- Validating the Python code of the project was done by pasting the code from each Python file in turn into PEP8 Online.
+- Addressing errors and warnings: PEP8 Online showed [one error](/documentation/images/testing-images/pep8-python-before.png), for every python file, this was because it requires a blank line at the end of every Python file. Once I added a blank line, all python files passed:
+   - [models.py Passed](dcfideas/static/img/testing/pep8-python-models.png)
+   - [routes.py Passed](dcfideas/static/img/testing/pep8-python-routes.png)
+   - [run.py Passed](dcfideas/static/img/testing/pep8-python-run.png)
+   - [init.py Passed](dcfideas/static/img/testing/pep8-python-init.png)
 
 ---
 ## **Manual testing**

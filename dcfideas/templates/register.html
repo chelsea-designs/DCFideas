@@ -1,6 +1,6 @@
 {% extends "base.html" %}
 {% block content %}
-<header class="section-header">
+<header class="page-header">
     <h1>Create a New Account</h1>
 </header>
 
@@ -15,6 +15,7 @@
                 <i class="fas fa-user-plus prefix"></i>
                 <input id="username" name="username" type="text" class="validate" minlength="5" maxlength="15"
                     pattern="^[a-zA-Z0-9]{5,15}$" required>
+                <i class="far fa-eye" style="color: transparent;"></i>
             </div>
             <div class="input-field col-12">
                 <label for="password">Password</label><br>

@@ -4,7 +4,7 @@
 
     <div class="container" data-aos="fade-up">
 
-        <header class="section-header">
+        <header class="page-header">
             <h1>Browse and Create Ideas</h1>
             {% if session.user %}
             <a href="{{ url_for('add_idea') }}" class="idea-button btn btn-primary mt-3">Add Idea <i
@@ -35,7 +35,7 @@
                                                 <label for="searched">Search Ideas</label>
                                                 <div class="input-field col-sm-12 col-md-8 col-xl-10">
                                                     <input class="form-control" type="search" placeholder="Search"
-                                                        aria-label="Search" name="searched">
+                                                        aria-label="Search" name="searched" id="searched">
                                                 </div>
                                                 <div class="col-sm-12 col-md-4 col-xl-2 text-center">
                                                     <button class="btn btn-primary" type="submit">Search</button>
@@ -46,10 +46,10 @@
                                             <div class="subject-dropdown col-4 text-center">
                                                 <a class="btn dropdown-toggle btn-outline-primary"
                                                     data-bs-toggle="dropdown" href="#">
-                                                    Subject
+                                                    <span id="subject-label">Subject</span>
                                                     <span class="caret"></span>
                                                 </a>
-                                                <ul class="dropdown-menu" role="menu" aria-labelledby="dLabel">
+                                                <ul class="dropdown-menu" role="menu" aria-labelledby="subject-label">
                                                     {% for subject in subjects %}
                                                     <li>
                                                         <a href="{{ url_for('filter_ideas_by_query_param')}}?subject={{subject}}"
@@ -61,10 +61,11 @@
                                             <div class="cam_cynnydd-dropdown col-4 text-center">
                                                 <a class="btn dropdown-toggle btn-outline-primary"
                                                     data-bs-toggle="dropdown" href="#">
-                                                    Cam Cynnydd
+                                                    <span id="cam_cynnydd-label">Cam Cynnydd</span>
                                                     <span class="caret"></span>
                                                 </a>
-                                                <ul class="dropdown-menu" role="menu" aria-labelledby="dLabel">
+                                                <ul class="dropdown-menu" role="menu"
+                                                    aria-labelledby="cam_cynnydd-label">
                                                     {% for cam_cynnydd in camau_cynnydd %}
                                                     <li>
                                                         <a href="{{ url_for('filter_ideas_by_query_param')}}?cam_cynnydd={{cam_cynnydd}}"
@@ -148,11 +149,11 @@
                 </div>
             </div>
             <div class="modal fade" id="delete-idea{{ loop.index }}" tabindex="-1"
-                aria-labelledby="delete-idea-{{idea.idea_name}}" aria-hidden="true">
+                aria-labelledby="delete-idea-{{loop.index}}" aria-hidden="true">
                 <div class="modal-dialog">
                     <div class="modal-content">
                         <div class="modal-header">
-                            <h5 class="modal-title" id="delete-idea-{{idea.idea_name}}">Delete Item</h5>
+                            <h5 class="modal-title" id="delete-idea-{{loop.index}}">Delete Item</h5>
                             <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
                         </div>
                         <div class="modal-body">

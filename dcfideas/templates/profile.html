@@ -1,6 +1,6 @@
 {% extends "base.html" %}
 {% block content %}
-<header class="section-header">
+<header class="page-header">
     <h1>Hello, {{ username }}!</h1>
 </header>
 <div class="card text-center offset-2 col-8">
@@ -84,7 +84,7 @@
 <br>
 <div class="container services">
     <header class="section-header">
-        <h1>My Ideas</h1><br>
+        <h2>My Ideas</h2><br>
         <a href="{{ url_for('add_idea') }}" class="idea-button btn btn-primary mt-3">Add Idea <i
                 class="fas fa-plus-square right"></i></a>
     </header>
@@ -126,11 +126,11 @@
         </div>
         <!-- Delete Modal -->
         <div class="modal fade" id="delete-idea{{ loop.index }}" tabindex="-1"
-            aria-labelledby="delete-idea-{{idea.idea_name}}" aria-hidden="true">
+            aria-labelledby="delete-idea-{{loop.index}}" aria-hidden="true">
             <div class="modal-dialog">
                 <div class="modal-content">
                     <div class="modal-header">
-                        <h5 class="modal-title" id="delete-idea-{{idea.idea_name}}">Delete Item</h5>
+                        <h5 class="modal-title" id="delete-idea-{{loop.index}}">Delete Item</h5>
                         <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
                     </div>
                     <div class="modal-body">

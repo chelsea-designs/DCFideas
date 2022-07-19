@@ -21,6 +21,7 @@ body {
 
 main {
   flex: 1 0 auto;
+  margin-bottom: 50px;
 }
 
 footer {
@@ -54,12 +55,26 @@ section {
   overflow: hidden;
 }
 
+.page-header {
+  text-align: center;
+  padding: 100px 0px 50px 0px;
+}
+
+.page-header h1 {
+  margin: 10px 0 0 0;
+  padding: 0;
+  font-size: 38px;
+  line-height: 42px;
+  font-weight: 700;
+  color: #012970;
+}
+
 .section-header {
   text-align: center;
   padding: 100px 0px 50px 0px;
 }
 
-.section-header h1 {
+.section-header h2 {
   margin: 10px 0 0 0;
   padding: 0;
   font-size: 38px;
@@ -174,7 +189,7 @@ section {
 .header {
   transition: all 0.5s;
   z-index: 997;
-  padding: 30px 0;
+  padding: 15px 0;
 }
 
 .header.header-scrolled {
@@ -1321,10 +1336,9 @@ section {
 }
 
 .footer .footer-top {
-  background: white url(../img/footer-bg.png) no-repeat right top;
+  background: #F6F9FF url(../img/footer-bg.png) no-repeat right top;
   background-size: contain;
-  border-top: 1px solid #F6F9FF;
-  border-bottom: 1px solid #F6F9FF;
+  border-bottom: 1px solid #012970;
   padding: 60px 0 30px 0;
 }
 

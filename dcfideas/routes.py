@@ -109,7 +109,8 @@ def update_idea(idea_id):
         flash("You must be logged in to view edit ideas.")
         return redirect(url_for("login"))
     else:
-        if session["user"].lower() == idea.created_by.lower() or session["user"].lower() == "admin".lower():
+        if session["user"].lower() == idea.created_by.lower() or session[
+                                        "user"].lower() == "admin".lower():
             print("testing")
             print(idea.strand_id)
             if request.method == "POST":
@@ -139,7 +140,8 @@ def delete_idea(idea_id):
         flash("You must be logged in to delete ideas.")
         return redirect(url_for("login"))
     else:
-        if session["user"].lower() == idea.created_by.lower() or session["user"].lower() == "admin".lower():
+        if session["user"].lower() == idea.created_by.lower() or session[
+                                        "user"].lower() == "admin".lower():
             db.session.delete(idea)
             db.session.commit()
             flash("Idea deleted")
