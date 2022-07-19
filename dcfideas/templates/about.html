@@ -55,7 +55,7 @@
                 <div class="box">
                     <h3>{{category}}</h3>
                     <img src="{{ url_for('static',filename='img/strand-icons/'+category.lower().replace(' ','-')+'.png')}}"
-                        class="img-fluid" circular logo representing the four strands">
+                        class="img-fluid" alt="circular logo representing the four strands">
                     <ul>
                         {% for strand in strands %}
                         {% if strand.strand_name == category %}
