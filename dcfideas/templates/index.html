@@ -43,9 +43,7 @@
                     <span>{{strand.strand_name}} - {{strand.strand_element}}</span>
                     <a href="{{ url_for('full_idea', idea_id=recentidea.id) }}" class="readmore stretched-link mt-auto">
                         <a href="{{ url_for('full_idea', idea_id=recentidea.id) }}">
-                            <span>Read More
-                                <i class="fas fa-arrow-right"></i>
-                            </span>
+                            {{recentidea.idea_name}} - Full Details <i class="fas fa-arrow-right"></i>
                         </a>
                     </a>
                 </div>

@@ -1,6 +1,6 @@
 # Application Testing Details
 
-[Main README.md file](/README.md)
+[Main README.md file](README.md)
 
 [View live version of website via Heroku](https://dcfideas.herokuapp.com/)
 
@@ -77,8 +77,7 @@
    - [Mobile Lighthouse Report](/documentation/images/testing-images/lighthouse-desktop-home.jpg)
 
 ### [Am I Responsive](http://ami.responsivedesign.is/)
-- To view images of the website on different devices.
-- [Am I Responsive ](/documentation/images/testing-images/am-I-responsive-home.png)
+- To [view images](dcfideas/static/img/testing/am-i-responsive.png) of the website on different devices.
 
 ### [Javascript: JSHint](https://jshint.com/)
 - Validating the JS code of the project was done by pasting code into JSHint.
@@ -91,24 +90,14 @@
 ### [HTML: W3C Markup Validation](https://validator.w3.org/)
 - To validate the HTML code of the project by pasting code in by direct input method. Note the W3C Validator for HTML does not understand the Jinja templating syntax therefore if there are warnings related to this, this can be safely ignored.
 - Testing and results per page:
-   - Home Page - No errors in testing.
-      - [Home Page Validation](/documentation/images/testing-images/home-page-validation.png)
-   - Log In Page - No Errors in testing.
-      - [Log In Page Validation](/documentation/images/testing-images/login-page-validation.png)
-   - Register Page - No errors in testing.
-      - [Register Page Validation](/documentation/images/testing-images/register-page-validation.png)
-   - Profile Page - No errors in testing.
-      - [Profile Page Validation](/documentation/images/testing-images/profile-page-validation.png)
-   - Admin Dashboard Page - No errors in testing.
-      - [Admin Dashboard Page Validation](/documentation/images/testing-images/admin-page-validation.png)
-   - idea Page - No errors in testing.
-      - [idea Page Validation](/documentation/images/testing-images/idea-page-validation.png)
-   - Add ideas Page - No errors in testing.
-      - [Add ideas Page Validation](/documentation/images/testing-images/add-idea-validation.png)
-   - Edit idea Page - No errors in testing.
-      - [Edit idea Page Validation](/documentation/images/testing-images/edit-idea-validation.png)
-   - Error Pages - No errors in testing and finally
-      - [Error Pages Final](/documentation/images/validator_screenshots/html_validator_404_page_test.png)
+   - Home Page - [No errors]()
+   - About Page - [No errors]()
+   - Ideas Page - [No errors]()
+   - Full Idea Page - [No errors]()
+   - Login Page - [No errors]()
+   - Register 404 Page - [No errors]()
+   - Error 404 Page - [No errors]()
+   - Error 500 Page - [No errors]()
 
 ### [Python: PEP8 Online](http://pep8online.com/)
 - Validating the Python code of the project was done by pasting the code from each Python file in turn into PEP8 Online.
