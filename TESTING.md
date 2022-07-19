@@ -70,11 +70,8 @@
 
 ### Lighthouse (Google Dev Tools)
 
-- The Lighthouse Report for the site's main home page on Mobile was as follows:
-   - [Mobile Lighthouse Report](/documentation/images/testing-images/lighthouse-mobile-home.jpg)
-
-- The Lighthouse Report for the site's main home page on Desktop was as follows:
-   - [Mobile Lighthouse Report](/documentation/images/testing-images/lighthouse-desktop-home.jpg)
+- The Lighthouse Report for the site's main home page was as follows:
+   - [Lighthouse Report](dcfideas/static/img/testing/lighthouse.png)
 
 ### [Am I Responsive](http://ami.responsivedesign.is/)
 - To [view images](dcfideas/static/img/testing/am-i-responsive.png) of the website on different devices.

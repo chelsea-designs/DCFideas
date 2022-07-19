@@ -41,11 +41,8 @@
                     <span class="post-date">{{recentidea.created_at}} </span>
                     <h3 class="post-title">{{recentidea.idea_name}}</h3>
                     <span>{{strand.strand_name}} - {{strand.strand_element}}</span>
-                    <a href="{{ url_for('full_idea', idea_id=recentidea.id) }}"
-                        class="full-details stretched-link mt-auto">
-                        <a href="{{ url_for('full_idea', idea_id=recentidea.id) }}">
-                            {{recentidea.idea_name}} - Full Details <i class="fas fa-arrow-right"></i>
-                        </a>
+                    <a href="{{ url_for('full_idea', idea_id=recentidea.id) }}" class="mt-auto">
+                        {{recentidea.idea_name}} - Full Details <i class="fas fa-arrow-right"></i>
                     </a>
                 </div>
             </div>
