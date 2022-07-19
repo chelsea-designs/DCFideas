@@ -71,7 +71,7 @@
                         <h4>Idea Resource Link</h4>
                         <div class="row">
                             <div class="col-12">
-                                <input class="col-10" type="text" value="{{idea.idea_resource}}" id="linkInput"
+                                <input class="col-10" type="text" value="{{idea.idea_resource}}" id="link-input"
                                     disabled>
                                 <button class="btn btn-outline-secondary col-1" onclick="copyLink()">
                                     <i class="fas fa-copy"></i>
@@ -90,7 +90,7 @@
                             <a href="{{ url_for('update_idea', idea_id=idea.id) }}"
                                 class="btn btn-outline-secondary">Edit<i class="fas fa-pen"></i></a>
                             <button class="btn btn-secondary" data-bs-toggle="modal"
-                                data-bs-target="#deleteModal">Delete<i class="fas fa-trash"></i></button>
+                                data-bs-target="#delete-idea">Delete<i class="fas fa-trash"></i></button>
                         </div>
                         {% endif %}
 
@@ -113,7 +113,7 @@
                             {% for strand in strands %}
                             {% if strand.id == recentidea.strand_id %}
                             <div class="post-item clearfix">
-                                <img src="{{ url_for('static',filename='img/strand-icons/strand'+recentidea.strand_id|string+'.png')}}"
+                                <img src="{{ url_for('static',filename='img/strand-icons/strand-'+recentidea.strand_id|string+'.png')}}"
                                     alt="icons to represent each strand" class="img-fluid">
                                 <h4><a
                                         href="{{ url_for('full_idea', idea_id=recentidea.id) }}">{{recentidea.idea_name}}</a>
@@ -147,11 +147,11 @@
 
 </main><!-- End #main -->
 <!-- Delete Modal -->
-<div class="modal fade" id="deleteModal" tabindex="-1" aria-labelledby="deleteModalLabel" aria-hidden="true">
+<div class="modal fade" id="delete-idea" tabindex="-1" aria-labelledby="delete-idea-label" aria-hidden="true">
     <div class="modal-dialog">
         <div class="modal-content">
             <div class="modal-header">
-                <h5 class="modal-title" id="deleteModalLabel">Delete Item</h5>
+                <h5 class="modal-title" id="delete-idea-label">Delete Item</h5>
                 <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
             </div>
             <div class="modal-body">

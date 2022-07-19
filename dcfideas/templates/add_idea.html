@@ -27,8 +27,8 @@
                         </div>
 
                         <div class="col-md-6">
-                            <label for="cam_cynnydd_selector">Cam Cynnydd</label><br>
-                            <select id="cam_cynnydd_selector" name="cam_cynnydd_selector" class="form-control" required>
+                            <label for="cam_cynnydd-selector">Cam Cynnydd</label><br>
+                            <select id="cam_cynnydd-selector" name="cam_cynnydd-selector" class="form-control" required>
                                 <option disabled selected>Choose Cam Cynnydd</option>
                                 {% for cam_cynnydd in camau_cynnydd %}
                                 <option value="{{cam_cynnydd}}">{{cam_cynnydd}}</option>
@@ -37,8 +37,8 @@
                         </div>
 
                         <div class="col-md-6">
-                            <label for="subject_selector">Subject</label><br>
-                            <select id="subject_selector" name="subject_selector" class="form-control" required>
+                            <label for="subject-selector">Subject</label><br>
+                            <select id="subject-selector" name="subject-selector" class="form-control" required>
                                 <option value="0" disabled selected>Choose a subject</option>
                                 {% for subject in subjects %}
                                 <option value="{{subject}}">{{subject}}</option>
@@ -53,8 +53,8 @@
                         </div>
 
                         <div class="col-md-12">
-                            <label for="strand_selector">Strand</label><br>
-                            <select id="strand_selector" name="strand_selector" class="form-control" required>
+                            <label for="strand-selector">Strand</label><br>
+                            <select id="strand-selector" name="strand-selector" class="form-control" required>
                                 <option value="0" disabled selected>Choose Strand</option>
                                 {% for strand in strands %}
                                 <option value="{{ strand.id }}">{{ strand.id }}: {{ strand.strand_name }} -

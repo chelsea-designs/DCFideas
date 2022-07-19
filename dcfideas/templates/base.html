@@ -38,11 +38,11 @@
                     <li><a class="nav-link scrollto" href="{{url_for('about')}}">About</a></li>
                     <li><a class="nav-link scrollto" href="{{url_for('filter_ideas_by_query_param')}}">Ideas</a></li>
                     {% if session.user %}
-                    <li><a class="getstarted scrollto" href="{{ url_for('profile', username=session['user']) }}">My
+                    <li><a class="get-started scrollto" href="{{ url_for('profile', username=session['user']) }}">My
                             Profile</a></li>
                     {% else %}
                     <li><a class="nav-link scrollto" href="{{url_for('login')}}">Log In</a></li>
-                    <li><a class="getstarted scrollto" href="{{url_for('register')}}">Register</a></li>
+                    <li><a class="get-started scrollto" href="{{url_for('register')}}">Register</a></li>
                     {% endif %}
                 </ul>
                 <i class="fas fa-list mobile-nav-toggle"></i>

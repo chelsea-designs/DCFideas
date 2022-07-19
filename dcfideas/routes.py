@@ -31,11 +31,11 @@ def add_idea():
             idea = Idea(
                 idea_name = request.form.get("idea_name"),
                 idea_description = request.form.get("idea_description"),
-                strand_id = request.form.get("strand_selector"),
+                strand_id = request.form.get("strand-selector"),
                 created_by = session["user"],
                 created_at = datetime.now().strftime("%Y-%m-%d %H:%M:%S"),
-                cam_cynnydd = request.form.get("cam_cynnydd_selector"),
-                subject = request.form.get("subject_selector"),
+                cam_cynnydd = request.form.get("cam_cynnydd-selector"),
+                subject = request.form.get("subject-selector"),
                 idea_resource = request.form.get("idea_resource")
             )
             db.session.add(idea)
@@ -89,11 +89,11 @@ def update_idea(idea_id):
             if request.method == "POST":
                 idea.idea_name = request.form.get("idea_name"),
                 idea.idea_description = request.form.get("idea_description"),
-                idea.strand_id = request.form.get("strand_selector"),
+                idea.strand_id = request.form.get("strand-selector"),
                 idea.created_by = session["user"],
                 idea.created_at = datetime.now().strftime("%Y-%m-%d %H:%M:%S"),
-                idea.cam_cynnydd = request.form.get("cam_cynnydd_selector"),
-                idea.subject = request.form.get("subject_selector"),
+                idea.cam_cynnydd = request.form.get("cam_cynnydd-selector"),
+                idea.subject = request.form.get("subject-selector"),
                 idea.idea_resource = request.form.get("idea_resource")
                 db.session.commit()
                 return redirect(url_for('ideas'))
@@ -239,7 +239,7 @@ def change_password(username):
 def delete_account(user_id):
     user = mongo.db.users.find_one({'username': session["user"]})
     if check_password_hash(user["password"],
-        request.form.get("confirm_deletion")):
+        request.form.get("confirm-deletion")):
         flash("We can confirm that your account has been deleted.")
         session.pop("user")
         mongo.db.users.remove({"_id": ObjectId(user['_id'])})

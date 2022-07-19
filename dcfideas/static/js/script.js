@@ -182,7 +182,7 @@ $(".idea-button").click(function () {
 });
 
 window.onload = function () {
-  $('#strand_selector').val(localStorage.getItem("storeStrand"));
+  $('#strand-selector').val(localStorage.getItem("storeStrand"));
 };
 
 // Toggle password visibility
@@ -201,7 +201,7 @@ $(".password-visible").click(function () {
 // Copy Link Text
 //https://www.w3schools.com/howto/howto_js_copy_clipboard.asp
 function copyLink() {
-  var copyLink = document.getElementById("linkInput");
+  var copyLink = document.getElementById("link-input");
   copyLink.select();
   copyLink.setSelectionRange(0, 99999);
   navigator.clipboard.writeText(copyLink.value);

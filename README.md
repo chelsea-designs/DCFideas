@@ -88,7 +88,7 @@ DCF Ideas is a web Application, built specifically for the Milestone 3, Data-Cen
 ### Colour Scheme
 
  The overall colour palette was designed from a website called [Coolors](https://coolors.co/). The colour scheme was chosen to make the site look visually appealing, using a blue colour palette, as this portrays calmness and confidence (using colour psychology). The colours were checked for sufficient contrast using [EightShapes](https://contrast-grid.eightshapes.com/?version=1.1.0&background-colors=&foreground-colors=%23565656%0D%0A%23012970%0D%0A%234154F1%0D%0A%232DB6FA%0D%0A%23F6F9FF%0D%0A%23FFFFFF%2C%20White%0D%0A&es-color-form__tile-size=compact&es-color-form__show-contrast=aaa&es-color-form__show-contrast=aa&es-color-form__show-contrast=aa18&es-color-form__show-contrast=dnp)
-![Colour Palette](dcfideas/static/img/colour-scheme.png)
+![Colour Palette](dcfideas/static/img/documentation/colour-scheme.png)
 
 
 ### Icons

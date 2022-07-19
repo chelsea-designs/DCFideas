@@ -20,15 +20,16 @@
             <div class="container aos-init aos-animate" data-aos="fade-up">
                 <div class="row">
                     <div class="col-lg-12">
-                        <div class="accordion accordion-flush" id="searchBox">
+                        <div class="accordion accordion-flush" id="search-box">
                             <div class="accordion-item">
                                 <h2 class="accordion-header">
                                     <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse"
-                                        data-bs-target="#searchContent">
+                                        data-bs-target="#search-content">
                                         Search and Filter Ideas
                                     </button>
                                 </h2>
-                                <div id="searchContent" class="accordion-collapse collapse" data-bs-parent="#searchBox">
+                                <div id="search-content" class="accordion-collapse collapse"
+                                    data-bs-parent="#search-box">
                                     <div class="accordion-body">
                                         <form method="POST" action="{{ url_for('search')}}">
                                             <div class="row">
@@ -118,7 +119,7 @@
                 <div class="idea-box blue">
                     {% for strand in strands %}
                     {% if strand.id == idea.strand_id %}
-                    <img src="{{ url_for('static',filename='img/'+strand.strand_name.lower().replace(' ','')+'.png')}}"
+                    <img src="{{ url_for('static',filename='img/strand-icons/'+strand.strand_name.lower().replace(' ','-')+'.png')}}"
                         alt="icons to represent each category" class="img-fluid">
                     <h3>{{ idea.idea_name }}</h3>
                     <ul class="p-0 m-0 list-unstyled">
@@ -143,16 +144,16 @@
                     <a href="{{ url_for('update_idea', idea_id=idea.id) }}" class="btn btn-outline-primary">Edit <i
                             class="fas fa-pen"></i></a>
                     <button class="btn btn-secondary" data-bs-toggle="modal"
-                        data-bs-target="#deleteModal{{ loop.index }}">Delete <i class="fas fa-trash"></i></button>
+                        data-bs-target="#delete-idea{{ loop.index }}">Delete <i class="fas fa-trash"></i></button>
                     {% endif %}
                 </div>
             </div>
-            <div class="modal fade" id="deleteModal{{ loop.index }}" tabindex="-1" aria-labelledby="deleteModalLabel"
+            <div class="modal fade" id="delete-idea{{ loop.index }}" tabindex="-1" aria-labelledby="delete-idea-label"
                 aria-hidden="true">
                 <div class="modal-dialog">
                     <div class="modal-content">
                         <div class="modal-header">
-                            <h5 class="modal-title" id="deleteModalLabel">Delete Item</h5>
+                            <h5 class="modal-title" id="delete-idea-label">Delete Item</h5>
                             <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
                         </div>
                         <div class="modal-body">

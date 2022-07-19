@@ -12,28 +12,28 @@
         <div class="row">
             <div class="col-6">
                 <h4>Update Password</h4>
-                <button class="btn btn-primary" data-bs-toggle="modal" data-bs-target="#changePassword">Edit <i
+                <button class="btn btn-primary" data-bs-toggle="modal" data-bs-target="#change-password">Edit <i
                         class="fas fa-pen"></i></button>
             </div>
             <div class="col-6">
                 <h4>Delete Account</h4>
-                <button class="btn btn-primary" data-bs-toggle="modal" data-bs-target="#deleteAccountModal">Delete <i
+                <button class="btn btn-primary" data-bs-toggle="modal" data-bs-target="#delete-account">Delete <i
                         class="fas fa-trash"></i></button>
             </div>
         </div>
     </div>
 </div>
 <!-- Change Password Model -->
-<div class="modal fade" id="changePassword" tabindex="-1" aria-labelledby="changePasswordLabel" aria-hidden="true">
+<div class="modal fade" id="change-password" tabindex="-1" aria-labelledby="change-passwordLabel" aria-hidden="true">
     <div class="modal-dialog">
         <div class="modal-content">
             <div class="modal-header">
-                <h5 class="modal-title" id="changePasswordLabel">Change Password</h5>
+                <h5 class="modal-title" id="change-passwordLabel">Change Password</h5>
                 <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
             </div>
             <div class="modal-body">
                 <form action="{{ url_for('change_password', username=session['user']) }}" method="POST"
-                    id="formChangePass">
+                    id="change-password-form">
                     <div class="row">
                         <div class="input-field col s12">
                             <label for="new_password">New Password</label><br>
@@ -46,37 +46,36 @@
                 </form>
             </div>
             <div class="modal-footer">
-                <button type="submit" class="btn btn-primary" form="formChangePass" value="Submit">Edit</button>
+                <button type="submit" class="btn btn-primary" form="change-password-form" value="Submit">Edit</button>
                 <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
             </div>
         </div>
     </div>
 </div>
 <!-- Delete Account  Model -->
-<div class="modal fade" id="deleteAccountModal" tabindex="-1" aria-labelledby="deleteAccountModalLabel"
-    aria-hidden="true">
+<div class="modal fade" id="delete-account" tabindex="-1" aria-labelledby="delete-account-label" aria-hidden="true">
     <div class="modal-dialog">
         <div class="modal-content">
             <div class="modal-header">
-                <h5 class="modal-title" id="deleteAccountModalLabel">Delete Account</h5>
+                <h5 class="modal-title" id="delete-account-label">Delete Account</h5>
                 <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
             </div>
             <div class="modal-body">
                 <p>Are you sure you want to delete this account?</p>
                 <p>Once deleted it cannot be retrieved.</p>
-                <form action="{{ url_for('delete_account', user_id=username) }}" method="POST" id="formDelAccount">
+                <form action="{{ url_for('delete_account', user_id=username) }}" method="POST" id="delete-account-form">
                     <div class="row">
                         <div class="input-field col-12">
-                            <label for="confirm_deletion">Confirm Password to Delete</label><br>
-                            <input id="confirm_deletion" name="confirm_deletion" minlength="5" maxlength="15"
+                            <label for="confirm-deletion">Confirm Password to Delete</label><br>
+                            <input id="confirm-deletion" name="confirm-deletion" minlength="5" maxlength="15"
                                 pattern="^[a-zA-Z0-9]{5,15}$" type="password" class="validate" required>
-                            <i class="password-visible far fa-eye" data-target="confirm_deletion"></i>
+                            <i class="password-visible far fa-eye" data-target="confirm-deletion"></i>
                         </div>
                     </div>
                 </form>
             </div>
             <div class="modal-footer">
-                <button type="submit" class="btn btn-primary" form="formDelAccount" value="Submit">Delete</button>
+                <button type="submit" class="btn btn-primary" form="delete-account-form" value="Submit">Delete</button>
                 <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
             </div>
         </div>
@@ -97,7 +96,7 @@
             <div class="service-box blue">
                 {% for strand in strands %}
                 {% if strand.id == idea.strand_id %}
-                <img src="{{ url_for('static',filename='img/'+strand.strand_name.lower().replace(' ','')+'.png')}}"
+                <img src="{{ url_for('static',filename='img/strand-icons/'+strand.strand_name.lower().replace(' ','-')+'.png')}}"
                     alt="icons to represent each category" class="img-fluid">
                 <h3>{{ idea.idea_name }}</h3>
                 <ul class="p-0 m-0 list-unstyled">
@@ -122,17 +121,17 @@
                 <a href="{{ url_for('update_idea', idea_id=idea.id) }}" class="btn btn-outline-secondary">Edit<i
                         class="fas fa-pen"></i></a>
                 <button class="btn btn-secondary" data-bs-toggle="modal"
-                    data-bs-target="#deleteModal{{ loop.index }}">Delete<i class="fas fa-trash"></i></button>
+                    data-bs-target="#delete-idea{{ loop.index }}">Delete<i class="fas fa-trash"></i></button>
                 {% endif %}
             </div>
         </div>
         <!-- Delete Modal -->
-        <div class="modal fade" id="deleteModal{{ loop.index }}" tabindex="-1" aria-labelledby="deleteModalLabel"
+        <div class="modal fade" id="delete-idea{{ loop.index }}" tabindex="-1" aria-labelledby="delete-idea-label"
             aria-hidden="true">
             <div class="modal-dialog">
                 <div class="modal-content">
                     <div class="modal-header">
-                        <h5 class="modal-title" id="deleteModalLabel">Delete Item</h5>
+                        <h5 class="modal-title" id="delete-idea-label">Delete Item</h5>
                         <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
                     </div>
                     <div class="modal-body">
