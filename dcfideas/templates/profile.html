@@ -126,12 +126,12 @@
             </div>
         </div>
         <!-- Delete Modal -->
-        <div class="modal fade" id="delete-idea{{ loop.index }}" tabindex="-1" aria-labelledby="delete-idea-label"
-            aria-hidden="true">
+        <div class="modal fade" id="delete-idea{{ loop.index }}" tabindex="-1"
+            aria-labelledby="delete-idea-{{idea.idea_name}}" aria-hidden="true">
             <div class="modal-dialog">
                 <div class="modal-content">
                     <div class="modal-header">
-                        <h5 class="modal-title" id="delete-idea-label">Delete Item</h5>
+                        <h5 class="modal-title" id="delete-idea-{{idea.idea_name}}">Delete Item</h5>
                         <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
                     </div>
                     <div class="modal-body">
