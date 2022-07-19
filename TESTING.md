@@ -112,14 +112,13 @@
 ### [Accessibility: Wave](https://wave.webaim.org/)
 - To validate the HTML code of the project by pasting code in by direct input method. Note the W3C Validator for HTML does not understand the Jinja templating syntax therefore if there are warnings related to this, this can be safely ignored.
 - Testing and results per page:
-   - Home Page - [No errors]()
-   - About Page - [No errors]()
-   - Ideas Page - [No errors]()
-   - Full Idea Page - [No errors]()
-   - Login Page - [No errors]()
-   - Register 404 Page - [No errors]()
-   - Error 404 Page - [No errors]()
-   - Error 500 Page - [No errors]()
+   - Home Page - [Redundant Link Error](dcfideas/static/img/testing/wave-home.png)
+   - About Page - [Redundant Link Error and Skipped Heading](dcfideas/static/img/testing/wave-about.png)
+   - Ideas Page - [Redundant Link Error and Skipped Heading](dcfideas/static/img/testing/wave-ideas.png)
+   - Login Page - [Redundant Link Error and Skipped Heading](dcfideas/static/img/testing/wave-login.png)
+   - Register Page - [Redundant Link Error](dcfideas/static/img/testing/wave-register.png)
+- The 'Redundant Link Errors' are due to the site logo and home page both linking to the same page and being near to each other. I'm happy to disregard this alert as it is common industry practice to do this.
+- The 'Skipped Heading' error appears on some pages but not others, due to the h4 in the shared footer. Some pages do not have h3, while others do, causing the skipped heading alert.
 
 ---
 ## **Manual testing**

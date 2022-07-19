@@ -5,7 +5,7 @@
     <h1>The Digital Competence Framework</h1>
 </header>
 
-<section id="about" class="about">
+<div id="about" class="about section">
     <div class="container aos-init aos-animate" data-aos="fade-up">
         <div class="row gx-0">
             <div class="col-lg-6 d-flex flex-column justify-content-center aos-init aos-animate" data-aos="fade-up"
@@ -43,8 +43,8 @@
             </div>
         </div>
     </div>
-</section>
-<section id="strands" class="strands">
+</div>
+<div id="strands" class="strands section">
     <div class="container aos-init aos-animate" data-aos="fade-up">
         <header class="section-header">
             <h2>The Four DCF Strands</h2>
@@ -62,11 +62,13 @@
                         <li>
                             {{strand.strand_element}}<br>
                             <a href="{{ url_for('filter_ideas_by_query_param')}}?strand_id={{strand.id}}" class=""><i
-                                    class="fas fa-eye"><span class="sr-only">View ideas in this strand</span>
+                                    class="fas fa-eye"><span class="sr-only">View ideas in this
+                                        strand</span>
                                 </i></a>
                             {% if session.user %}
                             <a href="{{ url_for('add_idea') }}" class="strand-button" data-strand="{{ strand.id }}"><i
-                                    class="fas fa-plus"><span class="sr-only">Add ideas to this strand</span>
+                                    class="fas fa-plus"><span class="sr-only">Add ideas
+                                        to this strand</span>
                                 </i></a>
                             {% endif %}
                         </li>
@@ -81,8 +83,8 @@
             {% endfor %}
         </div>
     </div>
-</section>
-<section id="frameworks" class="frameworks">
+</div>
+<div id="frameworks" class="frameworks section">
     <div class="container aos-init aos-animate" data-aos="fade-up">
         <header class="section-header">
             <h2>Cross-curricular Frameworks</h2>
@@ -121,8 +123,8 @@
             </div>
         </div>
     </div>
-</section>
-<section id="aoles" class="aoles">
+</div>
+<div id="aoles" class="aoles section">
     <div class="container aos-init aos-animate" data-aos="fade-up">
         <header class="section-header">
             <h2>What are the Areas of Learning and Experience (AoLE)?
@@ -188,15 +190,17 @@
             </div>
         </div>
     </div>
-</section>
-<section id="purposes" class="purposes">
+</div>
+<div id="purposes" class="purposes section">
     <div class="container aos-init" data-aos="fade-up">
         <header class="section-header">
             <h2>What are the four purposes of learning?
             </h2>
             <br>
-            <span>The six AoLEs and the new Welsh curriculum are all centred around four purposes, which the Welsh
-                Government has agreed on and put forward as the main aims for children’s educational outcomes.
+            <span>The six AoLEs and the new Welsh curriculum are all centred around four purposes, which
+                the Welsh
+                Government has agreed on and put forward as the main aims for children’s educational
+                outcomes.
                 <br>The four purposes are aiming to develop the children into becoming:</span>
         </header>
         <div class="row gy-4">
@@ -233,5 +237,5 @@
             </div>
         </div>
     </div>
-</section>
+</div>
 {% endblock %}

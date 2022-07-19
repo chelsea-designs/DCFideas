@@ -107,8 +107,9 @@
                     </li>
                     <li>Subject: <a
                             href="{{ url_for('filter_ideas_by_query_param')}}?subject={{idea.subject}}">{{idea.subject}}</a>
-                    </li>Strand:
-                    <li><a href="{{ url_for('filter_ideas_by_query_param')}}?strand_id={{strand.id}}">{{strand.strand_name}}:
+                    </li>
+                    <li>Strand: <a
+                            href="{{ url_for('filter_ideas_by_query_param')}}?strand_id={{strand.id}}">{{strand.strand_name}}:
                             {{strand.strand_element}}</a>
                     </li>
                 </ul>

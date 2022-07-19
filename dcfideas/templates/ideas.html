@@ -1,6 +1,6 @@
 {% extends "base.html" %}
 {% block content %}
-<section id="ideas" class="ideas">
+<div id="ideas" class="ideas section">
 
     <div class="container" data-aos="fade-up">
 
@@ -15,7 +15,7 @@
             {% endif %}
         </header>
 
-        <section id="accordion" class="accordion mb-5">
+        <div id="accordion" class="accordion section mb-5">
             <div class="container aos-init aos-animate" data-aos="fade-up">
                 <div class="row">
                     <div class="col-lg-12">
@@ -110,7 +110,7 @@
                     </div>
                 </div>
             </div>
-        </section>
+        </div>
 
         {% if ideas|length > 0 %}
         <div class="row gy-4">
@@ -131,8 +131,9 @@
                         </li>
                         <li>Subject: <a
                                 href="{{ url_for('filter_ideas_by_query_param')}}?subject={{idea.subject}}">{{idea.subject}}</a>
-                        </li>Strand:
-                        <li><a href="{{ url_for('filter_ideas_by_query_param')}}?strand_id={{idea.strand_id}}">{{strand.strand_name}}:
+                        </li>
+                        <li>Strand: <a
+                                href="{{ url_for('filter_ideas_by_query_param')}}?strand_id={{idea.strand_id}}">{{strand.strand_name}}:
                                 {{strand.strand_element}}</a>
                         </li>
                     </ul>
@@ -153,7 +154,7 @@
                 <div class="modal-dialog">
                     <div class="modal-content">
                         <div class="modal-header">
-                            <h5 class="modal-title" id="delete-idea-{{loop.index}}">Delete Item</h5>
+                            <h3 class="modal-title" id="delete-idea-{{loop.index}}">Delete Item</h3>
                             <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
                         </div>
                         <div class="modal-body">
@@ -177,6 +178,6 @@
         {% endif %}
 
     </div>
-</section>
+</div>
 
 {% endblock %}

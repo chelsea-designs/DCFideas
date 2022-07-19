@@ -177,15 +177,15 @@
  */
 $(".strand-button").click(function () {
   let getValue = $(this).data('strand');
-  localStorage.setItem("storeStrand", getValue);
+  localStorage.setItem("storeName", getValue);
 });
 
 $(".idea-button").click(function () {
-  localStorage.setItem("storeStrand", 0);
+  localStorage.setItem("storeName", 0);
 });
 
 window.onload = function () {
-  $('#strand-selector').val(localStorage.getItem("storeStrand"));
+  $('#strand-selector').val(localStorage.getItem("storeName"));
 };
 
 /**

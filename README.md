@@ -1,10 +1,10 @@
-F# **DCF Ideas**
+# **DCF Ideas**
 
 DCF Ideas is a web Application, built specifically for the Milestone 3, Data-Centric Development Project for the Code Institute Full Stack Software Development Diploma. The purpose of the project, is to give users access to sharable information and ideas, around the Digital Competence Framework (DCF) for schools, through a number of different platforms. The Application is built, following the "CRUD" principles and will allow users to Create, Read, Update and Delete content. 
 
 [View the live project on Heroku](https://dcfideas.herokuapp.com/)
 
-![Am I responsive image](dcfideas/static/img/am-i-responsive.png)
+![Am I responsive image](dcfideas/static/img/testing/am-i-responsive.png)
 
 ---
 ## **Contents**
@@ -72,9 +72,8 @@ DCF Ideas is a web Application, built specifically for the Milestone 3, Data-Cen
 8. As a registered user, I want to be able to delete my account in full, if I no longer wish to remain a member.
 
 #### *Site Administrator*
-1. As a site Administrator, I would want to be able to control the ideas added.
-2. As a site Administrator, I would want to be able to view all idea posts added by users, update and delete where necessary, keeping the site up-to date.
-3. As a site Administrator, I would want to be able to add new users or delete users who have issues with functionality.
+1. As a site Administrator, I would want to be able to view all idea posts added by users, update and delete where necessary, keeping the site up-to date.
+2. As a site Administrator, I would want to be able to add new users or delete users who have issues with functionality.
 
 ---
 
@@ -92,7 +91,8 @@ DCF Ideas is a web Application, built specifically for the Milestone 3, Data-Cen
 
 
 ### Icons
-- Many of the icons used, were those provided by the [Font Awesome](https://fontawesome.com/v5/search) library.
+- The strand icons were provided by [Flat Icon](https://www.flaticon.com/) library.
+- All other icons were provided by the [Font Awesome](https://fontawesome.com/v5/search) library.
 
 ---
 
@@ -124,20 +124,23 @@ Low fidelity wireframes were created with Balsamiq, and bring to life the basic 
 ---
 
 ## **Data Structures**
- - [MongoDB](https://www.mongodb.com/) is the cloud based storage application, hosting storeage of the data for DCF Ideas. It is a non-relational database, used as the backend functionality of the application, that allows users to create, read, update, delete and search data records on the app.
+ - [MongoDB](https://www.mongodb.com/) is a cloud based storage application, hosting storage of the user account data for DCF Ideas. 
+ - [PostgreSQL](https://www.postgresql.org/) is used as the backend functionality of the application, that allows users to create, read, update, delete and search data records on the app.
 
  ### **Outline of the structure used.**
 
 - **Strands collection**
-    - This collection holds the strand_name key. The strands relate to the strands from the Digital Compentency Framework for Wales, these are categories for the type of ideas that are being linked to. These strands are fixed, with no need to add/remove. There are element/sub-categories for each strand.
+    - This collection holds the strand_name key. The strands relate to the strands from the Digital Compentency Framework for Wales, these are categories for the type of ideas that are being linked to. These strands are fixed, with no need to add/remove. There are element/sub-categories for each strand. 
+    - The strand id links this collection to the idea collection.
 
 - **Ideas collection**
-    - This collection holds several keys for the ideas page where the user can view all the ideas in the database.
-    - The data keys include the idea name, strand name, idea description, idea teacher name. 
+    - This collection holds several keys for the ideas page where the user can create and view all the ideas in the database.
+    - The data keys include the id,
+    idea_name, cam_cynnydd, idea_description, subject, strand_id, created_by, created_at and idea_resource.
 
 - **Users collection**
-    - This collection holds several keys about the user which is provided by the user on the register page and used again on the log in page.
-    - The data keys include the username, email and password. 
+    - This collection holds two keys about the user which is provided by the user on the register page and used again on the log in page.
+    - The data keys include the username and password. 
 
 ---
 
@@ -258,13 +261,12 @@ The Home page is split across three sections:
 
 The site has been launched with a minimal viable product phase in mind. This allows the site to incorporate future features, that will improve the overall offering and user experience that is gained. Future features may include elemets such as:
 
-- Additional profile functionality, with the option to add user profile images, a perosnal statement and options around marketing preferences.
+- Additional profile functionality, with the option to add user profile images, a personal statement and options around marketing preferences.
 - Functionality to retrieve and update a forgotten password.
 - The ability to bookmark ideas added by other users and view them in a section on the profile page.
-- The ability to run additional search queries on the ideas, allowing for searching by Strand, Descriptions
-- Allow users to add other users as friend and add and share posts.
+- The ability to run improved search capabilities, as the current search is basic.
 - Allow an administrator user the option to toggle other site users as administrators.
-- Give site administrators full functionality of updating or deleting user accounts.
+- Give site administrators full functionality of creating, updating or deleting user accounts via an admin dashboard.
 
 ---
 
@@ -295,16 +297,18 @@ The site has been launched with a minimal viable product phase in mind. This all
     - The fonts for the project are taken from the Google Fonts library.
 - [Pymongo](https://pypi.org/project/pymongo/) and [Flask-PyMongo](https://flask-pymongo.readthedocs.io/en/latest/) 
     - To connect Python and Flask to the MongoDB database
-- [Flask](https://flask.palletsprojects.com/en/2.0.x/) 
+- [Flask](https://flask.palletsprojects.com/en/) 
     - To construct and render page templates, and create an instance of the app itself.
 - [MongoDB Atlas](https://www.mongodb.com/)
     - A cloud-based Non-Relational backend database hosting service.
-- [Werkzeug](https://werkzeug.palletsprojects.com/en/2.0.x/ )
+- [Werkzeug](https://werkzeug.palletsprojects.com/en/)
     - A WSGI web application library used for hashing user passwords for Python.
-- [Jinja](https://jinja.palletsprojects.com/en/3.0.x/)
+- [Jinja](https://jinja.palletsprojects.com/en/)
     - Templating language for Python, to simplify displaying data from the backend of this project smoothly and effectively in HTML.
 - [jQuery](https://jquery.com/)
     - JavaScript library used to promote more simplistic JavaScript code throughout the project.
+- [SQLAlchemy](https://www.sqlalchemy.org/)
+    - Used to filter and search through the database.
 
 ### Design Tools
 
@@ -314,7 +318,7 @@ The site has been launched with a minimal viable product phase in mind. This all
 
 ## **Testing**
 
-View the overall testing report for the site here: [TESTING.md](/documentation/TESTING.md)
+View the overall testing report for the site here: [TESTING.md](TESTING.md)
 
 ---
 
@@ -331,7 +335,7 @@ Alternatively, you can clone the repository directly through your terminal, usin
 git clone https://github.com/chelsea-designs/DCFideas
 ```
 
-In order to run work with the application, you will need to have the following technologies installed in your working environment:
+In order to work with the application, you will need to have the following technologies installed in your working environment:
 
 - [PIP3](https://pip.pypa.io/en/stable/installation/)
 - [Python3](https://www.python.org/downloads/)
@@ -352,7 +356,7 @@ When setting up the database, the following setps are required:
 
 ### **Flask Development Setup**
 
-In oredr to build the application, the following steps are to be taken:
+In order to build the application, the following steps are to be taken:
 
 1. Firstly you need to install Flask. In your terminal, type:
 ```
@@ -465,11 +469,14 @@ echo web: python app.py
 - All other code and text for this website was created by Chelsea Williams.
 
 ### **Media**
-- The main Image on the home page is from [Pixabay](https://pixabay.com/)
+- The illustrations used for this website was included in the theme from [BootstrapMade](https://bootstrapmade.com/demo/FlexStart/)
 
 ### **Code**
-- HTML for the navbar and form adapted from [Bootstrap](https://getbootstrap.com/)
-- HTML for modals adapted from [Bootstrap](https://getbootstrap.com/)
+- Theme from [BootstrapMade](https://bootstrapmade.com/demo/FlexStart/)
+- Toggle Password Visibility adapted from [W3 Schools](https://www.w3schools.com/howto/howto_js_toggle_password.asp)
+- Copy text button adapted from [W3 Schools](https://www.w3schools.com/howto/howto_js_copy_clipboard.asp)
+- Dropdown with submenu from [W3 Schools](https://www.w3schools.com/bootstrap/tryit.asp?filename=trybs_ref_js_dropdown_multilevel_css&stacked=h)
+- Elements adapted from [Bootstrap](https://getbootstrap.com/)
 - JQuery for validation from Task Manager walkhtrough project by Code Institute
 
 ---
@@ -477,5 +484,6 @@ echo web: python app.py
 ### **Acknowledgements**
 - Thanks to my mentor Narender Singh for guiding me throughout this project.
 - Thank you to Shane Muir, a Code Institute alumnus, who responded to my Slack pleas for help!
+- Thank you to Chris U, a Code Institute alumnus, who responded to my Slack peer-code-review request with useful feedback.
 
 ##### back to [top](#contents)
