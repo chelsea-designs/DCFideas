@@ -304,6 +304,7 @@ def search():
                     'Ffiseg', 'Technoleg Digidol', 'Dylunio a Thechnoleg',
                     'Tecstiliau', 'Graffeg', 'Addysg Gorfforol',
                     'Bwyd a Maeth', 'ABCh', 'Bagloriaeth Cymru']
+        camau_cynnydd = ['2', '3', '4', '5']
         strands = list(Strand.query.order_by(Strand.id).all())
         categories = set()
         for x in strands:
@@ -311,12 +312,13 @@ def search():
 
     return render_template(
         "ideas.html", searched=searched, ideas=ideas, strands=strands,
-        subjects=subjects, categories=categories)
+        subjects=subjects, categories=categories, camau_cynnydd=camau_cynnydd)
 
 
 # --- Filter Ideas By Strand Name  --- #
 @app.route("/ideas/strand_name<strand_name>")
 def filter_ideas_by_strand_name(strand_name):
+    camau_cynnydd = ['2', '3', '4', '5']
     subjects = ['Cymraeg', 'Saesneg', 'Ffrangeg', 'Sbaeneg', 'Hanes',
                 'Daearyddiaeth', 'Addysg Grefyddol', 'Busnes', 'Celf',
                 'Cerddoriaeth', 'Drama', 'Mathemateg', 'Bioleg', 'Cemeg',
@@ -337,7 +339,7 @@ def filter_ideas_by_strand_name(strand_name):
         ideas = list(Idea.query.filter(Idea.strand_id.between(11, 12)).all())
     return render_template(
         "ideas.html", ideas=ideas, strands=strands, subjects=subjects,
-        categories=categories)
+        categories=categories, camau_cynnydd=camau_cynnydd)
 
 
 # --- Filter Ideas Using Query Params  --- #

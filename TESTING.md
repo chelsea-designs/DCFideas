@@ -16,39 +16,39 @@
 
 ## **Test User Stories**
 * **User Story 001 (User/Teacher):** as a new user/teacher I want to join DCF Ideas to store details about my ideas so that I can share them with my fellow colleagues.
-	*   **Use Case 001-001 (C in User CRUD):** as a new user/teacher I want to register an account with the DCF Ideas.
-	*   **Use Case 001-002:** as a user/teacher I want to Log In to DCF Ideas
+	*   **Use Case 001-001 (C in User CRUD):** as a new user/teacher I want to register an account with the DCF Ideas.[Success](dcfideas/static/img/testing/user-stories/user001-001.png)
+	*   **Use Case 001-002:** as a user/teacher I want to Log In to DCF Ideas [Success](dcfideas/static/img/testing/user-stories/user001-002.png)
 
 *  **User Story 002 (User/Teacher):** as a user/Teacher I want the ability to manage my user profile so that I can have the best possible user/Teacher experience.
-	*   **Use Case 002-001 (U in User CRUD):** as a user/teacher I want to reset my password.
-	*   **Use Case 002-002 (D in User CRUD):** as a user/teacher I want to delete my account.
+	*   **Use Case 002-001 (U in User CRUD):** as a user/teacher I want to reset my password. [Success 1](dcfideas/static/img/testing/user-stories/user002-001-1.png) [Success 2](dcfideas/static/img/testing/user-stories/user002-001-2.png)
+	*   **Use Case 002-002 (D in User CRUD):** as a user/teacher I want to delete my account. [Success 1](dcfideas/static/img/testing/user-stories/user002-002-1.png) [Success 2](dcfideas/static/img/testing/user-stories/user002-002-2.png)
 
 *  **User Story 003 (User/Teacher):** as a user/teacher I want to manage my stack/library of ideas in the DCF Ideas so that I can share my ideas with like-minded Teachers, and keep track of my growing list of ideas.
-	*   **Use Case 003-001 (C in idea CRUD):** as a user/teacher I want to create a new idea from My Profile.
-	*   **Use Case 003-002 (C in idea CRUD):** as a user/teacher I want to create a new idea from shared ideas page.
-	*   **Use Case 003-003 (R in idea CRUD):** as a user/teacher I want to view one of my ideas in my profile.
-	*   **Use Case 003-004 (U in idea CRUD):** as a user/teacher I want to update/edit an existing idea in my profile.
-	*   **Use Case 003-005 (D in idea CRUD):** as a user/teacher I want to delete an existing idea in my profile.
-    *   **Use Case 003-006 (R in idea CRUD):** as a user/teacher I want to view one of my ideas in shared ideas page.
-	*   **Use Case 003-007 (U in idea CRUD):** as a user/teacher I want to update/edit an existing idea in shared ideas page.
-	*   **Use Case 003-008 (D in idea CRUD):** as a user/teacher I want to delete an existing idea in shared ideas page.
+	*   **Use Case 003-001 (C in idea CRUD):** as a user/teacher I want to create a new idea from My Profile. [Success](dcfideas/static/img/testing/user-stories/user003-001.png)
+	*   **Use Case 003-002 (C in idea CRUD):** as a user/teacher I want to create a new idea from shared ideas page. [Success](dcfideas/static/img/testing/user-stories/user003-002.png)
+	*   **Use Case 003-003 (R in idea CRUD):** as a user/teacher I want to view one of my ideas in my profile. [Success](dcfideas/static/img/testing/user-stories/user003-003.png)
+	*   **Use Case 003-004 (U in idea CRUD):** as a user/teacher I want to update/edit an existing idea in my profile. [Success](dcfideas/static/img/testing/user-stories/user003-004.png)
+	*   **Use Case 003-005 (D in idea CRUD):** as a user/teacher I want to delete an existing idea in my profile. [Success](dcfideas/static/img/testing/user-stories/user003-005.png)
+    *   **Use Case 003-006 (R in idea CRUD):** as a user/teacher I want to view one of my ideas in shared ideas page. [Success](dcfideas/static/img/testing/user-stories/user003-006.png)
+	*   **Use Case 003-007 (U in idea CRUD):** as a user/teacher I want to update/edit an existing idea in shared ideas page. [Success](dcfideas/static/img/testing/user-stories/user003-007.png)
+	*   **Use Case 003-008 (D in idea CRUD):** as a user/teacher I want to delete an existing idea in shared ideas page. [Success](dcfideas/static/img/testing/user-stories/user003-008.png)
 
-*  **User Story 004 (User/Teacher):** as a user/teacher I want to filter and search for ideas so that I can find new lesson ideas.
-	*   **Use Case 004-001 (R in idea CRUD):** as a user/teacher I want to search for a specific idea in the shared ideas page.
-    *   **Use Case 004-002 (R in idea CRUD):** as a user/teacher I want to filter ideas by cam_cynnydd in the shared ideas page.
-    *   **Use Case 004-003 (R in idea CRUD):** as a user/teacher I want to filter ideas by subject in the shared ideas page.
-    *   **Use Case 004-004 (R in idea CRUD):** as a user/teacher I want to filter ideas by strand in the shared ideas page.
-    *   **Use Case 004-005 (R in idea CRUD):** as a user/teacher I want to view most recent posted ideas.
+*  **User Story 004 (User/Teacher):** as a user/teacher I want to filter and search for ideas so that I can find new lesson ideas. 
+	*   **Use Case 004-001 (R in idea CRUD):** as a user/teacher I want to search for a specific idea in the shared ideas page. [Success](dcfideas/static/img/testing/user-stories/user004-001.png)
+    *   **Use Case 004-002 (R in idea CRUD):** as a user/teacher I want to filter ideas by cam_cynnydd in the shared ideas page. [Success](dcfideas/static/img/testing/user-stories/user004-002.png)
+    *   **Use Case 004-003 (R in idea CRUD):** as a user/teacher I want to filter ideas by subject in the shared ideas page. [Success](dcfideas/static/img/testing/user-stories/user004-003.png)
+    *   **Use Case 004-004 (R in idea CRUD):** as a user/teacher I want to filter ideas by strand in the shared ideas page. [Success](dcfideas/static/img/testing/user-stories/user004-004.png)
+    *   **Use Case 004-005 (R in idea CRUD):** as a user/teacher I want to view most recent posted ideas. [Success](dcfideas/static/img/testing/user-stories/user001-001.png)
 
 *  **User Story 005 (User 'admin'):** as an admin I want to manage the posted ideas so that I can provide the best possible DCF Ideas experience for the users/Teachers.
-	*   **Use Case 005-005 (C in idea CRUD):** as an admin I want to create some sample ideas to the shared ideas page so that I can start off the DCF Ideas with some ideas and also use for testing purposes.
-	*   **Use Case 005-001 (R in idea CRUD):** as an admin I want to view the posted ideas.
-	*   **Use Case 005-002 (U in idea CRUD):** as an admin I want to edit the posted ideas.
-	*   **Use Case 005-003 (D in idea CRUD):** as an admin I want to delete the posted ideas. 
-	*   **Use Case 005-004 (C in USER ADMIN CRUD):** as an admin I want to be able to create a new user account.
-    *   **Use Case 005-005 (R in USER ADMIN CRUD):** as an admin I want to be able to view a list of all users.
-    *   **Use Case 005-006 (U in USER ADMIN CRUD):** as an admin I want to be able to update user's usernames.
-    *   **Use Case 005-007 (D in USER ADMIN CRUD):** as an admin I want to be able to delete a user's account.
+	*   **Use Case 005-001 (C in idea CRUD):** as an admin I want to create some sample ideas to the shared ideas page so that I can start off the DCF Ideas with some ideas and also use for testing purposes. [Success](dcfideas/static/img/testing/user-stories/user005-001.png)
+	*   **Use Case 005-002 (R in idea CRUD):** as an admin I want to view the posted ideas. [Success](dcfideas/static/img/testing/user-stories/user005-001.png)
+	*   **Use Case 005-003 (U in idea CRUD):** as an admin I want to edit the posted ideas. [Success](dcfideas/static/img/testing/user-stories/user005-001.png)
+	*   **Use Case 005-004 (D in idea CRUD):** as an admin I want to delete the posted ideas. [Success](dcfideas/static/img/testing/user-stories/user005-001.png)
+	*   **Use Case 005-005 (C in USER ADMIN CRUD):** as an admin I want to be able to create a new user account. (On Mongo)
+    *   **Use Case 005-006 (R in USER ADMIN CRUD):** as an admin I want to be able to view a list of all users. (On Mongo)
+    *   **Use Case 005-007 (U in USER ADMIN CRUD):** as an admin I want to be able to update user's usernames. (On Mongo)
+    *   **Use Case 005-008 (D in USER ADMIN CRUD):** as an admin I want to be able to delete a user's account. (On Mongo)
 
 
 ## Testing and Validation
@@ -120,7 +120,6 @@
 
 
 ### Outstanding Bugs
-- 1. Bug: Strand not preselecting upon update ideas (but looks like it is) causes a none-type error.
-- 2. Bug: Dropdown for strand should open down but opens up and improve styling of this.
+- 1. Bug: Dropdown for strand should open down but opens up and improve styling of this.
 
 ---
