@@ -173,22 +173,6 @@
 })();
 
 /**
- * Pre-select Strand
- */
-$(".strand-button").click(function () {
-  let getValue = $(this).data('strand');
-  localStorage.setItem("storeName", getValue);
-});
-
-$(".idea-button").click(function () {
-  localStorage.setItem("storeName", 0);
-});
-
-window.onload = function () {
-  $('#strand-selector').val(localStorage.getItem("storeName"));
-};
-
-/**
  * Toggle Password Visibility Button
  */
 //https://www.w3schools.com/howto/howto_js_toggle_password.asp

@@ -64,18 +64,21 @@
                             <textarea id="idea_resource" name="idea_resource" class="form-control" rows="1"
                                 placeholder="Link to Idea Resource" required>{{- idea.idea_resource -}}</textarea>
                         </div>
+                        <!-- Bug: If I remove the snippet below the strand beneath doesn't prepopulate-->
+                        <select id="strand_selector" disabled class="d-none">
+                        </select>
+                        <!-- End of snippet -->
+
                         <div class="col-md-12">
                             <label for="strand-selector">Strand</label><br>
                             <select id="strand-selector" name="strand-selector" class="form-control" required>
                                 <option value="0" disabled>Choose a strand</option>
                                 {% for strand in strands %}
-                                {% if strand.id == idea.strand_id %}
-                                <!-- call the strand value for the current idea -->
-                                <option value="{{ idea.strand_id.id }}" selected>{{ strand.id }}:
-                                    {{ strand.strand_name }} -
-                                    {{ strand.strand_element }}</option>
+                                {% if strand.id|int == idea.strand_id|int %}
+                                <option value="{{ strand.id }}" selected>{{ strand.id }}: {{ strand.strand_name }} -
+                                    {{ strand.strand_element }}
+                                </option>
                                 {% else %}
-                                <!-- iterate through the strands collection -->
                                 <option value="{{ strand.id }}">{{ strand.id }}: {{ strand.strand_name }} -
                                     {{ strand.strand_element }}
                                 </option>

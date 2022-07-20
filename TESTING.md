@@ -120,6 +120,7 @@
 
 
 ### Outstanding Bugs
-- Dropdown for strand should open down but opens up and improve styling of this.
+- 1. Bug: Strand not preselecting upon update ideas (but looks like it is) causes a none-type error.
+- 2. Bug: Dropdown for strand should open down but opens up and improve styling of this.
 
 ---
