@@ -1,8 +1,11 @@
 {% extends "base.html" %}
 {% block content %}
+
+<!-- ======= Header ======= -->
 <header class="page-header">
     <h1>Hello, {{ username }}!</h1>
 </header>
+<!-- ======= Update Profile Area ======= -->
 <div class="card text-center offset-2 col-8">
     <div class="card-header">
         Edit {{ username }}'s Profile (<a href="{{ url_for('logout') }}">Logout</a>)
@@ -20,7 +23,7 @@
         </div>
     </div>
 </div>
-<!-- Change Password Model -->
+<!-- ======= Change Password Modal ======= -->
 <div class="modal fade" id="change-password" tabindex="-1" aria-labelledby="change-passwordLabel" aria-hidden="true">
     <div class="modal-dialog">
         <div class="modal-content">
@@ -49,7 +52,7 @@
         </div>
     </div>
 </div>
-<!-- Delete Account  Model -->
+<!-- ======= Delete Account Modal ======= -->
 <div class="modal fade" id="delete-account" tabindex="-1" aria-labelledby="delete-account-label" aria-hidden="true">
     <div class="modal-dialog">
         <div class="modal-content">
@@ -78,7 +81,7 @@
         </div>
     </div>
 </div>
-
+<!-- ======= My Ideas ======= -->
 <br>
 <div class="container services">
     <header class="section-header">
@@ -113,6 +116,7 @@
                 </ul>
                 {% endif %}
                 {% endfor %}
+                <!-- ======= Manage Idea Buttons ======= -->
                 <a href="{{ url_for('full_idea', idea_id=idea.id) }}" class=" btn btn-primary">View <i
                         class="fas fa-eye"></i></a>
                 {% if session.user|lower == idea.created_by|lower or session.user|lower == "admin"|lower %}
@@ -123,7 +127,7 @@
                 {% endif %}
             </div>
         </div>
-        <!-- Delete Modal -->
+        <!-- ======= Delete Idea Modal ======= -->
         <div class="modal fade" id="delete-idea{{ loop.index }}" tabindex="-1"
             aria-labelledby="delete-idea-{{loop.index}}" aria-hidden="true">
             <div class="modal-dialog">
@@ -147,6 +151,7 @@
         {% endfor %}
     </div>
     {% else %}
+    <!-- ======= Empty Ideas Block ======= -->
     <h4 class="text-center py-5">No ideas to display, how about <a href="{{ url_for('add_idea') }}"
             class="idea-button">creating
             a new one?</a></h4>

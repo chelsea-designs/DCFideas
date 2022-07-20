@@ -48,7 +48,7 @@ def add_idea():
             )
             db.session.add(idea)
             db.session.commit()
-            return redirect(url_for('ideas'))
+            return redirect(url_for('filter_ideas_by_query_param'))
             flash("Idea added")
     return render_template("add_idea.html", strands=strands, subjects=subjects,
                            camau_cynnydd=camau_cynnydd)
@@ -123,7 +123,7 @@ def update_idea(idea_id):
                 idea.subject = request.form.get("subject-selector"),
                 idea.idea_resource = request.form.get("idea_resource")
                 db.session.commit()
-                return redirect(url_for('ideas'))
+                return redirect(url_for("ideas"))
                 flash("Idea updated")
         else:
             flash("You cannot update other users' ideas.")

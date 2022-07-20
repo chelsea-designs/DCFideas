@@ -1,9 +1,11 @@
 {% extends "base.html" %}
 {% block content %}
+
+<!-- ======= Header ======= -->
 <header class="page-header">
     <h1>Log In to Your Account</h1>
 </header>
-
+<!-- ======= Login Card ======= -->
 <div class="card text-center offset-2 col-8">
     <div class="card-header">
         Not Registered? <a href="{{ url_for('register') }}">Register here</a>.
@@ -33,4 +35,5 @@
         Log in to access the full idea details and the ability to create and store your own ideas.
     </div>
 </div>
+
 {% endblock %}

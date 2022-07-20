@@ -111,26 +111,12 @@ The website is based on the Digital Competence Framework for Wales therefore use
 
 ### **Low Fidelity Wireframes**
 
-Low fidelity wireframes were created with Balsamiq, and bring to life the basic prototyping structure of how the site may initially be designed to look. 
+Low fidelity wireframes were created with Affinity Photo for the basic prototyping structure of how the main site pages may initially be designed to look. 
 
-#### **Guest User**
-
-- [Home Page](/documentation/images/wireframes/home-wireframe.png)
-- [Registration Page](/documentation/images/wireframes/register-wireframe.png)
-- [Login Page](/documentation/images/wireframes/login-wireframe.png)
-
-#### **Registered User**
-
-- [Home Page](/documentation/images/wireframes/home-wireframe.png)
-- [Profile Page](/documentation/images/wireframes/profile-wireframe.png)
-- [ideas Page](/documentation/images/wireframes/ideas-wireframe.png)
-
-#### **Admin User**
-
-- [Home Page](/documentation/images/wireframes/home-wireframe.png)
-- [Profile Page](/documentation/images/wireframes/profile-wireframe.png)
-- [ideas Page](/documentation/images/wireframes/ideas-wireframe.png)
-- [Admin Dashboard](/documentation/images/wireframes/admin-wireframe.png)
+- [Idaas](dcfideas/static/img/documentation/wireframe-ideas.png)
+- [Profile Page](dcfideas/static/img/documentation/wireframe-profile.png)
+- [Login/Register Page](dcfideas/static/img/documentation/wireframe-login-register.png)
+- [Full Idea Page](dcfideas/static/img/documentation/wireframe-full-idea.png)
 
 ---
 
@@ -289,8 +275,8 @@ The site has been launched with a minimal viable product phase in mind. This all
 
 ### **Design Tools**
 
-- [Balsamiq](https://balsamiq.com/)
-    - Cloud or application based wireframing software, used for building low fidelity mockups. 
+- [Affinity Photo](https://affinity.serif.com/en-gb/photo/?trial&mc=AFFPPC01&gclid=Cj0KCQjwz96WBhC8ARIsAATR252J5ujhww9l_eLg9R6PLp2ZfBm6iezTaAe7KMskc4mr_tVkx0b4RXgaAm9REALw_wcB)
+    - Photo editing software to create mockups and editing photos for size.
 ---
 
 ## **Testing**

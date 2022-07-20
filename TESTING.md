@@ -116,7 +116,7 @@
 2. Bug: [The strand boxes were different heights and the 'View' buttons were not in line with each other.](dcfideas/static/img/testing/strand-boxes.png)
    -  Fix: [To fix this I added a min-height to all the boxes](dcfideas/static/img/testing/strand-box-fix-1.png), and then [changed the position of the 'View' buttons to absolute and bottom:0, then added margins and width to center it nicely.](dcfideas/static/img/testing/strand-box-fix-2.png)
 3. Bug: [The footer was not right at the bottom of the page, it was leaving a gap](dcfideas/static/img/testing/footer-gap.png)
-   -  Fix: [To fix this I used flexboxes](dcfideas/static/img/testing/footer-fix.png) following [this tutoria](https://css-tricks.com/couple-takes-sticky-footer/)
+   -  Fix: [To fix this I used flexboxes](dcfideas/static/img/testing/footer-fix.png) following [this tutorial](https://css-tricks.com/couple-takes-sticky-footer/)
 
 
 ### Outstanding Bugs

@@ -1,9 +1,12 @@
 {% extends "base.html" %}
 {% block content %}
+
+<!-- ======= Header ======= -->
 <header class="page-header">
     <h1>Create a New Account</h1>
 </header>
 
+<!-- ======= Registration Card ======= -->
 <div class="card text-center offset-2 col-8">
     <div class="card-header">
         Already Registered? <a href="{{ url_for('login') }}">Login instead</a>.
@@ -35,4 +38,5 @@
         Register for access to full idea details and the ability to create and store your own ideas.
     </div>
 </div>
+
 {% endblock %}

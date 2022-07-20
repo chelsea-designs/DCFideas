@@ -1,9 +1,9 @@
 {% extends "base.html" %}
 {% block content %}
+
 <div id="ideas" class="ideas section">
-
     <div class="container" data-aos="fade-up">
-
+        <!-- ======= Header ======= -->
         <header class="page-header">
             <h1>Browse and Create Ideas</h1>
             {% if session.user %}
@@ -14,7 +14,7 @@
             ideas or to view full idea details.
             {% endif %}
         </header>
-
+        <!-- ======= Search and Filters Accordion ======= -->
         <div id="accordion" class="accordion section mb-5">
             <div class="container aos-init aos-animate" data-aos="fade-up">
                 <div class="row">
@@ -99,7 +99,6 @@
                                                     {% endfor %}
                                                 </ul>
                                             </div>
-
                                         </div>
                                         <div class="row text-center mt-2">
                                             <a href="{{ url_for('filter_ideas_by_query_param') }}"
@@ -113,7 +112,7 @@
                 </div>
             </div>
         </div>
-
+        <!-- ======= Ideas Section ======= -->
         {% if ideas|length > 0 %}
         <div class="row gy-4">
             {% for idea in ideas %}
@@ -151,6 +150,7 @@
                     {% endif %}
                 </div>
             </div>
+            <!-- ======= Delete Idea Modal ======= -->
             <div class="modal fade" id="delete-idea{{ loop.index }}" tabindex="-1"
                 aria-labelledby="delete-idea-{{loop.index}}" aria-hidden="true">
                 <div class="modal-dialog">
@@ -174,11 +174,11 @@
             {% endfor %}
         </div>
         {% else %}
+        <!-- ======= Empty Ideas Block ======= -->
         <h4 class="text-center py-5">No ideas to display, how about <a href="{{ url_for('add_idea') }}"
                 class="idea-button">creating
                 a new one?</a></h4>
         {% endif %}
-
     </div>
 </div>
 

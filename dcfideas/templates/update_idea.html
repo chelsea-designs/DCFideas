@@ -1,43 +1,37 @@
 {% extends "base.html" %}
 {% block content %}
+
 <div class="section">
-
     <div class="container" data-aos="fade-up">
-
+        <!-- ======= Header ======= -->
         <header class="page-header">
             <h1>Edit Idea</h1>
         </header>
-
         <div class="row gy-4">
-
+            <!-- ======= Update Idea Form ======= -->
             <div class="col-lg-12">
                 <form method="POST" action="{{ url_for('update_idea',idea_id=idea.id) }}">
                     <div class="row gy-4">
-
                         <div class="col-md-6">
                             <label for="created_by">Created By</label><br>
                             <input id="created_by" class="form-control" name="created_by" minlength="5" maxlength="50"
                                 type="text" placeholder="Created by who?" value="{{idea.created_by}}" disabled>
                         </div>
-
                         <div class="col-md-6">
                             <label for="created_at">Modified At</label><br>
                             <input id="created_at" class="form-control" name="created_at" minlength="5" maxlength="50"
                                 type="datetime" placeholder="Created when?" value="{{idea.created_at}}" disabled>
                         </div>
-
                         <div class="col-md-12">
                             <label for="idea_name">Idea Name</label><br>
                             <input id="idea_name" class="form-control" name="idea_name" minlength="5" maxlength="50"
                                 type="text" placeholder="Idea Name" value="{{idea.idea_name}}" required>
                         </div>
-
                         <div class=" col-md-12">
                             <label for="idea_description">Idea Description</label><br>
                             <textarea id="idea_description" name="idea_description" class="form-control" rows="6"
                                 placeholder="Idea Description" required>{{- idea.idea_description -}}</textarea>
                         </div>
-
                         <div class="col-md-6">
                             <label for="cam_cynnydd-selector">Cam Cynnydd</label><br>
                             <select id="cam_cynnydd-selector" name="cam_cynnydd-selector" class="form-control" required>
@@ -51,7 +45,6 @@
                                 {% endfor %}
                             </select>
                         </div>
-
                         <div class="col-md-6">
                             <label for="subject-selector">Subject</label><br>
                             <select id="subject-selector" name="subject-selector" class="form-control" required>
@@ -66,13 +59,11 @@
                                 {% endfor %}
                             </select>
                         </div>
-
                         <div class="col-md-12">
                             <label for="idea_resource">Idea Resource Link</label><br>
                             <textarea id="idea_resource" name="idea_resource" class="form-control" rows="1"
                                 placeholder="Link to Idea Resource" required>{{- idea.idea_resource -}}</textarea>
                         </div>
-
                         <div class="col-md-12">
                             <label for="strand-selector">Strand</label><br>
                             <select id="strand-selector" name="strand-selector" class="form-control" required>
@@ -92,21 +83,15 @@
                                 {% endfor %}
                             </select>
                         </div>
-
                         <div class="col-md-12 text-center">
-
                             <button type="submit" class="btn btn-primary">Save Idea <i
                                     class="fas fa-paper-plane"></i></button>
                         </div>
-
                     </div>
                 </form>
-
             </div>
-
         </div>
-
     </div>
-
 </div>
+
 {% endblock %}

@@ -4,25 +4,21 @@
 <!-- ======= Breadcrumbs ======= -->
 <div class="breadcrumbs section">
     <div class="container">
-
         <ol>
             <li><a href="{{url_for('home')}}">Home</a></li>
             <li><a href="{{ url_for('filter_ideas_by_query_param')}}">Ideas</a></li>
             <li>{{idea.idea_name}}</li>
         </ol>
         <h2>{{ idea.idea_name}}</h2>
-
     </div>
-</div><!-- End Breadcrumbs -->
+</div>
 
-<!-- ======= full-idea Single Section ======= -->
+<!-- ======= Full Idea Section ======= -->
 <div id="full-idea" class="full-idea section">
     <div class="container" data-aos="fade-up">
-
         <div class="row">
-
             <div class="col-lg-8 entries">
-
+                <!-- ======= Details ======= -->
                 <article class="entry entry-single">
                     {% for strand in strands %}
                     {% if strand.id == idea.strand_id %}
@@ -42,12 +38,10 @@
                             </li>
                         </ul>
                     </div>
-
                     <div class="entry-content">
                         <h3>Idea Description</h3>
                         <p>{{idea.idea_description}}</p>
                     </div>
-
                     <div class="entry-footer">
                         <i class="fas fa-person"></i>
                         <ul class="cats">
@@ -55,15 +49,13 @@
                                     href="{{ url_for('filter_ideas_by_query_param')}}?created_by={{idea.created_by}}">{{idea.created_by}}</a>
                             </li>
                         </ul>
-
                         <i class="fas fa-clock"></i>
                         <ul class="tags">
                             <li>{{idea.created_at}}</li>
                         </ul>
                     </div>
-
-                </article><!-- End full-idea entry -->
-
+                </article>
+                <!-- ======= Sidebar ======= -->
                 <div class="full-idea-author">
                     <div class="row">
                         <div class="col-12">
@@ -76,13 +68,12 @@
                             </button>
                         </div>
                     </div>
-                </div><!-- End full-idea author bio -->
-            </div><!-- End full-idea entries list -->
-
+                </div>
+            </div>
             <div class="col-lg-4">
-
                 <div class="sidebar">
                     {% if session.user|lower == idea.created_by|lower or session.user|lower == "admin"|lower %}
+                    <!-- ======= Manage Idea ======= -->
                     <h3 class="sidebar-title">Manage Idea</h3>
                     <div class="sidebar-item">
                         <a href="{{ url_for('update_idea', idea_id=idea.id) }}" class="btn btn-outline-secondary">Edit<i
@@ -91,20 +82,18 @@
                                 class="fas fa-trash"></i></button>
                     </div>
                     {% endif %}
-
+                    <!-- ======= Filter by Strand ======= -->
                     <h3 class="sidebar-title">Strands</h3>
-
                     <div class="sidebar-item categories">
                         <ul>{% for category in categories %}
-
                             <li>
                                 <a href="{{ url_for('filter_ideas_by_strand_name', strand_name=category) }}">{{category}}
                                 </a>
                             </li>
                             {% endfor %}
                         </ul>
-                    </div><!-- End sidebar categories-->
-
+                    </div>
+                    <!-- ======= Filter Recent Ideas ======= -->
                     <h3 class="sidebar-title">Recent Ideas</h3>
                     <div class="sidebar-item recent-posts">
                         {% for recentidea in recentideas %}
@@ -121,8 +110,8 @@
                         {% endif %}
                         {% endfor %}
                         {% endfor %}
-
-                    </div><!-- End sidebar recent posts-->
+                    </div>
+                    <!-- ======= Filter by Subject ======= -->
                     <h3 class="sidebar-title">Subject</h3>
                     <div class="sidebar-item tags">
                         <ul>
@@ -132,15 +121,15 @@
                             </li>
                             {% endfor %}
                         </ul>
-                    </div><!-- End sidebar tags-->
-                </div><!-- End sidebar -->
+                    </div>
+                </div>
 
-            </div><!-- End full-idea sidebar -->
+            </div>
 
         </div>
 
     </div>
-</div><!-- End full-idea Single Section -->
+</div>
 
 <!-- Delete Modal -->
 <div class="modal fade" id="delete-idea" tabindex="-1" aria-labelledby="delete-idea-label" aria-hidden="true">
@@ -162,4 +151,5 @@
         </div>
     </div>
 </div>
+
 {% endblock %}
