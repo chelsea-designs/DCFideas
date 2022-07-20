@@ -33,10 +33,9 @@ The website is based on the Digital Competence Framework for Wales therefore use
 
 ### **User Goals**
 
-- Be able to create, read, edit or delete own content.
-- Be able to read content from other site users.
-- Be able to read own posts from the profile page.
-- Be able to use the application on Mobile, Tablet or Desktop devices. 
+- Be able to create, read, edit or delete own ideas.
+- Be able to read ideas from other site users.
+- Be able to search and filter ideas. 
 
 ### **Site Owners Goals**
 
@@ -188,7 +187,8 @@ Features currently implemented as a part of DCF Ideas.
 
 ### **Admin User:**
 
- 	* The ability to add a new idea via Ideas page (C in idea CRUD).
+* CRUD Ideas from Ideas Page:
+    * The ability to add a new idea via Ideas page (C in idea CRUD).
     * The ability to read, update and delete user's own ideas via Ideas page (RUD in idea CRUD).
     * The ability to read other users idea via Ideas page (R in idea CRUD).
     * The ability to read full details other users ideas via Ideas page (R in idea CRUD).
