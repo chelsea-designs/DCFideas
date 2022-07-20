@@ -17,6 +17,7 @@ DCF Ideas is a web Application, built specifically for the Milestone 3, Data-Cen
 - [Future Features](#future-features)
 - [Technologies Used](#technologies-used)
 - [Testing](#testing)
+- [Lessons Learned](#lessons-learned)
 - [Deployment](#deployment)
 - [Credits](#credits)
 
@@ -24,6 +25,11 @@ DCF Ideas is a web Application, built specifically for the Milestone 3, Data-Cen
 
 ## **UX Design**
 
+### **A Persona Summary of the Users/Teachers of DCF Ideas**
+
+DCF Ideas is for users/teachers of all ages, diverse demographics (please see next paragraph) and subject specialties, who want to keep track of their own DCF ideas with the additional means to share their ideas, and read the ideas from fellow teachers.
+
+The website is based on the Digital Competence Framework for Wales therefore users/teachers are expected to understand some Welsh Terminology.
 
 ### **User Goals**
 
@@ -34,63 +40,69 @@ DCF Ideas is a web Application, built specifically for the Milestone 3, Data-Cen
 
 ### **Site Owners Goals**
 
-- Provide a positive experience for all users, looking to access the application.
-- To create a space for all users to find inspiring DCF teaching ideas which meets all users' needs.
+- Provide a positive experience for all users/teachers, looking to access the website.
+- Inspire users/teachers to find lesson ideas they might not have heard of, and compel them to implement some DCF in their lessons, potentially increasing DCF coverage of the school and improving standards.
 
-### **User Requirements and Expectations**
-#### Requirements 
+### **User Stories, Use Cases and Expectations**
 
-- Easily identifiable navigation
-- Clean and structured layout
-- Visually appealing elements
-- Access to insightful ideas that promote a positive experience
+#### **Expectations**
 
-#### Expectations
-
-- When using the main navigational links, the user should be directed to each part of the application without issue.
-- The ability to Create, Read, Update and Delete ideas, as set down in the sites overall purpose.
+- Easy to use
+- Easy to navigate
+- Responsive across all devices.
 - Notifications that tell the user when they have carried out a relevant activity.
 
-### **User Stories**
+#### **User Stories and Use Cases**
+* **User Story 001 (User/Teacher):** as a new user/teacher I want to join DCF Ideas to store details about my ideas so that I can share them with my fellow colleagues.
+	*   **Use Case 001-001 (C in User CRUD):** as a new user/teacher I want to register an account with the DCF Ideas.
+	*   **Use Case 001-002:** as a user/teacher I want to Log In to DCF Ideas
 
-#### *New Visitor*
-1. As a first time visitor, I want the main purpose of the site to be immediately clear.
-2. As a first time visitor, I want the look of the site to be visually appealing.
-3. As a first time visitor, I want the layout of the site to be well structured and easy to navigate.
-4. As a first time visitor, I want to have an idea of the content that the site offers, before deciding to register.
-5. As a frist time visitor, I want to be able to easily find and use the registration page, if I choose to register.
-6. As a first time visitor, I want to see ways of communicating with the site's creators, via social media or a contact page.
+*  **User Story 002 (User/Teacher):** as a user/Teacher I want the ability to manage my user profile so that I can have the best possible user/Teacher experience.
+	*   **Use Case 002-001 (U in User CRUD):** as a user/teacher I want to reset my password.
+	*   **Use Case 002-002 (D in User CRUD):** as a user/teacher I want to delete my account.
 
-#### *Registered User*
-1. As a registered user, I want to be able to login with a set of registered credentials.
-2. As a registered user, I want to be able to logout of my account.
-3. As a registered user, I want to be able to change my user credentials.
-4. As a registered user, I want to be able to see all ideas posted by other members.
-5. As a registered user, I want to be able to edit or delete posts that I have created myself.
-6. As a registered user, I want to be able to see a profile page where I can review my own idea posts.
-7. As a registered user, I want to be able to quickly serach for relevant ideas.
-8. As a registered user, I want to be able to delete my account in full, if I no longer wish to remain a member.
+*  **User Story 003 (User/Teacher):** as a user/teacher I want to manage my stack/library of ideas in the DCF Ideas so that I can share my ideas with like-minded Teachers, and keep track of my growing list of ideas.
+	*   **Use Case 003-001 (C in idea CRUD):** as a user/teacher I want to create a new idea from My Profile.
+	*   **Use Case 003-002 (C in idea CRUD):** as a user/teacher I want to create a new idea from shared ideas page.
+	*   **Use Case 003-003 (R in idea CRUD):** as a user/teacher I want to view one of my ideas in my profile.
+	*   **Use Case 003-004 (U in idea CRUD):** as a user/teacher I want to update/edit an existing idea in my profile.
+	*   **Use Case 003-005 (D in idea CRUD):** as a user/teacher I want to delete an existing idea in my profile.
+    *   **Use Case 003-006 (R in idea CRUD):** as a user/teacher I want to view one of my ideas in shared ideas page.
+	*   **Use Case 003-007 (U in idea CRUD):** as a user/teacher I want to update/edit an existing idea in shared ideas page.
+	*   **Use Case 003-008 (D in idea CRUD):** as a user/teacher I want to delete an existing idea in shared ideas page.
 
-#### *Site Administrator*
-1. As a site Administrator, I would want to be able to view all idea posts added by users, update and delete where necessary, keeping the site up-to date.
-2. As a site Administrator, I would want to be able to add new users or delete users who have issues with functionality.
+*  **User Story 004 (User/Teacher):** as a user/teacher I want to filter and search for ideas so that I can find new lesson ideas.
+	*   **Use Case 004-001 (R in idea CRUD):** as a user/teacher I want to search for a specific idea in the shared ideas page.
+    *   **Use Case 004-002 (R in idea CRUD):** as a user/teacher I want to filter ideas by cam_cynnydd in the shared ideas page.
+    *   **Use Case 004-003 (R in idea CRUD):** as a user/teacher I want to filter ideas by subject in the shared ideas page.
+    *   **Use Case 004-004 (R in idea CRUD):** as a user/teacher I want to filter ideas by strand in the shared ideas page.
+    *   **Use Case 004-005 (R in idea CRUD):** as a user/teacher I want to view most recent posted ideas.
 
----
+*  **User Story 005 (User 'admin'):** as an admin I want to manage the posted ideas so that I can provide the best possible DCF Ideas experience for the users/Teachers.
+	*   **Use Case 005-005 (C in idea CRUD):** as an admin I want to create some sample ideas to the shared ideas page so that I can start off the DCF Ideas with some ideas and also use for testing purposes.
+	*   **Use Case 005-001 (R in idea CRUD):** as an admin I want to view the posted ideas.
+	*   **Use Case 005-002 (U in idea CRUD):** as an admin I want to edit the posted ideas.
+	*   **Use Case 005-003 (D in idea CRUD):** as an admin I want to delete the posted ideas. 
+	*   **Use Case 005-004 (C in USER ADMIN CRUD):** as an admin I want to be able to create a new user account.
+    *   **Use Case 005-005 (R in USER ADMIN CRUD):** as an admin I want to be able to view a list of all users.
+    *   **Use Case 005-006 (U in USER ADMIN CRUD):** as an admin I want to be able to update user's usernames.
+    *   **Use Case 005-007 (D in USER ADMIN CRUD):** as an admin I want to be able to delete a user's account.
+
 
 ## **UI Design**
 
-### Fonts
+### **Fonts**
 - The project uses Google Fonts for the delivery of the main font styling.
 - The fonts used are Open Sans for main body and Nunito for headers. These have been used due to their clean and modern style.
 - The back-up font used for the project is Sans-Serif.
 
-### Colour Scheme
+### **Colour Scheme**
 
  The overall colour palette was designed from a website called [Coolors](https://coolors.co/). The colour scheme was chosen to make the site look visually appealing, using a blue colour palette, as this portrays calmness and confidence (using colour psychology). The colours were checked for sufficient contrast using [EightShapes](https://contrast-grid.eightshapes.com/?version=1.1.0&background-colors=&foreground-colors=%23565656%0D%0A%23012970%0D%0A%234154F1%0D%0A%232DB6FA%0D%0A%23F6F9FF%0D%0A%23FFFFFF%2C%20White%0D%0A&es-color-form__tile-size=compact&es-color-form__show-contrast=aaa&es-color-form__show-contrast=aa&es-color-form__show-contrast=aa18&es-color-form__show-contrast=dnp)
 ![Colour Palette](dcfideas/static/img/documentation/colour-scheme.png)
 
 
-### Icons
+### **Icons**
 - The strand icons were provided by [Flat Icon](https://www.flaticon.com/) library.
 - All other icons were provided by the [Font Awesome](https://fontawesome.com/v5/search) library.
 
@@ -102,19 +114,19 @@ DCF Ideas is a web Application, built specifically for the Milestone 3, Data-Cen
 
 Low fidelity wireframes were created with Balsamiq, and bring to life the basic prototyping structure of how the site may initially be designed to look. 
 
-#### *Guest User*
+#### **Guest User**
 
 - [Home Page](/documentation/images/wireframes/home-wireframe.png)
 - [Registration Page](/documentation/images/wireframes/register-wireframe.png)
 - [Login Page](/documentation/images/wireframes/login-wireframe.png)
 
-#### *Registered User*
+#### **Registered User**
 
 - [Home Page](/documentation/images/wireframes/home-wireframe.png)
 - [Profile Page](/documentation/images/wireframes/profile-wireframe.png)
 - [ideas Page](/documentation/images/wireframes/ideas-wireframe.png)
 
-#### *Admin User*
+#### **Admin User**
 
 - [Home Page](/documentation/images/wireframes/home-wireframe.png)
 - [Profile Page](/documentation/images/wireframes/profile-wireframe.png)
@@ -146,114 +158,69 @@ Low fidelity wireframes were created with Balsamiq, and bring to life the basic 
 
 ## **Existing Features**
 
-The site has been built with responsiveness in mind with a similar and consistent aesthetic across multiple devices.
+Features currently implemented as a part of DCF Ideas.
 
-### **Features Across All Pages**
+### **User Management:**
 
-#### **Navbar**
+* User/teacher registration (C is User CRUD).
+* User/teacher login after registration (R in User CRUD).
+* User/teacher profile update, with password change (U in User CRUD).
+* User/teacher delete account (D in User CRUD).
+* User/teacher sign out.
 
-The Navbar is made up of two sections:
-    
-1. Brand-Logo - The navbar features the main logo for the website. This is clickable and returns the user to the main home page for the site.
+### **DCF Ideas:**
 
-2. Navigation Menu Buttons - The navbar features the main navigation links, that allow users to move around the site. The navigation buttons show different options, depending on the status of the user:
-    - Guest Users - will see the links to the Home, ideas, Login and Register pages.
-    - Registered Users - will see the links to the Home, Profile, ideas and Log Out pages.
-    - Admin Users - will see the links to the Home, Profile, ideas and Log Out pages, as well as a link to the Admin Dashboard page.
+* Profile Page with:
+	* The ability to view the user's own ideas, the full details, edit/update an idea, and delete an idea (RUD in idea CRUD).
+	* The ability to add a new idea via profile page (C in idea CRUD).
+* Search ideas from Ideas Page (R in idea CRUD):
+	* The ability to browse and view ideas matching the search criteria.
+    * The ability to filter ideas by strand.
+    * The ability to filter ideas by subject.
+    * The ability to filter ideas by cam cynnydd.
+    * The ability to filter most recent ideas.
+* CRUD Ideas from Ideas Page:
+	* The ability to add a new idea via Ideas page (C in idea CRUD).
+    * The ability to read, update and delete user's own idea via Ideas page (RUD in idea CRUD).
+    * The ability to read other users idea via Ideas page (R in idea CRUD).
+    * The ability to read full details other users ideas via Ideas page (R in idea CRUD).
+    * The inability to update or delete other users idea via Ideas page (UD in idea CRUD).
 
-#### **Footer**
+### **Admin User:**
 
-The footer is made up of three sections:
+ 	* The ability to add a new idea via Ideas page (C in idea CRUD).
+    * The ability to read, update and delete user's own ideas via Ideas page (RUD in idea CRUD).
+    * The ability to read other users idea via Ideas page (R in idea CRUD).
+    * The ability to read full details other users ideas via Ideas page (R in idea CRUD).
+    * The ability to update or delete other users idea via Ideas page (UD in idea CRUD).
 
-1. Site Title, Description and Social Icons- The footer contains a brief reminder of the sites title, a description of what the site is desigend to do and social media links.
+### **Shared Features:**
 
-2. Useful links - This section contants useful links for internal and external links.
-
-3. Copyright Information - Has the built by information and copyright statement.
-
-4. Contact Information - This section holds the contact information for the school that this project is built for.
-
-#### **Return To Top Button**
-
-- The Return To Top button, is a floating button that is controlled by JQuery code, showing a blue square button with an up arrow, in the bottom right of the webpage, once a certain scroll distance has been reached. The button when clicked, smoothly scrolls the user back to the top of the page being displayed.
-
-
-### **Registration & Sign Up Page**
-
-- The Registration page again features a simple form, where the user can input a username, email address and password. The form was designed to be as simple and fuss free as possible, in order to promote a positive user experience from the start.
-- The form uses validation or error feedback when they enter information in to the input fields.
-- If a user navigates to the registration page but already has an account, they can navigate to the login page via the login link. This can also be accessed via the Login page link in the navbar. 
-
-### **Login Page**
-
-- The login page is built around a simple form structure, where the user can enter either their username or their email address and their password.
-- The form uses validation or error feedback when they enter information in to the input fields.
-- If the user navigates to the login page but does not have an account, they can navigate to the registration page via the registration link. This can also be accessed via the Register link in the navbar.
-
-### **Log Out** 
-- If a user is logged in to their account, they can click on the log out button, where they will be logged out of the current session and will be taken back to the Login page.
-- Should a registered user, wish to view the content of their profile again, they will be required to log back in to the site.
-
-### **Home Page**
-
-The Home page is split across three sections:
-
-1. Brand-Logo & Description - This section gives the user an immediate sense of what the site is for and who it is aimed at. This section also hosts a call to action button promoting registration to the site.
-2. Content Section - XXX
-
-### **Profile Page** 
-- When if the user registers an account, or logs in successfully, they are taken to their Profile page.
-- The page features a header at the top, which pulls through their username form the database, giving added positivity in the user experience.
-- There is a section that allows the user to update their email and password details, or delete their user account.
-    - if the user chooses to edit their email address, a modal pop-up will appear and the user can input a new email address. The modal the has two buttons. One to submit the change and one to cancel the changes and take them back right back to the profile page.
-    - if the user chooses to edit their password, a modal pop-up will appear and the user can input a new password. The modal the has two buttons. One to submit the change and one to cancel the changes and take them back right back to the profile page.
-    - if the user chooses to delete their user account, a modal pop-up will appear and the user will be required to confirm their current password. The modal the has two buttons. One to submit the change and one to cancel the changes and take them back right back to the profile page. 
-- If they have created any, the user can see all of their created ideas on their profile page.
-- If the user has created any ideas, they will be able to see two buttons on each idea. These buttons allow editing and deleting functionality of the individual idea and are only accessible to the user that created the content and to the admin user of the site.
-
-### **Ideas Page**
-- Only a logged in and registered users can view the Ideas page, where the created content by all users is hosted.
-- If a user has created any ideas, they will be able to see two buttons on each idea. These buttons allow editing and deleting functionality of the individual idea and are only accessible to the user that created the content and to the admin user of the site.
-- There is a serach function user can search by strands and reset the search box.
-- If the user clicks on the "Add a idea" button it will take them to the Add Idea Page.
-- A floating button appears on the lower right of the screen when the user starts to scroll downwards. Clicking this moves the view back up to the top of the page. This feature was added because the ideas page can be quite long and the navbar is not fixed to the top of the page.
-
-### **Add Idea Page**
-- If the user clicks on the add idea button on the ideas page then they will be taken to the Add idea page.
-- The add idea page is again built on a simple form structire, where the user can input the basic required information.
-- The user will be required to add date to the idea in the following format:
-    - Idea Title
-    - Chosen Strand
-    - Date Added
-    - idea Description
-    - idea Link
-- The admin user will see a checkbox which uses Materialize's switch class, to toggle the weekly featured ideas on and off.
-- The form uses validation or error feedback when they enter information in to the input fields.
-- If the user clicks add idea button, it will add the new idea to the database.
-- If the user clicks on the cancel button it will take them back to the ideas page.
-
-### **Edit Ideas Page**
-- The edit ideas page features a simple form, where the user can edit only a idea added by them. 
-- If the user has clicked on the Edit idea button, then they are taken to the edit page. They will only be able to edit the idea if they created the idea.
-- The current idea information will be shown and the user can change the information and save it. This will update the database with the new information.
-- The user will be able to select from the current strands, as well as all additional elements that can be updated.
-- The form uses validation or error feedback when they enter information in to the input fields.
-- If the user clicks on the cancel button it will take them back to the ideas page.
-- The edit idea page contains a switch style checkbox button, that when selected, triggers the idea to be part of a weekly featured section on the home page. The switch toggles the "on" and "off" value for the key of weekly_featured in the database.
-
-### **Admin Dashboard Page**
-- This page can only be viewed by the admin user.
-- From here the admin user can manage the sites ideas.
-- The admin user can add a new idea if they click on the add idea button. This will take them to the Add new Idea page.
-- The admin user can edit current ideas. If the user clicks on the manage ideas button, they will be taken to a page where they can edit or delete the details of an existing idea.
-
-#### **Add New Idea page**
-- This page can only be viewed by the admin user.
-- If the admin user clicks on the add ideas button on the dashboard, then this page will display.
-- The form uses validation or error feedback when they enter information in to the input fields.
-
-### **404 & 500 Page**
-- The custom 404 & 500 Pages contain a simple word layout letting the user know of the error and a button that can be clicked to take the user back to the home page.
+* Fixed Navigation Bar (Hamburger-Menu) with:
+    * Brand Logo
+        * Acts as a link to homepage
+    * Page links
+        * Not logged in: Home, About, Ideas, Login, Register
+        * Logged in: Home, About, Ideas, My Profile
+* Fixed Footer About Modal with:
+	* Site Title
+    * Description
+    * Social and Contact Links for the school this website is built for
+    * Address of the school this website is built for
+    * Useful Links
+	* Short "ego-page".
+	* Credits for Template
+    * Copyright Info
+* Back to Top Button
+    * Floating button that is controlled by JQuery code, showing a blue square button with an up arrow, in the bottom right of the webpage, once a certain scroll distance has been reached. The button when clicked, smoothly scrolls the user back to the top of the page being displayed.
+* Registration and login forms
+    * Simple and easy to use
+    * Uses validation 
+    * Password visibility toggle button
+    * If a user navigates to the registration page but already has an account, they can navigate to the login page via the login link. This can also be accessed via the Login page link in the navbar. 
+    * If a user navigates to the login page but doesn't have an account, they can navigate to the register page via the register link. This can also be accessed via the Register page link in the navbar. 
+* Log out button in profile
+* Custom 404 and 500 Error PAges
 
 ---
 
@@ -261,21 +228,31 @@ The Home page is split across three sections:
 
 The site has been launched with a minimal viable product phase in mind. This allows the site to incorporate future features, that will improve the overall offering and user experience that is gained. Future features may include elemets such as:
 
-- Additional profile functionality, with the option to add user profile images, a personal statement and options around marketing preferences.
-- Functionality to retrieve and update a forgotten password.
-- The ability to bookmark ideas added by other users and view them in a section on the profile page.
-- The ability to run improved search capabilities, as the current search is basic.
-- Allow an administrator user the option to toggle other site users as administrators.
-- Give site administrators full functionality of creating, updating or deleting user accounts via an admin dashboard.
+### **User Management:**
+
+* Add user profile images
+* Add a personal bio
+* Forgotten Password functionality
+
+### **DCF Ideas:**
+
+* Pagination of ideas.
+* The ability to bookmark ideas added by other users and view them in a section on the profile page.
+* The ability to run improved search capabilities, as the current search is basic.
+
+### **Admin User:**
+
+* Allow an administrator user the option to toggle other site users as administrators.
+* Give site administrators full functionality of creating, updating or deleting user accounts via an admin dashboard instead of via Mongo website.
 
 ---
 
 ## **Technologies Used**
 
-### Development Languages
+### **Development Languages**
 - The project is built using the HTML, CSS, Javascript and Python programming languages.
 
-### Development Tools
+### **Development Tools**
 - [GitHub](https://github.com/)
     - The cloud based repository platform, used to hold the programme files and documents upon which the application depends.
 
@@ -288,7 +265,7 @@ The site has been launched with a minimal viable product phase in mind. This all
 - [MongoDB](https://www.mongodb.com/)
     - Cloud based database platform, used to hold data for applications.
 
-### Libraries, Frameworks and Dependencies
+### **Libraries, Frameworks and Dependencies**
 - [Bootstrap](https://getbootstrap.com/)
     - The project uses the Bootstrap library to simplify the background code for the website, as well as it's overall responsiveness when in use. 
 - [Font Awesome](https://fontawesome.com/)
@@ -310,7 +287,7 @@ The site has been launched with a minimal viable product phase in mind. This all
 - [SQLAlchemy](https://www.sqlalchemy.org/)
     - Used to filter and search through the database.
 
-### Design Tools
+### **Design Tools**
 
 - [Balsamiq](https://balsamiq.com/)
     - Cloud or application based wireframing software, used for building low fidelity mockups. 
@@ -319,6 +296,14 @@ The site has been launched with a minimal viable product phase in mind. This all
 ## **Testing**
 
 View the overall testing report for the site here: [TESTING.md](TESTING.md)
+
+---
+
+## **Lessons Learned**
+
+- My understanding of non-relational vs relational databases has grown during this project, so much so that if I were to restart this project I would probably make different choices.
+- My understanding of how IDs, foreign keys work and how they can be used to link tables. I'm sure in future projects I will be able to write much more concide code with let for loops!
+- Although I still feel I have a lot more to learn on this topic, I have certainly improved my understanding on flexboxes.
 
 ---
 
@@ -462,7 +447,7 @@ echo web: python app.py
 10. Once the application has been built, click on the 'Open App' button on the dashboard.
 ---
 
-## Credits
+## **Credits**
 
 ### **Content**
 - Text about the Digital Competence Framework from [Twinkl DCF](https://www.twinkl.co.uk/teaching-wiki/dcf-wales#:~:text=The%20DCF%20(Wales)&text=developing%20listening%2C%20reading%2C%20speaking%20and,technologies%20to%20help%20them%20function)
@@ -478,6 +463,7 @@ echo web: python app.py
 - Dropdown with submenu from [W3 Schools](https://www.w3schools.com/bootstrap/tryit.asp?filename=trybs_ref_js_dropdown_multilevel_css&stacked=h)
 - Elements adapted from [Bootstrap](https://getbootstrap.com/)
 - JQuery for validation from Task Manager walkhtrough project by Code Institute
+- Code Institute Task Manager was used for developing fundamental CRUD knowledge.
 
 ---
 

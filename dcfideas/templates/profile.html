@@ -10,14 +10,12 @@
     <div class="card-body">
         <div class="row">
             <div class="col-6">
-                <h4>Update Password</h4>
-                <button class="btn btn-primary" data-bs-toggle="modal" data-bs-target="#change-password">Edit <i
-                        class="fas fa-pen"></i></button>
+                <button class="btn btn-primary" data-bs-toggle="modal" data-bs-target="#change-password">Update Password
+                    <i class="fas fa-pen"></i></button>
             </div>
             <div class="col-6">
-                <h4>Delete Account</h4>
-                <button class="btn btn-primary" data-bs-toggle="modal" data-bs-target="#delete-account">Delete <i
-                        class="fas fa-trash"></i></button>
+                <button class="btn btn-primary" data-bs-toggle="modal" data-bs-target="#delete-account">Delete Account
+                    <i class="fas fa-trash"></i></button>
             </div>
         </div>
     </div>
@@ -45,7 +43,7 @@
                 </form>
             </div>
             <div class="modal-footer">
-                <button type="submit" class="btn btn-primary" form="change-password-form" value="Submit">Edit</button>
+                <button type="submit" class="btn btn-primary" form="change-password-form" value="Submit">Update</button>
                 <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
             </div>
         </div>
@@ -85,7 +83,7 @@
 <div class="container services">
     <header class="section-header">
         <h2>My Ideas</h2><br>
-        <a href="{{ url_for('add_idea') }}" class="idea-button btn btn-primary mt-3">Add Idea <i
+        <a href="{{ url_for('add_idea') }}" class="idea-button btn btn-primary mt-1">Add Idea <i
                 class="fas fa-plus-square right"></i></a>
     </header>
     {% if ideas|length > 0 %}

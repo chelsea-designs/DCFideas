@@ -71,12 +71,13 @@
 ### [Lighthouse (Google Dev Tools)](https://chrome.google.com/webstore/detail/lighthouse/blipmdconlkpinefehnmjammfjpmpbjk?hl=en)
 - For the purposes of lighthouse testing, I am happy with scores about 90 for all 4 metrics.
 - Reports per page:
-   - Home Page - [Success](dcfideas/static/img/testing/lighthouse-desktop-home.png)
-   - About Page - [Success](dcfideas/static/img/testing/lighthouse-desktop-about.png)
-   - Ideas Page - [Success](dcfideas/static/img/testing/lighthouse-desktop-ideas.png)
-   - Full Idea Page - [Success](dcfideas/static/img/testing/lighthouse-desktop-full-idea.png)
-   - Login Page - [Success](dcfideas/static/img/testing/lighthouse-desktop-login.png)
-   - Register Page - [Success](dcfideas/static/img/testing/lighthouse-desktop-register.png)
+   - Home Page - [Desktop Success](dcfideas/static/img/testing/lighthouse-desktop-home.png) and [Mobile Success](dcfideas/static/img/testing/lighthouse-mobile-home.png)
+   - About Page - [Desktop Success](dcfideas/static/img/testing/lighthouse-desktop-about.png) and [Mobile Success](dcfideas/static/img/testing/lighthouse-mobile-about.png)
+   - Ideas Page - [Desktop Success](dcfideas/static/img/testing/lighthouse-desktop-ideas.png) and [Mobile Success](dcfideas/static/img/testing/lighthouse-mobile-ideas.png)
+   - Full Idea Page - [Desktop Success](dcfideas/static/img/testing/lighthouse-desktop-full-idea.png) and [Mobile Success](dcfideas/static/img/testing/lighthouse-mobile-full-idea.png)
+   - Login Page - [Desktop Success](dcfideas/static/img/testing/lighthouse-desktop-login.png) and [Mobile Success](dcfideas/static/img/testing/lighthouse-mobile-login.png)
+   - Register Page - [Desktop Success](dcfideas/static/img/testing/lighthouse-desktop-register.png) and [Mobile Success](dcfideas/static/img/testing/lighthouse-mobile-register.png)
+   - Profile Page - [Desktop Success](dcfideas/static/img/testing/lighthouse-desktop-profile.png) and [Mobile Success](dcfideas/static/img/testing/lighthouse-mobile-profile.png)
 
 ### [Am I Responsive](http://ami.responsivedesign.is/)
 - To [view images](dcfideas/static/img/testing/am-i-responsive.png) of the website on various devices.
