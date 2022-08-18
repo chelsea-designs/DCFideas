@@ -36,7 +36,7 @@
                         <div class="col-md-6">
                             <label for="subject-selector">Subject</label><br>
                             <select id="subject-selector" name="subject-selector" class="form-control" required>
-                                <option value="0" disabled selected>Choose a subject</option>
+                                <option value="" disabled selected>Choose a subject</option>
                                 {% for subject in subjects %}
                                 <option value="{{subject}}">{{subject}}</option>
                                 {% endfor %}
@@ -50,7 +50,7 @@
                         <div class="col-md-12">
                             <label for="strand-selector">Strand</label><br>
                             <select id="strand-selector" name="strand-selector" class="form-control" required>
-                                <option value="0" disabled selected>Choose Strand</option>
+                                <option value="" disabled selected>Choose Strand</option>
                                 {% for strand in strands %}
                                 <option value="{{ strand.id }}">{{ strand.id }}: {{ strand.strand_name }} -
                                     {{ strand.strand_element }}

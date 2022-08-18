@@ -35,7 +35,7 @@
                         <div class="col-md-6">
                             <label for="cam_cynnydd-selector">Cam Cynnydd</label><br>
                             <select id="cam_cynnydd-selector" name="cam_cynnydd-selector" class="form-control" required>
-                                <option value="0" disabled>Choose Cam Cynnydd</option>
+                                <option value="" disabled>Choose Cam Cynnydd</option>
                                 {% for cam_cynnydd in camau_cynnydd %}
                                 {% if cam_cynnydd|int == idea.cam_cynnydd|int %}
                                 <option value="{{cam_cynnydd}}" selected>{{cam_cynnydd}}</option>
@@ -48,7 +48,7 @@
                         <div class="col-md-6">
                             <label for="subject-selector">Subject</label><br>
                             <select id="subject-selector" name="subject-selector" class="form-control" required>
-                                <option value="0" disabled selected>Choose a subject</option>
+                                <option value="" disabled selected>Choose a subject</option>
                                 {% for subject in subjects %}
                                 {% if subject == idea.subject %}
                                 <option value="{{ subject }}" selected>{{ subject }}</option>
@@ -72,7 +72,7 @@
                         <div class="col-md-12">
                             <label for="strand-selector">Strand</label><br>
                             <select id="strand-selector" name="strand-selector" class="form-control" required>
-                                <option value="0" disabled>Choose a strand</option>
+                                <option value="" disabled>Choose a strand</option>
                                 {% for strand in strands %}
                                 {% if strand.id|int == idea.strand_id|int %}
                                 <option value="{{ strand.id }}" selected>{{ strand.id }}: {{ strand.strand_name }} -
