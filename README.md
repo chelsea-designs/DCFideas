@@ -120,12 +120,12 @@ Low fidelity wireframes were created with Affinity Photo for the basic prototypi
 
 ---
 
-## **Data Structures**
+## **Data Structure**
  - [MongoDB](https://www.mongodb.com/) is a cloud based storage application, hosting storage of the user account data for DCF Ideas. 
  - [PostgreSQL](https://www.postgresql.org/) is used as the backend functionality of the application, that allows users to create, read, update, delete and search data records on the app.
 
  ### **Outline of the structure used.**
-
+![Schema](dcfideas/static/img/documentation/schema.jpeg)
 - **Strands collection**
     - This collection holds the strand_name key. The strands relate to the strands from the Digital Compentency Framework for Wales, these are categories for the type of ideas that are being linked to. These strands are fixed, with no need to add/remove. There are element/sub-categories for each strand. 
     - The strand id links this collection to the idea collection.
