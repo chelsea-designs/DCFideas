@@ -27,7 +27,7 @@
                         <div class="col-md-6">
                             <label for="cam_cynnydd-selector">Cam Cynnydd</label><br>
                             <select id="cam_cynnydd-selector" name="cam_cynnydd-selector" class="form-control" required>
-                                <option disabled selected>Choose Cam Cynnydd</option>
+                                <option value="" disabled selected>Choose Cam Cynnydd</option>
                                 {% for cam_cynnydd in camau_cynnydd %}
                                 <option value="{{cam_cynnydd}}">{{cam_cynnydd}}</option>
                                 {% endfor %}

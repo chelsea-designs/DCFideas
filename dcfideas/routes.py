@@ -48,8 +48,8 @@ def add_idea():
             )
             db.session.add(idea)
             db.session.commit()
-            return redirect(url_for('filter_ideas_by_query_param'))
             flash("Idea added")
+            return redirect(url_for('filter_ideas_by_query_param'))
     return render_template("add_idea.html", strands=strands, subjects=subjects,
                            camau_cynnydd=camau_cynnydd)
 
@@ -123,8 +123,8 @@ def update_idea(idea_id):
                 idea.subject = request.form.get("subject-selector"),
                 idea.idea_resource = request.form.get("idea_resource")
                 db.session.commit()
-                return redirect(url_for('filter_ideas_by_query_param'))
                 flash("Idea updated")
+                return redirect(url_for('filter_ideas_by_query_param'))
         else:
             flash("You cannot update other users' ideas.")
             return redirect(url_for('filter_ideas_by_query_param'))
@@ -145,10 +145,10 @@ def delete_idea(idea_id):
             db.session.delete(idea)
             db.session.commit()
             flash("Idea deleted")
+            return redirect(url_for('filter_ideas_by_query_param'))
         else:
             flash("You cannot delete other users' ideas.")
             return redirect(url_for('filter_ideas_by_query_param'))
-    return redirect(url_for('filter_ideas_by_query_param'))
 
 
 # ---------- Error Handling Functionality ---------- #
